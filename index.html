@@ -210,11 +210,46 @@
   .prime-card.rank-3::before { background: linear-gradient(90deg, #cd7f32, #8a5a1a); }
   .prime-card.rank-4::before, .prime-card.rank-5::before { background: linear-gradient(90deg, var(--bull), var(--info)); }
 
-  .prime-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  /* === RANK BADGE (Prime: big circular medal) === */
+  .prime-rank-badge {
+    position: absolute; top: 14px; left: 14px;
+    width: 46px; height: 46px; border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+    z-index: 3;
+    letter-spacing: -0.02em;
+  }
+  .prime-rank-badge .rb-medal { font-size: 11px; line-height: 1; margin-bottom: 1px; }
+  .prime-rank-badge .rb-num { font-size: 18px; line-height: 1; }
+  .prime-card.rank-1 .prime-rank-badge {
+    background: linear-gradient(135deg, #ffe066 0%, #ffd700 45%, #d4a017 100%);
+    color: #3a2800;
+  }
+  .prime-card.rank-2 .prime-rank-badge {
+    background: linear-gradient(135deg, #f5f5f5 0%, #c8c8c8 45%, #909090 100%);
+    color: #1a1a1a;
+  }
+  .prime-card.rank-3 .prime-rank-badge {
+    background: linear-gradient(135deg, #e8a878 0%, #cd7f32 45%, #8a5a1a 100%);
+    color: #fff;
+  }
+  .prime-card.rank-4 .prime-rank-badge,
+  .prime-card.rank-5 .prime-rank-badge {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1e40af 100%);
+    color: #fff;
+  }
+
+  .prime-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 10px; padding-left: 56px; min-height: 46px;
+  }
   .prime-head-left { display: flex; flex-direction: column; gap: 2px; }
   .prime-rank {
     font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
-    color: var(--text-2);
+    color: var(--text-2); display: none; /* replaced by .prime-rank-badge */
   }
   .prime-ticker {
     font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700;
@@ -306,9 +341,18 @@
     transition: transform 0.1s, border-color 0.15s;
   }
   .strong-card:hover { transform: translateY(-1px); border-color: var(--border-strong); }
-  .strong-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-  .strong-head-left { display: flex; align-items: baseline; gap: 8px; }
-  .strong-rank { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); font-weight: 700; }
+  .strong-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .strong-head-left { display: flex; align-items: center; gap: 10px; }
+  .strong-rank {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 800;
+    background: linear-gradient(135deg, var(--bg-3), #1a1f2a);
+    border: 1px solid var(--border-strong);
+    color: var(--text-0);
+    flex-shrink: 0;
+  }
   .strong-ticker { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
   .strong-price { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
   .strong-score { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--bull); font-size: 13px; }
@@ -330,8 +374,19 @@
     transition: transform 0.1s, background 0.15s;
   }
   .watch-card:hover { background: var(--bg-3); transform: translateY(-1px); }
-  .watch-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-  .watch-rank { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-3); font-weight: 700; }
+  .watch-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; gap: 8px; }
+  .watch-head-left { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
+  .watch-rank {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 28px; height: 22px; padding: 0 7px;
+    border-radius: 11px;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    color: var(--text-1);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 800; letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
   .watch-ticker { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
   .watch-score { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--bull); }
   .watch-bars { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3px; margin-bottom: 5px; }
@@ -847,11 +902,16 @@ function primeCardHTML(t) {
   const chgClass = (t.change_pct || 0) >= 0 ? 'up' : 'down';
   const chgSign = (t.change_pct || 0) >= 0 ? '+' : '';
   const hasStrategy = t.entry != null && t.tp1 != null && t.sl != null;
+  const medalMap = { 1: '🥇', 2: '🥈', 3: '🥉', 4: '★', 5: '★' };
+  const medal = medalMap[t.rank] || '';
   return `
     <div class="prime-card rank-${t.rank}" data-ticker="${t.ticker}">
+      <div class="prime-rank-badge">
+        <span class="rb-medal">${medal}</span>
+        <span class="rb-num">${t.rank}</span>
+      </div>
       <div class="prime-head">
         <div class="prime-head-left">
-          <div class="prime-rank">#${t.rank}</div>
           <div class="prime-ticker">${t.ticker}</div>
           <div class="prime-name">${t.name || t.sector_full || t.sector || ''}</div>
         </div>
@@ -907,7 +967,7 @@ function renderStrong(d) {
       <div class="strong-card" data-ticker="${t.ticker}">
         <div class="strong-head">
           <div class="strong-head-left">
-            <span class="strong-rank">#${t.rank}</span>
+            <span class="strong-rank">${t.rank}</span>
             <span class="strong-ticker">${t.ticker}</span>
           </div>
           <div class="strong-price">
@@ -948,8 +1008,10 @@ function renderWatch(d) {
     return `
       <div class="watch-card" data-ticker="${t.ticker}">
         <div class="watch-head">
-          <span class="watch-rank">#${t.rank}</span>
-          <span class="watch-ticker">${t.ticker}</span>
+          <div class="watch-head-left">
+            <span class="watch-rank">${t.rank}</span>
+            <span class="watch-ticker">${t.ticker}</span>
+          </div>
           <span class="watch-score">${(t.score_total||0).toFixed(1)}</span>
         </div>
         <div class="watch-bars">
