@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇺🇸 US Sentiment Screener · Daily Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="data/feed.js" onerror="window.__FEED_MISSING__=true"></script>
+<style>
+  /* ============ THEME ============ */
+  :root {
+    --bg-0: #07090f;
+    --bg-1: #0d1220;
+    --bg-2: #141a2c;
+    --bg-3: #1c2338;
+    --bg-4: #242d48;
+    --border: #252d45;
+    --border-strong: #364064;
+    --text-0: #f2f4fb;
+    --text-1: #c0c5d6;
+    --text-2: #7a8199;
+    --text-3: #4f5570;
+    --bull: #00ff9d;
+    --bull-soft: rgba(0, 255, 157, 0.12);
+    --bull-glow: rgba(0, 255, 157, 0.35);
+    --bear: #ff3d68;
+    --bear-soft: rgba(255, 61, 104, 0.12);
+    --bear-glow: rgba(255, 61, 104, 0.35);
+    --warn: #ffb547;
+    --warn-soft: rgba(255, 181, 71, 0.12);
+    --info: #5eb0ff;
+    --info-soft: rgba(94, 176, 255, 0.12);
+    --purple: #b585ff;
+    --purple-soft: rgba(181, 133, 255, 0.12);
+    --orange: #ff6b35;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-0); color: var(--text-0);
+    font-size: 14px; line-height: 1.5;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(94, 176, 255, 0.06), transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(181, 133, 255, 0.05), transparent 50%);
+  }
+  .mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+
+  /* ============ LAYOUT ============ */
+  .app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; position: relative; z-index: 1; }
+
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    background: var(--bg-1);
+    border-right: 1px solid var(--border);
+    padding: 22px 14px;
+    position: sticky; top: 0; height: 100vh;
+    overflow-y: auto;
+  }
+  .logo { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+  .logo-flag { font-size: 22px; }
+  .logo-sub { font-size: 10px; color: var(--text-2); margin-bottom: 22px; font-weight: 500; }
+  .sidebar-section { margin-bottom: 22px; }
+  .sidebar-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 10px; padding-left: 6px;
+  }
+  .history-list { display: flex; flex-direction: column; gap: 3px; }
+  .history-item {
+    padding: 9px 10px; border-radius: 7px; cursor: pointer;
+    transition: background 0.15s;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .history-item:hover { background: var(--bg-2); }
+  .history-item.active { background: var(--bg-3); box-shadow: inset 2px 0 0 var(--bull); }
+  .history-date { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-1); font-weight: 500; }
+  .history-sub { font-size: 10px; color: var(--text-3); font-family: 'JetBrains Mono', monospace; }
+  .history-mood { width: 6px; height: 6px; border-radius: 50%; box-shadow: 0 0 6px currentColor; flex-shrink: 0; }
+  .mood-bullish { background: var(--bull); color: var(--bull); }
+  .mood-neutral { background: var(--warn); color: var(--warn); }
+  .mood-bearish { background: var(--bear); color: var(--bear); }
+  .sidebar-stat {
+    padding: 11px; background: var(--bg-2); border-radius: 9px;
+    margin-bottom: 7px;
+  }
+  .sidebar-stat-label { font-size: 9px; color: var(--text-2); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
+  .sidebar-stat-value { font-size: 15px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+
+  /* ============ MAIN ============ */
+  main { padding: 24px 32px 60px; max-width: 1700px; }
+
+  /* ============ HEADER ============ */
+  .page-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 20px; flex-wrap: wrap; gap: 16px;
+  }
+  .header-left h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 3px; }
+  .header-left .subtitle { color: var(--text-2); font-size: 13px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .header-live {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; background: var(--bull-soft); color: var(--bull);
+    border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+  }
+  .header-live::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--bull);
+    box-shadow: 0 0 8px var(--bull); animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .preview-badge {
+    display: inline-block; font-size: 11px; background: var(--warn-soft); color: var(--warn);
+    padding: 3px 8px; border-radius: 5px; margin-left: 8px; vertical-align: middle; font-weight: 700;
+  }
+
+  /* ============ ACTION CARD (hero) ============ */
+  .action-card {
+    background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .action-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--bull), var(--info), var(--purple));
+  }
+  .action-mood-col {
+    display: flex; flex-direction: column; gap: 12px;
+    padding-right: 24px; border-right: 1px solid var(--border);
+  }
+  .action-mood-icon { font-size: 52px; line-height: 1; }
+  .action-mood-label { font-size: 10px; color: var(--text-2); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; }
+  .action-mood-value { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+  .action-mood-score {
+    display: flex; align-items: baseline; gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .action-mood-score-val { font-size: 28px; font-weight: 800; }
+  .action-mood-score-sfx { font-size: 11px; color: var(--text-3); font-weight: 600; }
+  .action-right { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .action-oneliner-label {
+    font-size: 10px; color: var(--text-2); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;
+  }
+  .action-oneliner {
+    font-size: 16px; font-weight: 600; line-height: 1.55; color: var(--text-0);
+  }
+  .action-priorities { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .action-priority {
+    display: flex; gap: 12px; align-items: center;
+    padding: 12px 14px; border-radius: 10px;
+    background: var(--bg-3); border: 1px solid var(--border);
+    font-size: 13px; line-height: 1.5; cursor: pointer;
+    transition: transform 0.1s, border-color 0.15s;
+  }
+  .action-priority:hover { border-color: var(--border-strong); transform: translateX(2px); }
+  .action-priority-icon { font-size: 20px; flex-shrink: 0; }
+  .action-priority-ticker {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--bull);
+    padding: 2px 8px; background: var(--bull-soft); border-radius: 5px;
+    font-size: 12px; flex-shrink: 0;
+  }
+  .action-priority-text { flex: 1; color: var(--text-1); }
+
+  @media (max-width: 960px) {
+    .action-card { grid-template-columns: 1fr; }
+    .action-mood-col { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 18px 0; }
+  }
+
+  /* ============ SECTION TITLES ============ */
+  .section-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-1);
+    margin: 32px 0 14px;
+  }
+  .section-title .tier-icon { font-size: 16px; }
+  .section-title .tier-count {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--text-3); font-weight: 600; letter-spacing: 0.05em;
+  }
+
+  /* ============ PRIME PLAYS (Top 5) ============ */
+  .prime-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+  .prime-card {
+    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+  }
+  .prime-card:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+  .prime-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .prime-card.rank-1::before { background: linear-gradient(90deg, #ffd700, #ffaa00); }
+  .prime-card.rank-2::before { background: linear-gradient(90deg, #d0d0d0, #9a9a9a); }
+  .prime-card.rank-3::before { background: linear-gradient(90deg, #cd7f32, #8a5a1a); }
+  .prime-card.rank-4::before, .prime-card.rank-5::before { background: linear-gradient(90deg, var(--bull), var(--info)); }
+
+  .prime-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .prime-head-left { display: flex; flex-direction: column; gap: 2px; }
+  .prime-rank {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    color: var(--text-2);
+  }
+  .prime-ticker {
+    font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.1;
+  }
+  .prime-name { font-size: 11px; color: var(--text-2); }
+  .prime-head-right { text-align: right; }
+  .prime-price {
+    font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700;
+    color: var(--text-0);
+  }
+  .prime-chg {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+  }
+  .prime-chg.up { color: var(--bull); }
+  .prime-chg.down { color: var(--bear); }
+
+  .badge-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .badge {
+    font-size: 10px; font-weight: 700; padding: 3px 8px;
+    border-radius: 5px; letter-spacing: 0.02em;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .badge-quad-hot { background: var(--info-soft); color: var(--info); }
+  .badge-quad-hidden { background: var(--bull-soft); color: var(--bull); }
+  .badge-quad-overheat { background: var(--bear-soft); color: var(--bear); }
+  .badge-quad-watch { background: var(--bg-3); color: var(--text-2); }
+  .badge-score { background: var(--bg-3); color: var(--text-1); font-family: 'JetBrains Mono', monospace; }
+  .badge-sector { background: var(--bg-3); color: var(--text-2); }
+
+  .prime-claude {
+    background: var(--bg-3); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px;
+    border-left: 3px solid var(--bull);
+  }
+  .prime-claude-label {
+    font-size: 9px; color: var(--bull); letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 3px;
+  }
+  .prime-claude-text { font-size: 12px; color: var(--text-1); line-height: 1.5; }
+
+  .prime-ladder { margin-bottom: 12px; }
+  .ladder-label {
+    font-size: 10px; color: var(--text-2); letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 6px;
+  }
+  .ladder {
+    display: flex; flex-direction: column; gap: 3px;
+    background: var(--bg-3); border-radius: 8px; padding: 8px 10px;
+  }
+  .ladder-row {
+    display: grid; grid-template-columns: 32px 1fr 65px;
+    align-items: center; gap: 10px;
+    padding: 4px 2px;
+    font-size: 12px;
+  }
+  .ladder-icon { font-size: 13px; text-align: center; }
+  .ladder-label-text { color: var(--text-2); font-size: 11px; font-weight: 600; }
+  .ladder-price {
+    text-align: right; font-family: 'JetBrains Mono', monospace; font-weight: 700;
+  }
+  .ladder-row.tp1 .ladder-price, .ladder-row.tp2 .ladder-price { color: var(--bull); }
+  .ladder-row.entry .ladder-price { color: var(--text-0); }
+  .ladder-row.sl .ladder-price { color: var(--bear); }
+  .ladder-row.entry { background: var(--bull-soft); border-radius: 4px; }
+
+  .prime-entry-comment { font-size: 11px; color: var(--text-2); line-height: 1.5; margin-top: 6px; padding: 0 2px; }
+
+  .prime-signals { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+  .sig-item { display: flex; flex-direction: column; gap: 2px; }
+  .sig-label { font-size: 9px; color: var(--text-3); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .sig-bar { height: 4px; background: var(--bg-3); border-radius: 2px; overflow: hidden; position: relative; }
+  .sig-bar::after { content: ''; position: absolute; inset: 0; width: var(--w, 0%); border-radius: 2px; }
+  .sig-bar.reddit::after { background: var(--orange); }
+  .sig-bar.news::after { background: var(--info); }
+  .sig-bar.trends::after { background: var(--purple); }
+  .sig-bar.options::after { background: var(--bull); }
+  .sig-val { font-size: 10px; font-family: 'JetBrains Mono', monospace; color: var(--text-1); font-weight: 600; }
+
+  .prime-footer {
+    font-size: 11px; color: var(--info); text-align: right; font-weight: 600;
+    padding-top: 4px; border-top: 1px dashed var(--border); margin-top: 4px;
+  }
+
+  /* ============ STRONG (6-10) ============ */
+  .strong-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .strong-card {
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: 11px; padding: 14px; cursor: pointer;
+    transition: transform 0.1s, border-color 0.15s;
+  }
+  .strong-card:hover { transform: translateY(-1px); border-color: var(--border-strong); }
+  .strong-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .strong-head-left { display: flex; align-items: baseline; gap: 8px; }
+  .strong-rank { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-3); font-weight: 700; }
+  .strong-ticker { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+  .strong-price { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  .strong-score { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--bull); font-size: 13px; }
+  .strong-claude { font-size: 12px; color: var(--text-1); line-height: 1.45; margin: 6px 0 10px; }
+  .strong-bars { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4px; margin-bottom: 8px; }
+  .strong-bar { height: 3px; background: var(--bg-3); border-radius: 2px; overflow: hidden; position: relative; }
+  .strong-bar::after { content: ''; position: absolute; inset: 0; width: var(--w, 0%); border-radius: 2px; }
+  .strong-bar.reddit::after { background: var(--orange); }
+  .strong-bar.news::after { background: var(--info); }
+  .strong-bar.trends::after { background: var(--purple); }
+  .strong-bar.options::after { background: var(--bull); }
+  .strong-footer { display: flex; justify-content: space-between; align-items: center; font-size: 10px; }
+
+  /* ============ WATCH (11-20) ============ */
+  .watch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+  .watch-card {
+    background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 9px; padding: 10px 12px; cursor: pointer;
+    transition: transform 0.1s, background 0.15s;
+  }
+  .watch-card:hover { background: var(--bg-3); transform: translateY(-1px); }
+  .watch-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+  .watch-rank { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-3); font-weight: 700; }
+  .watch-ticker { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
+  .watch-score { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--bull); }
+  .watch-bars { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3px; margin-bottom: 5px; }
+  .watch-bar { height: 3px; background: var(--bg-3); border-radius: 2px; overflow: hidden; position: relative; }
+  .watch-bar::after { content: ''; position: absolute; inset: 0; width: var(--w, 0%); border-radius: 2px; }
+  .watch-bar.reddit::after { background: var(--orange); }
+  .watch-bar.news::after { background: var(--info); }
+  .watch-bar.trends::after { background: var(--purple); }
+  .watch-bar.options::after { background: var(--bull); }
+  .watch-footer { display: flex; justify-content: space-between; align-items: center; font-size: 10px; }
+
+  /* ============ CARD (generic container) ============ */
+  .grid { display: grid; gap: 18px; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 1100px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px;
+  }
+  .card-title {
+    font-size: 14px; font-weight: 700; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card-title-icon { font-size: 18px; }
+  .card-title-tag {
+    margin-left: auto; font-size: 10px; font-weight: 600;
+    padding: 3px 8px; border-radius: 5px;
+    background: var(--bg-3); color: var(--text-2);
+  }
+
+  /* ============ MATRIX ============ */
+  .matrix-container { position: relative; height: 340px; }
+  .matrix-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: var(--text-2); margin-top: 10px; }
+  .matrix-legend-item { display: flex; align-items: center; gap: 5px; }
+  .matrix-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ============ HEATMAP ============ */
+  .heatmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 6px; }
+  .heatmap-cell {
+    padding: 11px 10px; border-radius: 7px; position: relative;
+    transition: transform 0.1s;
+  }
+  .heatmap-cell:hover { transform: scale(1.03); }
+  .heatmap-sector { font-size: 11px; font-weight: 600; opacity: 0.95; margin-bottom: 3px; }
+  .heatmap-strength { font-size: 17px; font-weight: 800; font-family: 'JetBrains Mono', monospace; }
+  .heatmap-count { font-size: 10px; opacity: 0.7; margin-top: 2px; }
+
+  /* ============ TIMELINE ============ */
+  .timeline { position: relative; padding-left: 8px; }
+  .timeline::before { content: ''; position: absolute; left: 14px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+  .timeline-item {
+    display: grid; grid-template-columns: 80px 1fr; gap: 16px;
+    padding: 9px 0; position: relative;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: 10px; top: 13px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--bg-1); border: 2px solid var(--text-3); z-index: 1;
+  }
+  .timeline-item.active::before { background: var(--bull); border-color: var(--bull); box-shadow: 0 0 10px var(--bull-glow); }
+  .timeline-item.key::before { background: var(--warn); border-color: var(--warn); }
+  .timeline-time { padding-left: 32px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--text-1); }
+  .timeline-time-et { color: var(--text-3); font-size: 10px; display: block; margin-top: 2px; }
+  .timeline-label { font-size: 13px; color: var(--text-1); line-height: 1.5; }
+  .timeline-item.key .timeline-label { color: var(--text-0); font-weight: 600; }
+
+  /* ============ INSIGHTS ============ */
+  .insight-card {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 13px; border-radius: 10px;
+    background: var(--bg-2);
+    margin-bottom: 8px;
+    border-left: 3px solid;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.15s;
+  }
+  .insight-card:hover { transform: translateX(2px); background: var(--bg-3); }
+  .insight-card.hidden { border-color: var(--bull); }
+  .insight-card.overheat { border-color: var(--bear); }
+  .insight-emoji { font-size: 22px; }
+  .insight-body { flex: 1; min-width: 0; }
+  .insight-ticker { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; margin-bottom: 3px; }
+  .insight-reason { font-size: 12px; color: var(--text-1); line-height: 1.5; }
+
+  /* ============ EMPTY ============ */
+  .empty {
+    padding: 28px; text-align: center; color: var(--text-2);
+    background: var(--bg-1); border: 1px dashed var(--border); border-radius: 10px;
+  }
+
+  /* ============ MODAL ============ */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: none; align-items: center; justify-content: center;
+    padding: 32px 20px;
+  }
+  .modal-overlay.open { display: flex; animation: fadeIn 0.2s; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--bg-1); border: 1px solid var(--border-strong);
+    border-radius: 18px; width: 100%; max-width: 900px;
+    max-height: calc(100vh - 64px); overflow-y: auto;
+    position: relative; animation: slideUp 0.25s ease-out;
+  }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  .modal-header {
+    position: sticky; top: 0; z-index: 2;
+    background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    padding: 22px 28px 18px;
+    border-bottom: 1px solid var(--border);
+    border-radius: 18px 18px 0 0;
+  }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--bg-3); border: 1px solid var(--border);
+    color: var(--text-1); font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+  }
+  .modal-close:hover { background: var(--bg-4); color: var(--text-0); }
+  .modal-head-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
+  .modal-head-left { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .modal-ticker { font-family: 'JetBrains Mono', monospace; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
+  .modal-name { color: var(--text-2); font-size: 13px; font-weight: 500; }
+  .modal-head-right { text-align: right; }
+  .modal-price { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--text-0); line-height: 1; }
+  .modal-chg { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; margin-top: 3px; }
+  .modal-chg.up { color: var(--bull); }
+  .modal-chg.down { color: var(--bear); }
+
+  .modal-body { padding: 20px 28px 28px; display: flex; flex-direction: column; gap: 22px; }
+
+  .modal-section-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-2);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .modal-narrative {
+    background: var(--bg-2); border-radius: 10px; padding: 16px 18px;
+    border-left: 3px solid var(--info);
+  }
+  .modal-narrative p { font-size: 14px; line-height: 1.7; color: var(--text-0); }
+
+  .modal-strategy { background: var(--bg-2); border-radius: 10px; padding: 16px 18px; }
+  .strategy-ladder { margin-bottom: 12px; }
+  .strategy-row {
+    display: grid; grid-template-columns: 40px 1fr 100px;
+    align-items: center; gap: 12px;
+    padding: 8px 10px; border-radius: 6px; font-size: 13px;
+  }
+  .strategy-row.tp2 { background: rgba(0, 255, 157, 0.05); }
+  .strategy-row.tp1 { background: rgba(0, 255, 157, 0.03); }
+  .strategy-row.entry { background: var(--bull-soft); border: 1px solid rgba(0,255,157,0.25); font-weight: 600; }
+  .strategy-row.sl { background: rgba(255, 61, 104, 0.05); }
+  .strategy-icon { font-size: 16px; text-align: center; }
+  .strategy-label { color: var(--text-1); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; }
+  .strategy-price { text-align: right; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+  .strategy-row.tp1 .strategy-price, .strategy-row.tp2 .strategy-price { color: var(--bull); }
+  .strategy-row.entry .strategy-price { color: var(--text-0); }
+  .strategy-row.sl .strategy-price { color: var(--bear); }
+  .strategy-comment { font-size: 12px; color: var(--text-2); padding: 0 4px; line-height: 1.6; }
+
+  .modal-signals-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px;
+  }
+  .signal-box {
+    background: var(--bg-2); border-radius: 10px; padding: 14px; border: 1px solid var(--border);
+  }
+  .signal-box-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .signal-box-name { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); }
+  .signal-box-score { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 800; }
+  .signal-box.reddit .signal-box-score, .signal-box.reddit .signal-box-name { color: var(--orange); }
+  .signal-box.news .signal-box-score, .signal-box.news .signal-box-name { color: var(--info); }
+  .signal-box.trends .signal-box-score, .signal-box.trends .signal-box-name { color: var(--purple); }
+  .signal-box.options .signal-box-score, .signal-box.options .signal-box-name { color: var(--bull); }
+  .signal-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; padding: 3px 0; color: var(--text-1);
+  }
+  .signal-row-label { color: var(--text-2); }
+  .signal-row-val { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+  .news-item {
+    padding: 6px 0; font-size: 11px; color: var(--text-1); line-height: 1.5;
+    border-top: 1px solid var(--border);
+  }
+  .news-item:first-child { border-top: none; }
+  .news-meta { display: block; font-size: 9px; color: var(--text-3); margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+
+  .modal-catalysts-risks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .modal-catalysts-risks { grid-template-columns: 1fr; } }
+  .cat-box, .risk-box { background: var(--bg-2); border-radius: 10px; padding: 14px 16px; border-left: 3px solid; }
+  .cat-box { border-color: var(--bull); }
+  .risk-box { border-color: var(--warn); }
+  .cat-box ul, .risk-box ul { list-style: none; padding: 0; margin: 0; }
+  .cat-box li, .risk-box li {
+    font-size: 12px; color: var(--text-1); line-height: 1.6;
+    padding: 5px 0; padding-left: 18px; position: relative;
+  }
+  .cat-box li::before { content: '▸'; position: absolute; left: 0; color: var(--bull); font-weight: 700; }
+  .risk-box li::before { content: '⚠'; position: absolute; left: 0; color: var(--warn); font-size: 10px; top: 8px; }
+
+  .modal-hint {
+    font-size: 11px; color: var(--text-3); text-align: center; padding: 8px;
+  }
+
+  /* ============ UTILS ============ */
+  .text-bull { color: var(--bull); }
+  .text-bear { color: var(--bear); }
+  .chip {
+    padding: 5px 11px; background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 999px; font-size: 12px; color: var(--text-1); font-weight: 500;
+  }
+  .chip-bull { background: var(--bull-soft); color: var(--bull); border-color: transparent; }
+  .chip-bear { background: var(--bear-soft); color: var(--bear); border-color: transparent; }
+  .chip-warn { background: var(--warn-soft); color: var(--warn); border-color: transparent; }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg-0); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="logo"><span class="logo-flag">🇺🇸</span><span>US Screener</span></div>
+    <div class="logo-sub">Sentiment · Options · News</div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-label">오늘의 1위</div>
+        <div class="sidebar-stat-value mono" id="side-top-ticker">—</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-label">후보 수</div>
+        <div class="sidebar-stat-value mono" id="side-candidate-count">—</div>
+      </div>
+      <div class="sidebar-stat">
+        <div class="sidebar-stat-label">Top 섹터</div>
+        <div class="sidebar-stat-value" style="font-size: 13px; font-family: 'Inter', sans-serif; font-weight: 600;" id="side-top-sector">—</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">📁 과거 리포트</div>
+      <div class="history-list" id="history-list">
+        <div class="empty" style="padding: 14px; font-size: 11px;">리포트 대기중</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <!-- Header -->
+    <div class="page-header">
+      <div class="header-left">
+        <h1 id="page-title">🇺🇸 Daily Sentiment Screener</h1>
+        <div class="subtitle">
+          <span class="header-live">LIVE · <span id="hdr-time">--:--</span> KST</span>
+          <span id="hdr-date">—</span>
+        </div>
+      </div>
+      <div class="header-right" id="header-chips" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;"></div>
+    </div>
+
+    <!-- Action Card -->
+    <div class="action-card" id="action-card">
+      <div class="action-mood-col">
+        <div class="action-mood-icon" id="mood-icon">📊</div>
+        <div>
+          <div class="action-mood-label">Market Mood</div>
+          <div class="action-mood-value" id="mood-value">Loading…</div>
+        </div>
+        <div class="action-mood-score">
+          <span class="action-mood-score-val" id="mood-score-val">--</span>
+          <span class="action-mood-score-sfx">/ 100</span>
+        </div>
+      </div>
+      <div class="action-right">
+        <div>
+          <div class="action-oneliner-label">오늘의 한 줄</div>
+          <div class="action-oneliner" id="one-liner">데이터를 불러오는 중이에요.</div>
+        </div>
+        <div class="action-priorities" id="priorities"></div>
+      </div>
+    </div>
+
+    <!-- Prime Plays -->
+    <div class="section-title"><span class="tier-icon">⭐</span>PRIME PLAYS <span class="tier-count">· Top 1~5</span></div>
+    <div class="prime-grid" id="prime-grid"></div>
+
+    <!-- Matrix + Heatmap -->
+    <div class="section-title"><span class="tier-icon">🎯</span>SITUATION MAP</div>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-title">
+          <span class="card-title-icon">🎯</span>
+          <span>관심도 × 수급 매트릭스</span>
+          <span class="card-title-tag">4-Quadrant</span>
+        </div>
+        <div class="matrix-container"><canvas id="matrix-chart"></canvas></div>
+        <div class="matrix-legend">
+          <div class="matrix-legend-item"><span class="matrix-legend-dot" style="background: var(--bull)"></span>히든 엣지 (여론↓ 수급↑)</div>
+          <div class="matrix-legend-item"><span class="matrix-legend-dot" style="background: var(--info)"></span>핫 스팟 (여론↑ 수급↑)</div>
+          <div class="matrix-legend-item"><span class="matrix-legend-dot" style="background: var(--bear)"></span>과열 (여론↑ 수급↓)</div>
+          <div class="matrix-legend-item"><span class="matrix-legend-dot" style="background: var(--text-3)"></span>관망</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <span class="card-title-icon">🗺️</span>
+          <span>섹터 히트맵</span>
+          <span class="card-title-tag">S&P 11</span>
+        </div>
+        <div class="heatmap-grid" id="heatmap"></div>
+      </div>
+    </div>
+
+    <!-- Hidden & Overheat -->
+    <div class="grid grid-2" style="margin-top: 18px;">
+      <div class="card">
+        <div class="card-title">
+          <span class="card-title-icon">💎</span>
+          <span>히든 엣지</span>
+          <span class="card-title-tag">여론↓ 수급↑</span>
+        </div>
+        <div id="hidden-edges"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <span class="card-title-icon">⚠️</span>
+          <span>과열 주의</span>
+          <span class="card-title-tag">피크 위험</span>
+        </div>
+        <div id="overheated"></div>
+      </div>
+    </div>
+
+    <!-- Strong (6-10) -->
+    <div class="section-title"><span class="tier-icon">📈</span>STRONG SIGNALS <span class="tier-count">· 6~10위</span></div>
+    <div class="strong-grid" id="strong-grid"></div>
+
+    <!-- Watch (11-20) -->
+    <div class="section-title"><span class="tier-icon">👀</span>WATCHLIST <span class="tier-count">· 11~20위</span></div>
+    <div class="watch-grid" id="watch-grid"></div>
+
+    <!-- Timeline -->
+    <div class="section-title"><span class="tier-icon">⏰</span>진입 루틴 타임라인</div>
+    <div class="card">
+      <div class="timeline" id="timeline"></div>
+    </div>
+
+    <div style="text-align: center; color: var(--text-3); font-size: 11px; margin-top: 36px;">
+      Data refreshes daily · 21:30 KST · <span class="mono">us-daily-sentiment-screener</span> · Click any ticker for details
+    </div>
+  </main>
+</div>
+
+<!-- ============ TICKER DETAIL MODAL ============ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" id="modal-close">×</button>
+      <div class="modal-head-top">
+        <div class="modal-head-left">
+          <div class="modal-ticker" id="m-ticker">—</div>
+          <div>
+            <div class="modal-name" id="m-name">—</div>
+            <div style="font-size: 11px; color: var(--text-3); font-family: 'JetBrains Mono', monospace; margin-top: 2px;" id="m-sector">—</div>
+          </div>
+        </div>
+        <div class="modal-head-right">
+          <div class="modal-price" id="m-price">—</div>
+          <div class="modal-chg" id="m-chg">—</div>
+        </div>
+      </div>
+      <div class="badge-row" id="m-badges"></div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ============ STATE ============
+let chartInstance = null;
+let currentData = null;
+let tickersByKey = {};
+
+// ============ QUADRANT ============
+const QUAD_META = {
+  hot: { label: '🔥 Hot Spot', cls: 'badge-quad-hot', color: 'rgba(94, 176, 255, 0.9)' },
+  hidden: { label: '💎 Hidden Edge', cls: 'badge-quad-hidden', color: 'rgba(0, 255, 157, 0.9)' },
+  overheat: { label: '🚨 Overheated', cls: 'badge-quad-overheat', color: 'rgba(255, 61, 104, 0.9)' },
+  watch: { label: '👀 Watch', cls: 'badge-quad-watch', color: 'rgba(122, 129, 153, 0.75)' }
+};
+function quadFor(t) {
+  if (t.quadrant && QUAD_META[t.quadrant]) return t.quadrant;
+  // Fallback infer
+  const sentiment = (t.score_reddit || 0) * 0.6 + (t.score_trends || 0) * 0.4;
+  const flow = (t.score_options || 0) * 0.55 + (t.score_news || 0) * 0.45;
+  if (flow >= 60 && sentiment < 50) return 'hidden';
+  if (flow >= 60 && sentiment >= 60) return 'hot';
+  if (flow < 50 && sentiment >= 70) return 'overheat';
+  return 'watch';
+}
+
+// ============ INIT ============
+function init() {
+  updateClock();
+  setInterval(updateClock, 30000);
+  const feed = window.__SCREENER_FEED__;
+  if (feed && feed.manifest && feed.manifest.reports && feed.manifest.reports.length > 0) {
+    renderHistory(feed.manifest.reports);
+    const latest = feed.manifest.reports[0];
+    const data = feed.archive && feed.archive[latest.date];
+    if (data) { currentData = data; renderAll(data); return; }
+  }
+  renderSampleMode();
+}
+function updateClock() {
+  const now = new Date();
+  const kst = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+  const hh = String(kst.getHours()).padStart(2, '0');
+  const mm = String(kst.getMinutes()).padStart(2, '0');
+  const el = document.getElementById('hdr-time');
+  if (el) el.textContent = `${hh}:${mm}`;
+}
+function renderSampleMode() {
+  const title = document.getElementById('page-title');
+  title.innerHTML = '🇺🇸 Daily Sentiment Screener <span class="preview-badge">PREVIEW · 샘플 데이터</span>';
+}
+
+// ============ MAIN RENDER ============
+function renderAll(d) {
+  tickersByKey = {};
+  (d.tickers || []).forEach(t => { tickersByKey[t.ticker] = t; });
+
+  renderHeader(d);
+  renderActionCard(d);
+  renderPrimePlays(d);
+  renderMatrix(d);
+  renderHeatmap(d);
+  renderInsights(d);
+  renderStrong(d);
+  renderWatch(d);
+  renderTimeline(d);
+  renderSidebarStats(d);
+}
+
+function renderHeader(d) {
+  document.getElementById('hdr-date').textContent = d.date_display || d.date;
+  const chips = document.getElementById('header-chips');
+  const moodClass = d.market_mood === 'bullish' ? 'chip-bull' : d.market_mood === 'bearish' ? 'chip-bear' : 'chip-warn';
+  const moodEmoji = d.market_mood === 'bullish' ? '🔥 강세' : d.market_mood === 'bearish' ? '❄️ 약세' : '⚖️ 중립';
+  chips.innerHTML = `
+    <div class="chip ${moodClass}">${moodEmoji}</div>
+    <div class="chip">후보 ${d.candidate_count || (d.tickers||[]).length}</div>
+    <div class="chip">${(d.sector_tilt||[]).slice(0,2).join(' · ')}</div>
+  `;
+}
+
+function renderActionCard(d) {
+  const icon = d.market_mood === 'bullish' ? '🚀' : d.market_mood === 'bearish' ? '🐻' : '⚖️';
+  const label = d.market_mood === 'bullish' ? 'BULLISH' : d.market_mood === 'bearish' ? 'BEARISH' : 'NEUTRAL';
+  const color = d.market_mood === 'bullish' ? 'var(--bull)' : d.market_mood === 'bearish' ? 'var(--bear)' : 'var(--warn)';
+  document.getElementById('mood-icon').textContent = icon;
+  const mv = document.getElementById('mood-value');
+  mv.textContent = label; mv.style.color = color;
+  const ms = document.getElementById('mood-score-val');
+  ms.textContent = d.market_mood_score ?? '--'; ms.style.color = color;
+
+  const action = d.today_action || {};
+  document.getElementById('one-liner').textContent = action.one_liner || d.market_summary || '—';
+
+  const prEl = document.getElementById('priorities');
+  const prios = action.priorities || [];
+  if (prios.length === 0) { prEl.innerHTML = ''; return; }
+  prEl.innerHTML = prios.map(p => `
+    <div class="action-priority" data-ticker="${p.ticker || ''}">
+      <div class="action-priority-icon">${p.icon || '•'}</div>
+      ${p.ticker ? `<div class="action-priority-ticker">${p.ticker}</div>` : ''}
+      <div class="action-priority-text">${p.text}</div>
+    </div>
+  `).join('');
+  prEl.querySelectorAll('.action-priority').forEach(el => {
+    const t = el.dataset.ticker;
+    if (t && tickersByKey[t]) {
+      el.addEventListener('click', () => openModal(tickersByKey[t]));
+    }
+  });
+}
+
+function renderPrimePlays(d) {
+  const el = document.getElementById('prime-grid');
+  const top5 = (d.tickers || []).filter(t => t.rank >= 1 && t.rank <= 5).sort((a,b) => a.rank - b.rank);
+  if (top5.length === 0) { el.innerHTML = '<div class="empty">Prime 종목 대기중</div>'; return; }
+  el.innerHTML = top5.map(t => primeCardHTML(t)).join('');
+  el.querySelectorAll('.prime-card').forEach(card => {
+    card.addEventListener('click', () => openModal(tickersByKey[card.dataset.ticker]));
+  });
+}
+
+function primeCardHTML(t) {
+  const q = quadFor(t);
+  const qm = QUAD_META[q];
+  const chgClass = (t.change_pct || 0) >= 0 ? 'up' : 'down';
+  const chgSign = (t.change_pct || 0) >= 0 ? '+' : '';
+  const hasStrategy = t.entry != null && t.tp1 != null && t.sl != null;
+  return `
+    <div class="prime-card rank-${t.rank}" data-ticker="${t.ticker}">
+      <div class="prime-head">
+        <div class="prime-head-left">
+          <div class="prime-rank">#${t.rank}</div>
+          <div class="prime-ticker">${t.ticker}</div>
+          <div class="prime-name">${t.name || t.sector_full || t.sector || ''}</div>
+        </div>
+        <div class="prime-head-right">
+          ${t.price != null ? `<div class="prime-price">$${fmt(t.price)}</div>` : ''}
+          ${t.change_pct != null ? `<div class="prime-chg ${chgClass}">${chgSign}${t.change_pct.toFixed(1)}%</div>` : ''}
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="badge ${qm.cls}">${qm.label}</span>
+        <span class="badge badge-score">Score ${(t.score_total||0).toFixed(1)}</span>
+        <span class="badge badge-sector">${t.sector_full || t.sector || '—'}</span>
+      </div>
+      ${t.claude_summary ? `
+        <div class="prime-claude">
+          <div class="prime-claude-label">🤖 Claude 판단</div>
+          <div class="prime-claude-text">${t.claude_summary}</div>
+        </div>
+      ` : ''}
+      ${hasStrategy ? `
+        <div class="prime-ladder">
+          <div class="ladder-label">진입 전략</div>
+          <div class="ladder">
+            <div class="ladder-row tp2"><div class="ladder-icon">🎯</div><div class="ladder-label-text">TP2</div><div class="ladder-price">$${fmt(t.tp2)}</div></div>
+            <div class="ladder-row tp1"><div class="ladder-icon">✅</div><div class="ladder-label-text">TP1</div><div class="ladder-price">$${fmt(t.tp1)}</div></div>
+            <div class="ladder-row entry"><div class="ladder-icon">🟢</div><div class="ladder-label-text">Entry</div><div class="ladder-price">$${fmt(t.entry)}</div></div>
+            <div class="ladder-row sl"><div class="ladder-icon">🛑</div><div class="ladder-label-text">SL</div><div class="ladder-price">$${fmt(t.sl)}</div></div>
+          </div>
+          ${t.entry_comment ? `<div class="prime-entry-comment">💬 ${t.entry_comment}</div>` : ''}
+        </div>
+      ` : ''}
+      <div class="prime-signals">
+        <div class="sig-item"><div class="sig-label">Reddit</div><div class="sig-bar reddit" style="--w:${t.score_reddit||0}%"></div><div class="sig-val">${t.score_reddit||0}</div></div>
+        <div class="sig-item"><div class="sig-label">News</div><div class="sig-bar news" style="--w:${t.score_news||0}%"></div><div class="sig-val">${t.score_news||0}</div></div>
+        <div class="sig-item"><div class="sig-label">Trends</div><div class="sig-bar trends" style="--w:${t.score_trends||0}%"></div><div class="sig-val">${t.score_trends||0}</div></div>
+        <div class="sig-item"><div class="sig-label">Options</div><div class="sig-bar options" style="--w:${t.score_options||0}%"></div><div class="sig-val">${t.score_options||0}</div></div>
+      </div>
+      <div class="prime-footer">상세 분석 보기 →</div>
+    </div>
+  `;
+}
+
+function renderStrong(d) {
+  const el = document.getElementById('strong-grid');
+  const strong = (d.tickers || []).filter(t => t.rank >= 6 && t.rank <= 10).sort((a,b) => a.rank - b.rank);
+  if (strong.length === 0) { el.innerHTML = '<div class="empty">6~10위 데이터 없음</div>'; return; }
+  el.innerHTML = strong.map(t => {
+    const q = quadFor(t);
+    const qm = QUAD_META[q];
+    const chgClass = (t.change_pct || 0) >= 0 ? 'up' : 'down';
+    const chgSign = (t.change_pct || 0) >= 0 ? '+' : '';
+    return `
+      <div class="strong-card" data-ticker="${t.ticker}">
+        <div class="strong-head">
+          <div class="strong-head-left">
+            <span class="strong-rank">#${t.rank}</span>
+            <span class="strong-ticker">${t.ticker}</span>
+          </div>
+          <div class="strong-price">
+            ${t.price != null ? `$${fmt(t.price)} ` : ''}
+            ${t.change_pct != null ? `<span class="prime-chg ${chgClass}">${chgSign}${t.change_pct.toFixed(1)}%</span>` : ''}
+          </div>
+        </div>
+        <div class="badge-row">
+          <span class="badge ${qm.cls}">${qm.label}</span>
+          <span class="badge badge-sector">${t.sector || '—'}</span>
+        </div>
+        <div class="strong-claude">${t.claude_summary || t.narrative || ''}</div>
+        <div class="strong-bars">
+          <div class="strong-bar reddit" style="--w:${t.score_reddit||0}%"></div>
+          <div class="strong-bar news" style="--w:${t.score_news||0}%"></div>
+          <div class="strong-bar trends" style="--w:${t.score_trends||0}%"></div>
+          <div class="strong-bar options" style="--w:${t.score_options||0}%"></div>
+        </div>
+        <div class="strong-footer">
+          <span style="color: var(--text-3);">R·N·T·O</span>
+          <span class="strong-score">${(t.score_total||0).toFixed(1)}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+  el.querySelectorAll('.strong-card').forEach(c => {
+    c.addEventListener('click', () => openModal(tickersByKey[c.dataset.ticker]));
+  });
+}
+
+function renderWatch(d) {
+  const el = document.getElementById('watch-grid');
+  const watch = (d.tickers || []).filter(t => t.rank >= 11 && t.rank <= 20).sort((a,b) => a.rank - b.rank);
+  if (watch.length === 0) { el.innerHTML = '<div class="empty">11~20위 데이터 없음</div>'; return; }
+  el.innerHTML = watch.map(t => {
+    const q = quadFor(t);
+    const qm = QUAD_META[q];
+    return `
+      <div class="watch-card" data-ticker="${t.ticker}">
+        <div class="watch-head">
+          <span class="watch-rank">#${t.rank}</span>
+          <span class="watch-ticker">${t.ticker}</span>
+          <span class="watch-score">${(t.score_total||0).toFixed(1)}</span>
+        </div>
+        <div class="watch-bars">
+          <div class="watch-bar reddit" style="--w:${t.score_reddit||0}%"></div>
+          <div class="watch-bar news" style="--w:${t.score_news||0}%"></div>
+          <div class="watch-bar trends" style="--w:${t.score_trends||0}%"></div>
+          <div class="watch-bar options" style="--w:${t.score_options||0}%"></div>
+        </div>
+        <div class="watch-footer">
+          <span class="badge ${qm.cls}" style="font-size: 9px; padding: 2px 6px;">${qm.label}</span>
+          <span style="color: var(--text-3); font-size: 9px;">${t.sector || ''}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+  el.querySelectorAll('.watch-card').forEach(c => {
+    c.addEventListener('click', () => openModal(tickersByKey[c.dataset.ticker]));
+  });
+}
+
+function renderMatrix(d) {
+  const tickers = d.tickers || [];
+  if (tickers.length === 0) return;
+  const points = tickers.map(t => {
+    const sentiment = (t.score_reddit || 0) * 0.6 + (t.score_trends || 0) * 0.4;
+    const flow = (t.score_options || 0) * 0.55 + (t.score_news || 0) * 0.45;
+    const q = quadFor(t);
+    return { x: flow, y: sentiment, ticker: t.ticker, color: QUAD_META[q].color };
+  });
+  const ctx = document.getElementById('matrix-chart').getContext('2d');
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        data: points,
+        backgroundColor: points.map(p => p.color),
+        borderColor: points.map(p => p.color.replace('0.9', '1').replace('0.75', '1')),
+        pointRadius: 7, pointHoverRadius: 10, borderWidth: 1.5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      onClick: (evt, elements) => {
+        if (elements.length > 0) {
+          const i = elements[0].index;
+          const t = tickersByKey[points[i].ticker];
+          if (t) openModal(t);
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: { label: (c) => `${c.raw.ticker} · 수급 ${c.raw.x.toFixed(0)} / 여론 ${c.raw.y.toFixed(0)}` },
+          backgroundColor: '#141a2c', borderColor: '#364064', borderWidth: 1,
+          titleColor: '#f2f4fb', bodyColor: '#c0c5d6', padding: 10, cornerRadius: 8
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: '수급 강도 (Options + News) →', color: '#7a8199', font: { size: 11, weight: 600 } },
+          min: 0, max: 100,
+          ticks: { color: '#4f5570', font: { size: 10 } },
+          grid: { color: '#252d45', drawBorder: false }
+        },
+        y: {
+          title: { display: true, text: '↑ 여론 관심도 (Reddit + Trends)', color: '#7a8199', font: { size: 11, weight: 600 } },
+          min: 0, max: 100,
+          ticks: { color: '#4f5570', font: { size: 10 } },
+          grid: { color: '#252d45', drawBorder: false }
+        }
+      },
+      animation: { duration: 500, easing: 'easeOutQuart' }
+    },
+    plugins: [{
+      id: 'tickerLabels',
+      afterDatasetsDraw(chart) {
+        const { ctx } = chart;
+        ctx.font = '600 10px JetBrains Mono, monospace';
+        ctx.fillStyle = '#f2f4fb'; ctx.textAlign = 'center';
+        chart.data.datasets[0].data.forEach((p, i) => {
+          const meta = chart.getDatasetMeta(0).data[i];
+          if (meta) ctx.fillText(p.ticker, meta.x, meta.y - 12);
+        });
+      }
+    }]
+  });
+}
+
+function renderHeatmap(d) {
+  const el = document.getElementById('heatmap');
+  const sectors = (d.sectors || []).slice(0, 12);
+  if (sectors.length === 0) { el.innerHTML = '<div class="empty">섹터 데이터 없음</div>'; return; }
+  const colorFor = s => {
+    if (s >= 0.7) return { bg: 'rgba(0, 255, 157, ' + (0.15 + s * 0.3) + ')', fg: '#00ff9d' };
+    if (s >= 0.45) return { bg: 'rgba(94, 176, 255, ' + (0.12 + s * 0.25) + ')', fg: '#5eb0ff' };
+    if (s >= 0.25) return { bg: 'rgba(255, 181, 71, ' + (0.12 + s * 0.2) + ')', fg: '#ffb547' };
+    return { bg: 'rgba(122, 129, 153, 0.15)', fg: '#7a8199' };
+  };
+  el.innerHTML = sectors.map(s => {
+    const c = colorFor(s.strength);
+    return `
+      <div class="heatmap-cell" style="background: ${c.bg}; color: ${c.fg};">
+        <div class="heatmap-sector">${s.name}</div>
+        <div class="heatmap-strength">${(s.strength * 100).toFixed(0)}</div>
+        <div class="heatmap-count">${s.ticker_count}종목</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderInsights(d) {
+  const hiddenEl = document.getElementById('hidden-edges');
+  const overEl = document.getElementById('overheated');
+  const hidden = d.hidden_edges || [];
+  const over = d.overheated || [];
+  hiddenEl.innerHTML = hidden.length ? hidden.map(h => `
+    <div class="insight-card hidden" data-ticker="${h.ticker}">
+      <div class="insight-emoji">💎</div>
+      <div class="insight-body">
+        <div class="insight-ticker">${h.ticker}</div>
+        <div class="insight-reason">${h.reason}</div>
+      </div>
+    </div>
+  `).join('') : '<div class="empty" style="padding: 16px; font-size: 12px;">히든 엣지 없음</div>';
+
+  overEl.innerHTML = over.length ? over.map(o => `
+    <div class="insight-card overheat" data-ticker="${o.ticker}">
+      <div class="insight-emoji">🚨</div>
+      <div class="insight-body">
+        <div class="insight-ticker">${o.ticker}</div>
+        <div class="insight-reason">${o.reason}</div>
+      </div>
+    </div>
+  `).join('') : '<div class="empty" style="padding: 16px; font-size: 12px;">과열 종목 없음 👍</div>';
+
+  [hiddenEl, overEl].forEach(container => {
+    container.querySelectorAll('.insight-card').forEach(c => {
+      c.addEventListener('click', () => {
+        const t = tickersByKey[c.dataset.ticker];
+        if (t) openModal(t);
+      });
+    });
+  });
+}
+
+function renderTimeline(d) {
+  const el = document.getElementById('timeline');
+  const items = d.routine_timeline || [];
+  if (items.length === 0) { el.innerHTML = '<div class="empty">루틴 없음</div>'; return; }
+  el.innerHTML = items.map(t => {
+    const cls = t.key ? 'key' : t.active ? 'active' : '';
+    return `
+      <div class="timeline-item ${cls}">
+        <div class="timeline-time">${t.time_kst}<span class="timeline-time-et">ET ${t.time_et}</span></div>
+        <div class="timeline-label">${t.label}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderSidebarStats(d) {
+  document.getElementById('side-top-ticker').textContent = d.top_ticker || (d.tickers && d.tickers[0] && d.tickers[0].ticker) || '—';
+  document.getElementById('side-candidate-count').textContent = d.candidate_count || (d.tickers||[]).length || '—';
+  document.getElementById('side-top-sector').textContent = (d.sector_tilt && d.sector_tilt[0]) || '—';
+}
+
+function renderHistory(reports) {
+  const el = document.getElementById('history-list');
+  if (!reports || reports.length === 0) {
+    el.innerHTML = '<div class="empty" style="padding: 14px; font-size: 11px;">리포트 대기중</div>'; return;
+  }
+  el.innerHTML = reports.slice(0, 30).map((r, i) => {
+    const moodClass = r.mood === 'bullish' ? 'mood-bullish' : r.mood === 'bearish' ? 'mood-bearish' : 'mood-neutral';
+    return `
+      <div class="history-item ${i === 0 ? 'active' : ''}" data-date="${r.date}">
+        <span class="history-mood ${moodClass}"></span>
+        <div>
+          <div class="history-date">${r.date}</div>
+          <div class="history-sub">${r.top_ticker || '—'}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  el.querySelectorAll('.history-item').forEach(item => {
+    item.addEventListener('click', () => {
+      el.querySelectorAll('.history-item').forEach(x => x.classList.remove('active'));
+      item.classList.add('active');
+      const feed = window.__SCREENER_FEED__;
+      const date = item.dataset.date;
+      const data = feed && feed.archive && feed.archive[date];
+      if (data) { currentData = data; renderAll(data); }
+    });
+  });
+}
+
+// ============ MODAL ============
+function openModal(t) {
+  if (!t) return;
+  const q = quadFor(t);
+  const qm = QUAD_META[q];
+  const chgClass = (t.change_pct || 0) >= 0 ? 'up' : 'down';
+  const chgSign = (t.change_pct || 0) >= 0 ? '+' : '';
+
+  document.getElementById('m-ticker').textContent = t.ticker;
+  document.getElementById('m-name').textContent = t.name || '';
+  document.getElementById('m-sector').textContent = (t.sector_full || t.sector || '') + ' · Rank #' + (t.rank || '—');
+  document.getElementById('m-price').textContent = t.price != null ? `$${fmt(t.price)}` : '—';
+  const mchg = document.getElementById('m-chg');
+  mchg.className = 'modal-chg ' + chgClass;
+  mchg.textContent = t.change_pct != null ? `${chgSign}${t.change_pct.toFixed(1)}%` : '';
+
+  document.getElementById('m-badges').innerHTML = `
+    <span class="badge ${qm.cls}">${qm.label}</span>
+    <span class="badge badge-score">Score ${(t.score_total||0).toFixed(1)}</span>
+    ${t.claude_rank ? `<span class="badge" style="background: rgba(255,215,0,0.15); color: #ffd700;">⭐ Claude #${t.claude_rank}</span>` : ''}
+    ${t.reddit_sentiment_label ? `<span class="badge" style="background: var(--orange); color: #fff; opacity: 0.85;">여론: ${t.reddit_sentiment_label}</span>` : ''}
+  `;
+
+  const hasStrategy = t.entry != null && t.tp1 != null && t.sl != null;
+  const body = document.getElementById('modal-body');
+  body.innerHTML = `
+    ${t.narrative ? `
+      <div class="modal-narrative">
+        <div class="modal-section-title">📊 1~3일 단기 전망</div>
+        <p>${t.narrative}</p>
+      </div>
+    ` : ''}
+
+    ${hasStrategy ? `
+      <div class="modal-strategy">
+        <div class="modal-section-title">🎯 진입 전략</div>
+        <div class="strategy-ladder">
+          <div class="strategy-row tp2"><div class="strategy-icon">🎯</div><div class="strategy-label">2차 익절 · TP2</div><div class="strategy-price">$${fmt(t.tp2)}</div></div>
+          <div class="strategy-row tp1"><div class="strategy-icon">✅</div><div class="strategy-label">1차 익절 · TP1</div><div class="strategy-price">$${fmt(t.tp1)}</div></div>
+          <div class="strategy-row entry"><div class="strategy-icon">🟢</div><div class="strategy-label">진입가 · Entry</div><div class="strategy-price">$${fmt(t.entry)}</div></div>
+          <div class="strategy-row sl"><div class="strategy-icon">🛑</div><div class="strategy-label">손절 · Stop Loss</div><div class="strategy-price">$${fmt(t.sl)}</div></div>
+        </div>
+        ${t.entry_comment ? `<div class="strategy-comment">💬 ${t.entry_comment}</div>` : ''}
+      </div>
+    ` : ''}
+
+    <div>
+      <div class="modal-section-title">📡 시그널 상세 (4-Factor Breakdown)</div>
+      <div class="modal-signals-grid">
+        <div class="signal-box reddit">
+          <div class="signal-box-head"><div class="signal-box-name">Reddit</div><div class="signal-box-score">${t.score_reddit||0}</div></div>
+          ${renderRedditDetail(t)}
+        </div>
+        <div class="signal-box news">
+          <div class="signal-box-head"><div class="signal-box-name">News</div><div class="signal-box-score">${t.score_news||0}</div></div>
+          ${renderNewsDetail(t)}
+        </div>
+        <div class="signal-box trends">
+          <div class="signal-box-head"><div class="signal-box-name">Trends</div><div class="signal-box-score">${t.score_trends||0}</div></div>
+          ${renderTrendsDetail(t)}
+        </div>
+        <div class="signal-box options">
+          <div class="signal-box-head"><div class="signal-box-name">Options</div><div class="signal-box-score">${t.score_options||0}</div></div>
+          ${renderOptionsDetail(t)}
+        </div>
+      </div>
+    </div>
+
+    ${(t.catalysts && t.catalysts.length) || (t.risks && t.risks.length) ? `
+      <div class="modal-catalysts-risks">
+        ${t.catalysts && t.catalysts.length ? `
+          <div class="cat-box">
+            <div class="modal-section-title">🎯 카탈리스트</div>
+            <ul>${t.catalysts.map(c => `<li>${c}</li>`).join('')}</ul>
+          </div>
+        ` : ''}
+        ${t.risks && t.risks.length ? `
+          <div class="risk-box">
+            <div class="modal-section-title">⚠️ 리스크</div>
+            <ul>${t.risks.map(r => `<li>${r}</li>`).join('')}</ul>
+          </div>
+        ` : ''}
+      </div>
+    ` : ''}
+
+    <div class="modal-hint">ESC 키 또는 바깥 클릭으로 닫기</div>
+  `;
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderRedditDetail(t) {
+  if (t.reddit_breakdown && t.reddit_breakdown.length) {
+    return t.reddit_breakdown.map(r => `
+      <div class="signal-row">
+        <span class="signal-row-label">r/${r.sub}</span>
+        <span class="signal-row-val">${r.count}${r.sentiment != null ? ` · ${(r.sentiment*100).toFixed(0)}` : ''}</span>
+      </div>
+    `).join('');
+  }
+  return `<div class="signal-row"><span class="signal-row-label">언급 분포</span><span class="signal-row-val">데이터 없음</span></div>`;
+}
+
+function renderNewsDetail(t) {
+  if (t.news_headlines && t.news_headlines.length) {
+    return t.news_headlines.slice(0, 4).map(n => `
+      <div class="news-item">
+        ${n.title}
+        <span class="news-meta">${n.source || ''} · ${n.ago || ''}</span>
+      </div>
+    `).join('');
+  }
+  return `<div class="signal-row"><span class="signal-row-label">최근 헤드라인</span><span class="signal-row-val">—</span></div>`;
+}
+
+function renderTrendsDetail(t) {
+  return `
+    ${t.trend_surge_pct != null ? `<div class="signal-row"><span class="signal-row-label">7일 급증률</span><span class="signal-row-val">+${t.trend_surge_pct}%</span></div>` : ''}
+    <div class="signal-row"><span class="signal-row-label">Google 검색</span><span class="signal-row-val">${t.score_trends >= 70 ? '강세' : t.score_trends >= 50 ? '보통' : '약함'}</span></div>
+  `;
+}
+
+function renderOptionsDetail(t) {
+  const o = t.options_detail || {};
+  return `
+    ${o.call_volume != null ? `<div class="signal-row"><span class="signal-row-label">Call 거래량</span><span class="signal-row-val">${o.call_volume.toLocaleString()}</span></div>` : ''}
+    ${o.put_volume != null ? `<div class="signal-row"><span class="signal-row-label">Put 거래량</span><span class="signal-row-val">${o.put_volume.toLocaleString()}</span></div>` : ''}
+    ${o.cp_ratio != null ? `<div class="signal-row"><span class="signal-row-label">C/P 비율</span><span class="signal-row-val">${o.cp_ratio.toFixed(2)}</span></div>` : ''}
+    ${o.smart_money_ratio != null ? `<div class="signal-row"><span class="signal-row-label">스마트머니</span><span class="signal-row-val">×${o.smart_money_ratio.toFixed(1)}</span></div>` : ''}
+    ${o.unusual ? `<div class="signal-row" style="color: var(--bull);"><span>🔥 이례적 활동 감지</span></div>` : ''}
+  `;
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-overlay').addEventListener('click', (e) => {
+  if (e.target.id === 'modal-overlay') closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ============ UTIL ============
+function fmt(n) {
+  if (n == null) return '—';
+  if (n >= 1000) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  if (n >= 100) return n.toFixed(2);
+  if (n >= 10) return n.toFixed(2);
+  return n.toFixed(2);
+}
+
+// ============ BOOT ============
+init();
+</script>
+</body>
+</html>
