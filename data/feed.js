@@ -11,6 +11,11 @@ window.__SCREENER_FEED__ = {
     "version": 2,
     "reports": [
       {
+        "date": "2026-04-28",
+        "top_ticker": "NVDA",
+        "mood": "bullish"
+      },
+      {
         "date": "2026-04-23",
         "top_ticker": "NVDA",
         "mood": "neutral"
@@ -3343,6 +3348,1089 @@ window.__SCREENER_FEED__ = {
           "score_options": 18,
           "quadrant": "overheat",
           "claude_rank": null
+        }
+      ]
+    },
+    "2026-04-28": {
+      "date": "2026-04-28",
+      "date_display": "2026-04-28 (화·미국장)",
+      "market_mood": "bullish",
+      "market_mood_score": 71,
+      "market_summary": "내일 새벽 MSFT·GOOGL 동시 컨콜이 진짜 D-day예요. AI 캡엑스 가이던스 +20% 상향 컨센이 형성된 상황이라 NVDA·MRVL·AVGO 동반 매수세, 다만 갭다운 리스크도 동시에 큰 양날이에요.",
+      "sector_tilt": [
+        "Semiconductors",
+        "AI Infrastructure",
+        "Mega-Cap Tech"
+      ],
+      "top_ticker": "NVDA",
+      "candidate_count": 20,
+      "today_action": {
+        "one_liner": "내일 MSFT·GOOGL 컨콜 D-1 — NVDA·MRVL은 분할매집, GOOGL은 옵션 헷지, NBIS는 추격 금지가 정답이에요.",
+        "priorities": [
+          {
+            "icon": "🎯",
+            "ticker": "NVDA",
+            "text": "22:35 개장 직후 $205 근처 1차 분할진입, $203 지지 시 2차. 손절 $201 엄수, TP1 $211 / TP2 $218. MSFT 실적 직전 23:50 추가 매수 가능."
+          },
+          {
+            "icon": "💎",
+            "ticker": "MRVL",
+            "text": "23:00 매물 소화 후 $150 분할진입. GOOGL 컨콜에서 'Marvell' 직접 언급 시 +10% 갭업. 손절 $146.5, TP1 $159 / TP2 $167."
+          },
+          {
+            "icon": "🚨",
+            "ticker": "NBIS",
+            "text": "4월 +50% 후 RSI 78 과열. 갭업 +3% 이상이면 절대 신규 진입 금지, 보유자도 절반 익절 + 트레일링 스톱 권장."
+          }
+        ]
+      },
+      "routine_timeline": [
+        {
+          "time_kst": "21:30",
+          "time_et": "08:30",
+          "label": "📊 미국 3월 GDP 잠정치 발표 (컨센 +2.4%)",
+          "active": true
+        },
+        {
+          "time_kst": "21:45",
+          "time_et": "08:45",
+          "label": "🔍 프리마켓 NVDA·MRVL·AVGO 갭 체크 + GOOGL 옵션 IV 확인"
+        },
+        {
+          "time_kst": "22:30",
+          "time_et": "09:30",
+          "label": "🔔 미국장 개장",
+          "key": true
+        },
+        {
+          "time_kst": "22:35",
+          "time_et": "09:35",
+          "label": "🎯 NVDA $205 1차 분할진입 자리 (5분 캔들 마감 확인)"
+        },
+        {
+          "time_kst": "23:00",
+          "time_et": "10:00",
+          "label": "💎 MRVL $150 분할진입 + AVGO $1735 매수 자리"
+        },
+        {
+          "time_kst": "23:30",
+          "time_et": "10:30",
+          "label": "📈 EIA 원유 재고 발표 + WTI 모니터링"
+        },
+        {
+          "time_kst": "00:30",
+          "time_et": "11:30",
+          "label": "🔁 점심 박스 횡보 구간 — 신규 진입 자제, 익절 익절"
+        },
+        {
+          "time_kst": "02:00",
+          "time_et": "13:00",
+          "label": "📊 7년물 국채 입찰 결과 + DXY 체크"
+        },
+        {
+          "time_kst": "03:00",
+          "time_et": "14:00",
+          "label": "📰 FOMC 의사록 발표 (3월) — 매파 톤 확인"
+        },
+        {
+          "time_kst": "04:50",
+          "time_et": "15:50",
+          "label": "🚪 마감 10분 전 — TSLA $235 지지 최종 체크"
+        },
+        {
+          "time_kst": "05:00",
+          "time_et": "16:00",
+          "label": "🔚 미국장 마감 / 시간외 MSFT·GOOGL 실적 대기"
+        },
+        {
+          "time_kst": "05:05",
+          "time_et": "16:05",
+          "label": "📣 MSFT·GOOGL Q1 실적 동시 발표 — 22:30 ET 컨콜",
+          "key": true
+        }
+      ],
+      "sectors": [
+        {
+          "name": "Semiconductors",
+          "strength": 0.89,
+          "ticker_count": 6
+        },
+        {
+          "name": "AI Infrastructure",
+          "strength": 0.74,
+          "ticker_count": 2
+        },
+        {
+          "name": "Mega-Cap Tech",
+          "strength": 0.78,
+          "ticker_count": 4
+        },
+        {
+          "name": "Crypto / Bitcoin",
+          "strength": 0.69,
+          "ticker_count": 2
+        },
+        {
+          "name": "Space & Comm",
+          "strength": 0.52,
+          "ticker_count": 2
+        },
+        {
+          "name": "AI Software",
+          "strength": 0.62,
+          "ticker_count": 1
+        },
+        {
+          "name": "EV / Auto",
+          "strength": 0.55,
+          "ticker_count": 1
+        },
+        {
+          "name": "Fintech / Platform",
+          "strength": 0.5,
+          "ticker_count": 1
+        },
+        {
+          "name": "Meme / Retail",
+          "strength": 0.32,
+          "ticker_count": 1
+        }
+      ],
+      "claude_ranking": [
+        {
+          "rank": 1,
+          "ticker": "NVDA",
+          "reasoning": "내일 MSFT·GOOGL 캡엑스 발표 직전 마지막 분할매집 자리예요.",
+          "signals": [
+            "MSFT·GOOGL 컨콜 D-1 (4/29 22:30 ET)",
+            "HBM3E 공급 부족·ASP 인상 예약",
+            "Vera Rubin 양산 6월·소프트론칭 임박"
+          ]
+        },
+        {
+          "rank": 2,
+          "ticker": "MSFT",
+          "reasoning": "4/29 컨콜이 핵심. Azure +33% + 캡엑스 +25% 동시 비트면 AI 인프라 전체 리레이팅 트리거예요.",
+          "signals": [
+            "4/29 22:30 ET FY3Q 컨콜",
+            "Azure YoY 33% 컨센서스",
+            "Copilot ARR $20B 돌파 가능"
+          ]
+        },
+        {
+          "rank": 3,
+          "ticker": "MRVL",
+          "reasoning": "GOOGL 컨콜에서 Marvell 직접 언급 시 +10% 갭업. 옵션 콜플로우 평균대비 4배.",
+          "signals": [
+            "GOOGL TPU+MPU 파트너십 공식화",
+            "TSMC 2nm 캐파 우선 할당",
+            "커스텀 ASIC 매출 비중 35%"
+          ]
+        },
+        {
+          "rank": 4,
+          "ticker": "GOOGL",
+          "reasoning": "광고+클라우드+AI 오버뷰 트리플 비트가 $200 돌파 트리거예요. 다만 IV 47%로 양날.",
+          "signals": [
+            "Search 광고 +13% YoY 컨센",
+            "Cloud +30% 가이던스 핵심",
+            "AI 오버뷰 ARPU 첫 공개 가능성"
+          ]
+        },
+        {
+          "rank": 5,
+          "ticker": "AVGO",
+          "reasoning": "MSFT 캡엑스 +20% 상향이면 가장 빠르게 따라가는 베타. ASIC + 네트워킹 더블엔진.",
+          "signals": [
+            "하이퍼스케일러 ASIC 4사 동시 진행",
+            "Tomahawk 6 양산 매출 Q3 인식",
+            "VMware 시너지 50% 가시화"
+          ]
+        }
+      ],
+      "hidden_edges": [
+        {
+          "ticker": "MRVL",
+          "reason": "GOOGL TPU v6 + Marvell MPU 파트너십이 공식화됐는데 리테일 언급량은 NVDA의 1/4 수준이에요. 4/29 GOOGL 컨콜에서 'Marvell' 직접 언급 한 줄만 나와도 시장 인식이 '단기 테마주' → '장기 파트너'로 리레이팅 가능, 옵션 콜플로우는 이미 평균대비 4배로 스마트머니 선진입 신호가 명확해요."
+        },
+        {
+          "ticker": "SOFI",
+          "reason": "고금리 피크아웃 + 학자금 대출 재개·리파이 사이클 회복에 가장 베타 높은 핀테크인데 PLTR·MSTR 그늘에 가려 WSB 언급량 정체 중이에요. Q1 실적(5/5) 전 옵션 IV 50대 진입했지만 주가는 $15.4로 12개월 저점 부근이라 리스크/리워드 비율 제일 좋은 자리에요."
+        },
+        {
+          "ticker": "AVGO",
+          "reason": "MSFT 캡엑스 콜의 '제2 수혜주'로 NVDA 다음 가는 베타지만 절대 가격 $1700대 부담으로 리테일이 패스 중이에요. 4사 하이퍼스케일러 ASIC 동시 진행 + Tomahawk 6 양산 매출 Q3 인식 확정으로 기관은 '제2의 NVDA' 포지셔닝 중이에요."
+        }
+      ],
+      "overheated": [
+        {
+          "ticker": "NBIS",
+          "reason": "4월 한 달 +50% 급등에 RSI 78, 옵션 P/C 1.9로 명확한 과열 신호예요. AI21 인수·Meta 27B·NVDA 2B 트리플 카탈리스트가 다 가격에 반영된 상태라 다음 조정에서 매수가 안전해요."
+        },
+        {
+          "ticker": "PLTR",
+          "reason": "리테일 1순위 종목으로 WSB 언급량 1위지만 PER 175x + IV 56%는 멀티플 압박 재개 시 가장 취약한 위치예요. Q1 실적(5/5) 가이던스가 컨센서스 미스 한 번이면 -10% 갭다운 리스크예요."
+        },
+        {
+          "ticker": "AMD",
+          "reason": "반도체 17세션 연속 상승 피로도 + RSI 78. NVDA·MRVL 트리플 카탈리스트 그늘에 가려 절대 모멘텀은 약화 중. 단기 추격 금지, $165 지지 재확인 후가 안전해요."
+        }
+      ],
+      "tickers": [
+        {
+          "rank": 1,
+          "ticker": "NVDA",
+          "name": "NVIDIA Corporation",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 205.8,
+          "change_pct": -0.6,
+          "score_total": 88.7,
+          "score_reddit": 89,
+          "score_news": 91,
+          "score_trends": 82,
+          "score_options": 93,
+          "claude_rank": 1,
+          "claude_summary": "내일(4/29) MSFT·GOOGL 캡엑스 발표 직전 '눌림 매집' 자리예요. 11세션 상승 후 5일째 횡보 = 매물 소화 마무리 신호.",
+          "claude_signals": [
+            "MSFT·GOOGL 캡엑스 가이던스 4/29 발표 D-1",
+            "HBM3E 공급 부족 → ASP 인상 가능성",
+            "Vera Rubin 양산 일정 6월 → 소프트론칭 임박"
+          ],
+          "narrative": "오늘은 내일 MSFT·GOOGL 실적의 '캡엑스 멘트' 베팅 자리예요. 지난주 신고가 $208 찍고 5일째 $204~$207 박스 횡보 중인데, 이건 매물 소화 후 추가 상승 패턴이에요. 리테일은 'AI 사이클 한복판' 서사로 단단히 홀드 중이고, 기관은 4/29 오후 MSFT 컨콜에서 캡엑스 가이던스 +20% 상향 시 멀티플 한 단계 더 가능성에 베팅 중이에요.",
+          "entry": 204.5,
+          "tp1": 211.0,
+          "tp2": 218.0,
+          "sl": 201.0,
+          "entry_comment": "22:35 개장 직후 $205 근처 1차 분할, $203 지지 확인 시 2차. MSFT 실적 직전 23:50 추가 매수는 리스크 헷지로 손절 $201 엄수.",
+          "catalysts": [
+            "4/29 MSFT 캡엑스 가이던스 발표 (22:30 ET 컨콜)",
+            "4/29 GOOGL 클라우드 매출 가이던스",
+            "HBM3E 공급가 인상 협상 5월 마무리"
+          ],
+          "risks": [
+            "MSFT 캡엑스 컨센서스 미스 시 갭다운 -3% 이상",
+            "GOOGL TPU v6 강조 → GPU 대체 우려 재점화",
+            "연승 피로도 + 모멘텀 펀드 차익실현"
+          ],
+          "reddit_sentiment_label": "매우 긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 1380,
+              "sentiment": 0.74
+            },
+            {
+              "sub": "stocks",
+              "count": 485,
+              "sentiment": 0.66
+            },
+            {
+              "sub": "investing",
+              "count": 312,
+              "sentiment": 0.61
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "NVIDIA poised for 'biggest week' as MSFT, GOOGL capex calls loom",
+              "source": "Bloomberg",
+              "ago": "2h"
+            },
+            {
+              "title": "Bernstein raises NVDA target to $275, cites HBM3E shortage as ASP tailwind",
+              "source": "Reuters",
+              "ago": "6h"
+            },
+            {
+              "title": "Hyperscaler 2026 AI capex tracking +28% YoY, all eyes on MSFT",
+              "source": "WSJ",
+              "ago": "14h"
+            }
+          ],
+          "trend_surge_pct": 42,
+          "options_detail": {
+            "call_volume": 328000,
+            "put_volume": 94000,
+            "cp_ratio": 3.5,
+            "smart_money_ratio": 0.79,
+            "unusual": true
+          },
+          "quadrant": "hot"
+        },
+        {
+          "rank": 2,
+          "ticker": "MSFT",
+          "name": "Microsoft Corporation",
+          "sector": "Mega Tech",
+          "sector_full": "Mega-Cap Tech",
+          "price": 472.6,
+          "change_pct": 0.4,
+          "score_total": 85.2,
+          "score_reddit": 74,
+          "score_news": 92,
+          "score_trends": 80,
+          "score_options": 95,
+          "claude_rank": 2,
+          "claude_summary": "내일 새벽 4/29 컨콜이 핵심 이벤트예요. Azure +33% 성장 + 캡엑스 +25% 상향 시 NVDA·AVGO·MRVL 동반 랠리 트리거.",
+          "claude_signals": [
+            "4/29 22:30 ET 컨콜·Azure YoY 성장률 핵심",
+            "캡엑스 가이던스 추가 상향 컨센서스 형성",
+            "Copilot ARR $20B 돌파 가능성"
+          ],
+          "narrative": "내일 새벽이 진짜 디시전 데이예요. Azure YoY 성장률이 33% 이상 + 캡엑스 +25% 상향이 동시에 나오면 AI 인프라 전체가 리레이팅돼요. 리테일은 'MSFT는 보수적이라 IV 낮은데 보상은 가장 큼'이라는 헷지 트레이드 추천 중. 옵션 콜 IV 28%로 NVDA(58%) 대비 절반이라 변동성 매수 자리도 매력적이에요.",
+          "entry": 471.0,
+          "tp1": 485.0,
+          "tp2": 498.0,
+          "sl": 463.0,
+          "entry_comment": "실적 전 포지션은 옵션이 더 유리. 주식 매수는 컨콜 후 가이던스 확인 후 시간외 +2% 이내일 때.",
+          "catalysts": [
+            "4/29 22:30 ET FY3Q 컨콜",
+            "Azure YoY +33% 컨센서스",
+            "Copilot ARR + 캡엑스 가이던스 동시 발표"
+          ],
+          "risks": [
+            "Azure 성장률 30% 하회 시 갭다운 -5%",
+            "캡엑스 가이던스 동결 → AI 인프라 전체 매물",
+            "CoreWeave·Oracle 클라우드 점유율 잠식 지표"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 420,
+              "sentiment": 0.62
+            },
+            {
+              "sub": "stocks",
+              "count": 680,
+              "sentiment": 0.71
+            },
+            {
+              "sub": "investing",
+              "count": 540,
+              "sentiment": 0.69
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Microsoft Q3 preview: All eyes on Azure growth and AI capex",
+              "source": "CNBC",
+              "ago": "4h"
+            },
+            {
+              "title": "Wedbush bullish into MSFT print, sees $550 in 12 months",
+              "source": "Yahoo Finance",
+              "ago": "9h"
+            },
+            {
+              "title": "Copilot Studio enterprise penetration accelerating, channel checks",
+              "source": "Morgan Stanley note",
+              "ago": "1d"
+            }
+          ],
+          "trend_surge_pct": 58,
+          "options_detail": {
+            "call_volume": 172000,
+            "put_volume": 68000,
+            "cp_ratio": 2.5,
+            "smart_money_ratio": 0.74,
+            "unusual": true
+          },
+          "quadrant": "hot"
+        },
+        {
+          "rank": 3,
+          "ticker": "MRVL",
+          "name": "Marvell Technology",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 151.2,
+          "change_pct": 1.8,
+          "score_total": 83.6,
+          "score_reddit": 78,
+          "score_news": 88,
+          "score_trends": 82,
+          "score_options": 86,
+          "claude_rank": 3,
+          "claude_summary": "GOOGL 4/29 컨콜에서 'Marvell' 직접 언급 시 +10% 갭업 가능. 지금이 마지막 매수 자리예요.",
+          "claude_signals": [
+            "GOOGL TPU v6 + Marvell MPU 파트너십 공식화",
+            "TSMC 2nm 캐파 우선 할당 선점",
+            "커스텀 실리콘 ASIC 매출 비중 +35%"
+          ],
+          "narrative": "히든엣지가 메인 무대로 올라오는 중이에요. 내일 GOOGL 컨콜에서 'Marvell' 명시적 언급되면 +10% 갭업 가능성이 시장 기대치예요. 리테일은 아직 NVDA 그늘에 가려 언급량 NVDA의 1/4 수준이지만, 옵션 콜플로우는 평균대비 3.5배로 스마트머니가 먼저 진입 중인 구간이에요.",
+          "entry": 150.0,
+          "tp1": 159.0,
+          "tp2": 167.0,
+          "sl": 146.5,
+          "entry_comment": "23:00 매물 소화 후 $150 분할진입 권장. GOOGL 실적 직전 23:50까지 추가 매수, 컨콜 직후 시간외 모니터링.",
+          "catalysts": [
+            "4/29 GOOGL 컨콜에서 Marvell 직접 언급 가능성",
+            "TSMC 2nm Risk Production Q3 시작",
+            "커스텀 ASIC 매출 비중 35% → 5월 가이던스에서 명시"
+          ],
+          "risks": [
+            "GOOGL이 'in-house only' 강조 시 -8% 갭다운",
+            "Broadcom AVGO와의 ASIC 경쟁 격화",
+            "FY 가이던스 보수적 발표 시 모멘텀 둔화"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 340,
+              "sentiment": 0.68
+            },
+            {
+              "sub": "stocks",
+              "count": 210,
+              "sentiment": 0.65
+            },
+            {
+              "sub": "semiconductors",
+              "count": 180,
+              "sentiment": 0.72
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Marvell rallies 1.8% on Google TPU partnership chatter",
+              "source": "Bloomberg",
+              "ago": "3h"
+            },
+            {
+              "title": "Citi adds MRVL to top picks, $190 PT on custom silicon ramp",
+              "source": "Reuters",
+              "ago": "7h"
+            },
+            {
+              "title": "Custom ASIC market 2027 TAM raised to $35B by Wells Fargo",
+              "source": "Investor's Business Daily",
+              "ago": "1d"
+            }
+          ],
+          "trend_surge_pct": 71,
+          "options_detail": {
+            "call_volume": 98000,
+            "put_volume": 24000,
+            "cp_ratio": 4.1,
+            "smart_money_ratio": 0.82,
+            "unusual": true
+          },
+          "quadrant": "hot"
+        },
+        {
+          "rank": 4,
+          "ticker": "GOOGL",
+          "name": "Alphabet Inc.",
+          "sector": "Mega Tech",
+          "sector_full": "Mega-Cap Tech",
+          "price": 182.4,
+          "change_pct": 0.7,
+          "score_total": 81.5,
+          "score_reddit": 68,
+          "score_news": 89,
+          "score_trends": 78,
+          "score_options": 91,
+          "claude_rank": 4,
+          "claude_summary": "4/29 컨콜이 D-day. 광고+클라우드+AI Overview 트리플 비트면 $200 돌파, 미스면 -7% 컷. IV 47%.",
+          "claude_signals": [
+            "4/29 22:30 ET FY1Q 컨콜",
+            "Search 광고 매출 YoY +13% 컨센",
+            "클라우드 매출 YoY +30% 가이던스 핵심"
+          ],
+          "narrative": "내일 컨콜은 '광고 + 클라우드 + AI 오버뷰 수익화' 3박자가 모두 가시화되는지가 관건이에요. 트리플 비트면 $200 저항 돌파, 미스 하나만 나와도 -5~7% 갭다운 리스크. 옵션 IV 47%는 MSFT 28%보다 부담 크지만 그만큼 기대치도 큰 구간이에요.",
+          "entry": 181.5,
+          "tp1": 192.0,
+          "tp2": 201.0,
+          "sl": 177.5,
+          "entry_comment": "실적 전 신규 진입은 옵션 콜스프레드가 안전. 보유자는 부분 익절 + 쇼트레그로 헷지 권장.",
+          "catalysts": [
+            "4/29 22:30 ET 컨콜",
+            "Search 광고 +13% YoY 컨센",
+            "Cloud +30% + AI 오버뷰 ARPU 첫 공개"
+          ],
+          "risks": [
+            "광고 매출 미스 시 -7% 갭다운",
+            "DOJ 검색 분할 명령 가능성 5월",
+            "TPU v6 in-house 강조 시 MRVL 동반 매물"
+          ],
+          "reddit_sentiment_label": "중립",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 380,
+              "sentiment": 0.52
+            },
+            {
+              "sub": "stocks",
+              "count": 290,
+              "sentiment": 0.58
+            },
+            {
+              "sub": "investing",
+              "count": 210,
+              "sentiment": 0.6
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Alphabet's Q1 print: ad resilience meets AI capex test",
+              "source": "WSJ",
+              "ago": "2h"
+            },
+            {
+              "title": "Wells Fargo holds $215 PT on GOOGL, flags DOJ overhang",
+              "source": "Reuters",
+              "ago": "8h"
+            },
+            {
+              "title": "Cloud growth seen pivotal as MSFT race tightens",
+              "source": "Bloomberg",
+              "ago": "11h"
+            }
+          ],
+          "trend_surge_pct": 64,
+          "options_detail": {
+            "call_volume": 228000,
+            "put_volume": 102000,
+            "cp_ratio": 2.2,
+            "smart_money_ratio": 0.71,
+            "unusual": true
+          },
+          "quadrant": "hidden"
+        },
+        {
+          "rank": 5,
+          "ticker": "AVGO",
+          "name": "Broadcom Inc.",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 1742.0,
+          "change_pct": 1.1,
+          "score_total": 79.8,
+          "score_reddit": 66,
+          "score_news": 85,
+          "score_trends": 74,
+          "score_options": 88,
+          "claude_rank": 5,
+          "claude_summary": "MSFT 캡엑스 상향이면 가장 빠르게 +5% 따라가는 베타. ASIC + 네트워킹 더블엔진 작동 중이에요.",
+          "claude_signals": [
+            "하이퍼스케일러 ASIC 수주 4개사 동시 진행",
+            "Tomahawk 6 네트워킹 칩 양산 시작",
+            "VMware 시너지 매출 50% 가시화"
+          ],
+          "narrative": "MSFT 캡엑스가 +20% 이상 상향이면 AVGO가 NVDA·MRVL과 함께 가장 빠르게 따라가는 베타예요. 4개 하이퍼스케일러와 동시에 ASIC 진행 중이고, Tomahawk 6 네트워킹 칩이 양산 시작되며 매출 mix 개선 중. 리테일은 비싸다고 패스하지만 기관은 '제2의 NVDA'로 보강 중이에요.",
+          "entry": 1735.0,
+          "tp1": 1810.0,
+          "tp2": 1880.0,
+          "sl": 1705.0,
+          "entry_comment": "개장 후 $1735 분할진입 권장, MSFT 실적 직전 $1740 돌파 시 추격 매수 가능. 손절 $1705.",
+          "catalysts": [
+            "MSFT 캡엑스 +25% 시 동반 +5%",
+            "Tomahawk 6 양산 매출 Q3 인식",
+            "VMware Cloud Foundation 갱신 사이클"
+          ],
+          "risks": [
+            "주가 절대 레벨 부담 → 회복 시 단기 차익실현",
+            "ASIC 경쟁사 MRVL과 마진 압박",
+            "VMware 가격 정책 비판 → 일부 고객 이탈 우려"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 210,
+              "sentiment": 0.58
+            },
+            {
+              "sub": "stocks",
+              "count": 340,
+              "sentiment": 0.65
+            },
+            {
+              "sub": "semiconductors",
+              "count": 160,
+              "sentiment": 0.7
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Broadcom expands ASIC pipeline to four hyperscalers",
+              "source": "Bloomberg",
+              "ago": "5h"
+            },
+            {
+              "title": "Tomahawk 6 ramp adds $4B revenue tailwind, says Goldman",
+              "source": "Reuters",
+              "ago": "10h"
+            },
+            {
+              "title": "AVGO PT raised to $1900 at Mizuho citing custom silicon",
+              "source": "Yahoo Finance",
+              "ago": "1d"
+            }
+          ],
+          "trend_surge_pct": 48,
+          "options_detail": {
+            "call_volume": 86000,
+            "put_volume": 28000,
+            "cp_ratio": 3.1,
+            "smart_money_ratio": 0.77,
+            "unusual": true
+          },
+          "quadrant": "hidden"
+        },
+        {
+          "rank": 6,
+          "ticker": "AMD",
+          "name": "Advanced Micro Devices",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 172.8,
+          "change_pct": 0.8,
+          "score_total": 76.4,
+          "score_reddit": 74,
+          "score_news": 78,
+          "score_trends": 76,
+          "score_options": 78,
+          "claude_rank": null,
+          "claude_summary": "MI355X 실수요는 강하지만 NVDA·MRVL 트리플 카탈리스트 그늘에 가린 '준대장'이에요. 스왑 트레이드 후보.",
+          "claude_signals": [
+            "MI355X 양산 본격 램프",
+            "5월 Advancing AI 이벤트 D-3주",
+            "연속 17세션 상승 후 첫 횡보"
+          ],
+          "narrative": "반도체 섹터가 17세션째 상승 중이라 추격은 부담스럽지만, AMD는 5월 Advancing AI 이벤트(D-3주)가 주가 트리거로 남아있어요. NVDA·MRVL 그늘에 가려 '준대장' 위치라 단기 스왑 트레이드 후보로 적합해요.",
+          "entry": 171.0,
+          "tp1": 178.0,
+          "tp2": 185.0,
+          "sl": 167.5,
+          "entry_comment": "개장 후 $171 분할 진입, RSI 78 과매수 구간이라 절반만 빌드.",
+          "catalysts": [
+            "MI355X 양산 본격 램프",
+            "5월 Advancing AI 이벤트 로드맵",
+            "중국 제재 완화 협상 진전"
+          ],
+          "risks": [
+            "연속 17세션 상승 피로도 / 모멘텀 펀드 차익실현",
+            "NVDA Vera Rubin 발표 시 스포트라이트 이탈",
+            "Iran 협상 재경색 시 반도체 매물 1순위"
+          ],
+          "quadrant": "hot"
+        },
+        {
+          "rank": 7,
+          "ticker": "TSLA",
+          "name": "Tesla Inc.",
+          "sector": "EV / Auto",
+          "sector_full": "EV / Auto",
+          "price": 238.6,
+          "change_pct": 1.4,
+          "score_total": 74.8,
+          "score_reddit": 80,
+          "score_news": 62,
+          "score_trends": 78,
+          "score_options": 80,
+          "claude_rank": null,
+          "claude_summary": "4/22 캡엑스 쇼크 -8% 후 $235에서 트리플 바텀 형성 중. 단기 반등은 있지만 신뢰 회복은 5월 로보택시 데이까지 보류.",
+          "claude_signals": [
+            "$235 트리플 바텀 형성",
+            "Robotaxi Day 5/15 D-2주반",
+            "FSD v13 안정화 데이터 호조"
+          ],
+          "narrative": "4/22 -8% 갭다운 후 $235 지지에서 4세션째 횡보 중이에요. Robotaxi Day(5/15)까지 약 2주반 남았고, FSD v13 데이터가 안정화되며 리테일 컨피던스 회복 중. 다만 신규 주문 데이터가 나올 때까지 기관은 관망 모드라 모멘텀 회복은 더딜 가능성이 커요.",
+          "entry": 237.0,
+          "tp1": 248.0,
+          "tp2": 258.0,
+          "sl": 233.0,
+          "entry_comment": "$235 지지 재확인 후 $237에서 분할진입. 손절 $233 이탈 시 즉시 컷.",
+          "catalysts": [
+            "5/15 Robotaxi Day 공개",
+            "FSD v13 GA 출시",
+            "Cybertruck 누적 인도 5만대 마일스톤"
+          ],
+          "risks": [
+            "캡엑스 가이던스 추가 하향 시 신뢰 한 번 더",
+            "Q1 인도 데이터 컨센 미스",
+            "머스크 X CEO 겸직 이슈 재점화"
+          ],
+          "quadrant": "overheat"
+        },
+        {
+          "rank": 8,
+          "ticker": "PLTR",
+          "name": "Palantir Technologies",
+          "sector": "AI Software",
+          "sector_full": "AI Software",
+          "price": 134.5,
+          "change_pct": -0.3,
+          "score_total": 73.2,
+          "score_reddit": 86,
+          "score_news": 68,
+          "score_trends": 80,
+          "score_options": 62,
+          "claude_rank": null,
+          "claude_summary": "리테일 1순위 종목이지만 PER 175x로 멀티플 부담. Q1 실적(5/5) 전까지 박스권 트레이딩이 현실적이에요.",
+          "claude_signals": [
+            "Q1 실적 5/5 발표 D-1주",
+            "미국방·NHS 신규 수주 헤드라인",
+            "RSI 72 + IV 56 — 과열 시그널"
+          ],
+          "narrative": "리테일 1순위 종목으로 WSB 언급량 1위 자리는 굳건하지만, PER 175x + 옵션 IV 56%는 명확한 과열 신호예요. Q1 실적(5/5)까지 박스권 $130~$140 트레이딩이 합리적이고, 추격은 5/5 실적 가이던스 확인 후가 안전해요.",
+          "entry": 132.5,
+          "tp1": 138.0,
+          "tp2": 143.0,
+          "sl": 129.0,
+          "entry_comment": "$132 지지 재확인 후 분할진입, 실적 직전 신규 매수 금지.",
+          "catalysts": [
+            "5/5 Q1 실적",
+            "미국방 신규 계약 헤드라인",
+            "NHS 영국 본계약 체결"
+          ],
+          "risks": [
+            "PER 175x 멀티플 압박",
+            "Q1 가이던스 컨센서스 하회 시 -10%",
+            "옵션 IV 56 → 실적 후 IV 크러시"
+          ],
+          "quadrant": "overheat"
+        },
+        {
+          "rank": 9,
+          "ticker": "NBIS",
+          "name": "Nebius Group N.V.",
+          "sector": "AI Infra",
+          "sector_full": "AI Infrastructure",
+          "price": 48.2,
+          "change_pct": 2.6,
+          "score_total": 72.8,
+          "score_reddit": 92,
+          "score_news": 66,
+          "score_trends": 94,
+          "score_options": 40,
+          "claude_rank": null,
+          "claude_summary": "4월 +50% 후 한 차례 조정 끝나고 재차 상승 중. AI21 인수 + Meta 27B 시너지 + NVDA 2B 투자. 단기 추격은 위험.",
+          "claude_signals": [
+            "AI21 인수 발표 4/24",
+            "Meta 27B 캐파 재계약",
+            "NVDA 2B 투자 + 6.7% 지분"
+          ],
+          "narrative": "4월 +50% 급등 후 4/23~24 -7% 조정 끝나고 다시 상승 재개 중이에요. AI21 인수 시너지·Meta 27B 캐파·NVDA 2B 투자라는 트리플 카탈리스트가 살아있지만, RSI 78 + 옵션 P/C 1.9는 명확한 과열 신호. 추격보다 다음 조정에서 매수가 안전해요.",
+          "entry": 47.0,
+          "tp1": 52.0,
+          "tp2": 56.0,
+          "sl": 45.0,
+          "entry_comment": "오늘 추격 매수 금지. $45 조정 시 분할진입 대기.",
+          "catalysts": [
+            "AI21 인수 시너지 매출 Q3 인식",
+            "Meta 27B 캐파 재계약",
+            "유럽 AI 인프라 보조금 협상 진전"
+          ],
+          "risks": [
+            "RSI 78 과열 + 차익실현 매도벽",
+            "Meta 자체 캐파 확장 시 의존도 우려",
+            "옵션 P/C 1.9 → 단기 풋 헷지 활발"
+          ],
+          "quadrant": "overheat"
+        },
+        {
+          "rank": 10,
+          "ticker": "MSTR",
+          "name": "MicroStrategy Inc.",
+          "sector": "Crypto",
+          "sector_full": "Crypto / Bitcoin",
+          "price": 1652.0,
+          "change_pct": 1.6,
+          "score_total": 71.4,
+          "score_reddit": 88,
+          "score_trends": 76,
+          "score_news": 68,
+          "score_options": 54,
+          "claude_rank": null,
+          "claude_summary": "BTC $84K 재돌파 + 5/8 ETF 유동성 추가 = 한 번 더 모멘텀. 다만 MSTR 프리미엄 1.8x는 부담.",
+          "claude_signals": [
+            "BTC $84K 재돌파 임박",
+            "5/8 BTC 마이크로 ETF 추가 상장",
+            "6월 NAV 프리미엄 추가 매수 5억 달러 발표"
+          ],
+          "narrative": "BTC가 $84K 재돌파 시 MSTR 단기 모멘텀 한 번 더 가능해요. 다만 NAV 프리미엄 1.8x는 역사적 평균 1.4x 대비 30% 비싸고, 5/8 마이크로 ETF 추가 상장 후 유동성 분산 시 프리미엄 축소 리스크가 있어요. 단기 트레이드 외에는 보유 비중 줄이는 전략이 합리적이에요.",
+          "entry": 1640.0,
+          "tp1": 1720.0,
+          "tp2": 1800.0,
+          "sl": 1605.0,
+          "entry_comment": "$1640 지지 확인 후 분할진입, BTC $80K 이탈 시 즉시 손절.",
+          "catalysts": [
+            "BTC $84K 재돌파",
+            "5/8 BTC 마이크로 ETF 상장",
+            "6월 추가 매수 5억 달러 발표"
+          ],
+          "risks": [
+            "NAV 프리미엄 1.8x 부담",
+            "ETF 상장 후 유동성 분산",
+            "BTC $80K 이탈 시 -15% 압박"
+          ],
+          "quadrant": "overheat"
+        },
+        {
+          "rank": 11,
+          "ticker": "AAPL",
+          "name": "Apple Inc.",
+          "sector": "Mega Tech",
+          "sector_full": "Mega-Cap Tech",
+          "price": 231.5,
+          "change_pct": 0.2,
+          "score_total": 68.9,
+          "score_reddit": 58,
+          "score_news": 74,
+          "score_trends": 58,
+          "score_options": 86,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "hidden"
+        },
+        {
+          "rank": 12,
+          "ticker": "COIN",
+          "name": "Coinbase Global",
+          "sector": "Crypto",
+          "sector_full": "Crypto / Bitcoin",
+          "price": 248.2,
+          "change_pct": 1.2,
+          "score_total": 67.6,
+          "score_reddit": 76,
+          "score_news": 62,
+          "score_trends": 74,
+          "score_options": 58,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "overheat"
+        },
+        {
+          "rank": 13,
+          "ticker": "META",
+          "name": "Meta Platforms",
+          "sector": "Mega Tech",
+          "sector_full": "Mega-Cap Tech",
+          "price": 598.4,
+          "change_pct": -0.5,
+          "score_total": 66.5,
+          "score_reddit": 54,
+          "score_news": 76,
+          "score_trends": 56,
+          "score_options": 80,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "hidden"
+        },
+        {
+          "rank": 14,
+          "ticker": "AMZN",
+          "name": "Amazon.com",
+          "sector": "Mega Tech",
+          "sector_full": "Mega-Cap Tech",
+          "price": 214.6,
+          "change_pct": 0.6,
+          "score_total": 65.2,
+          "score_reddit": 52,
+          "score_news": 74,
+          "score_trends": 58,
+          "score_options": 76,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "hidden"
+        },
+        {
+          "rank": 15,
+          "ticker": "RKLB",
+          "name": "Rocket Lab USA",
+          "sector": "Space",
+          "sector_full": "Space & Comm",
+          "price": 29.4,
+          "change_pct": 2.1,
+          "score_total": 64.8,
+          "score_reddit": 74,
+          "score_news": 58,
+          "score_trends": 78,
+          "score_options": 48,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "overheat"
+        },
+        {
+          "rank": 16,
+          "ticker": "SOFI",
+          "name": "SoFi Technologies",
+          "sector": "Fintech",
+          "sector_full": "Fintech / Platform",
+          "price": 15.4,
+          "change_pct": 1.0,
+          "score_total": 63.4,
+          "score_reddit": 62,
+          "score_news": 68,
+          "score_trends": 54,
+          "score_options": 70,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "watch"
+        },
+        {
+          "rank": 17,
+          "ticker": "TSM",
+          "name": "Taiwan Semiconductor",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 192.6,
+          "change_pct": 0.9,
+          "score_total": 62.9,
+          "score_reddit": 48,
+          "score_news": 74,
+          "score_trends": 54,
+          "score_options": 76,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "hidden"
+        },
+        {
+          "rank": 18,
+          "ticker": "GME",
+          "name": "GameStop Corp.",
+          "sector": "Meme",
+          "sector_full": "Meme / Retail",
+          "price": 24.8,
+          "change_pct": -2.1,
+          "score_total": 61.5,
+          "score_reddit": 94,
+          "score_news": 42,
+          "score_trends": 86,
+          "score_options": 24,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "overheat"
+        },
+        {
+          "rank": 19,
+          "ticker": "ASTS",
+          "name": "AST SpaceMobile",
+          "sector": "Space",
+          "sector_full": "Space & Comm",
+          "price": 18.6,
+          "change_pct": -1.6,
+          "score_total": 60.2,
+          "score_reddit": 78,
+          "score_news": 52,
+          "score_trends": 68,
+          "score_options": 42,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "watch"
+        },
+        {
+          "rank": 20,
+          "ticker": "SMCI",
+          "name": "Super Micro Computer",
+          "sector": "AI Infra",
+          "sector_full": "AI Infrastructure",
+          "price": 58.4,
+          "change_pct": 1.3,
+          "score_total": 59.6,
+          "score_reddit": 68,
+          "score_news": 54,
+          "score_trends": 62,
+          "score_options": 54,
+          "claude_rank": null,
+          "claude_summary": null,
+          "claude_signals": [],
+          "narrative": null,
+          "entry": null,
+          "tp1": null,
+          "tp2": null,
+          "sl": null,
+          "entry_comment": null,
+          "catalysts": [],
+          "risks": [],
+          "quadrant": "watch"
         }
       ]
     }
