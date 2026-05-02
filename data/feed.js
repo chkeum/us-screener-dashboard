@@ -11,6 +11,11 @@ window.__SCREENER_FEED__ = {
     "version": 2,
     "reports": [
       {
+        "date": "2026-05-02",
+        "top_ticker": "PLTR",
+        "mood": "bullish"
+      },
+      {
         "date": "2026-04-30",
         "top_ticker": "AMZN",
         "mood": "neutral"
@@ -38,6 +43,939 @@ window.__SCREENER_FEED__ = {
     ]
   },
   "archive": {
+    "2026-05-02": {
+      "date": "2026-05-02",
+      "date_display": "2026-05-02 (토·주말 · 월요일 개장 준비)",
+      "market_mood": "bullish",
+      "market_mood_score": 68,
+      "market_summary": "금요일 S&P·나스닥 동반 사상 최고치 마감했어요. AI 캐펙스 테마가 멈추지 않고($700B 전망), 애플 어닝 비트로 빅테크 모멘텀 살아있어요. 다음주 PLTR(월), AMD(화), COIN(목) 어닝이 핵심이에요.",
+      "sector_tilt": [
+        "Semiconductors",
+        "Mega-cap Tech",
+        "Space/Satellite"
+      ],
+      "top_ticker": "PLTR",
+      "candidate_count": 20,
+      "today_action": {
+        "one_liner": "주말이라 미국장 휴장이에요. PLTR 월요일 장마감 후 어닝 대비 포지션 점검이 핵심.",
+        "priorities": [
+          {
+            "icon": "🎯",
+            "ticker": "PLTR",
+            "text": "월(5/4) AMC 어닝 — 옵션 IV 폭등 중. 콜 매수보다 캘린더/스트래들로 IV 크러시 헷지. 진입은 월요일 장중 110~115 박스 하단에서만, 손절 109."
+          },
+          {
+            "icon": "💎",
+            "ticker": "RKLB",
+            "text": "FCC 위성 스펙트럼 룰 수혜 + 우주 테마 모멘텀. 월요일 갭업 시 추격 X, 80~82 눌림목 분할매수, 1차 TP 88, 손절 78."
+          },
+          {
+            "icon": "🚨",
+            "ticker": "NVDA",
+            "text": "금요일 -4.6% 급락(209→199)으로 단기 다이버전스. 195 깨면 추가 하락. 월 개장 강한 반등 없으면 신규 진입 금지, 195 손절 라인 사수."
+          }
+        ]
+      },
+      "routine_timeline": [
+        {
+          "time_kst": "주말",
+          "time_et": "휴장",
+          "label": "📰 주말 헤드라인 점검 — Powell 후임(Warsh) 인준 진행, 5/15 임기 만료",
+          "active": true
+        },
+        {
+          "time_kst": "일 22:00",
+          "time_et": "—",
+          "label": "🔍 선물(ES/NQ) 일요일 야간 개장 체크",
+          "active": false
+        },
+        {
+          "time_kst": "월 21:30",
+          "time_et": "08:30",
+          "label": "📊 프리마켓 갭/뉴스 1차 점검",
+          "active": false
+        },
+        {
+          "time_kst": "월 22:30",
+          "time_et": "09:30",
+          "label": "🔔 미국장 개장 (월요일)",
+          "key": true,
+          "active": false
+        },
+        {
+          "time_kst": "월 22:35",
+          "time_et": "09:35",
+          "label": "🎯 PLTR/RKLB 1차 분할 진입 윈도우 (5분 캔들 확정 후)",
+          "active": false
+        },
+        {
+          "time_kst": "월 23:30",
+          "time_et": "10:30",
+          "label": "📈 1시간봉 마감 — 시초 변동성 정리",
+          "active": false
+        },
+        {
+          "time_kst": "화 02:00",
+          "time_et": "13:00",
+          "label": "🍔 점심 휴식 — 박스권 흐름",
+          "active": false
+        },
+        {
+          "time_kst": "화 04:00",
+          "time_et": "15:00",
+          "label": "⚡ 마감 1시간 전 자금 흐름",
+          "active": false
+        },
+        {
+          "time_kst": "화 05:00",
+          "time_et": "16:00",
+          "label": "🔔 정규장 마감",
+          "active": false
+        },
+        {
+          "time_kst": "화 05:00+",
+          "time_et": "16:00+",
+          "label": "💥 PLTR 어닝 발표 (AMC) — 가이던스 주목",
+          "key": true,
+          "active": false
+        }
+      ],
+      "sectors": [
+        {
+          "name": "Semiconductors",
+          "strength": 0.82,
+          "ticker_count": 5
+        },
+        {
+          "name": "Mega-cap Tech",
+          "strength": 0.78,
+          "ticker_count": 4
+        },
+        {
+          "name": "Space/Satellite",
+          "strength": 0.74,
+          "ticker_count": 3
+        },
+        {
+          "name": "AI Infrastructure",
+          "strength": 0.71,
+          "ticker_count": 3
+        },
+        {
+          "name": "Crypto/Fintech",
+          "strength": 0.62,
+          "ticker_count": 2
+        },
+        {
+          "name": "Energy",
+          "strength": 0.58,
+          "ticker_count": 2
+        },
+        {
+          "name": "Biotech",
+          "strength": 0.42,
+          "ticker_count": 1
+        }
+      ],
+      "claude_ranking": [
+        {
+          "rank": 1,
+          "ticker": "PLTR",
+          "reasoning": "월요일 AMC 어닝 — 정부·상업 모두 가속, IV 프리미엄 매도 전략 가능",
+          "signals": [
+            "Earnings 5/4 AMC",
+            "옵션 IV 70%+",
+            "AI 정부계약 확장"
+          ]
+        },
+        {
+          "rank": 2,
+          "ticker": "RKLB",
+          "reasoning": "FCC 스펙트럼 룰 수혜 + 7% 갭업, 우주 섹터 리딩",
+          "signals": [
+            "FCC 호재",
+            "위성 발사 큐 누적",
+            "ASTS 동반 강세"
+          ]
+        },
+        {
+          "rank": 3,
+          "ticker": "AMD",
+          "reasoning": "화요일 어닝, MI400 가이던스가 NVDA 대안 서사 굳힐지 시험대",
+          "signals": [
+            "Earnings 5/5 AMC",
+            "데이터센터 매출 가속",
+            "콜 스큐 우상향"
+          ]
+        },
+        {
+          "rank": 4,
+          "ticker": "AAPL",
+          "reasoning": "FY2Q 어닝 비트로 +3%, 가이던스도 컨센 상회 — 빅테크 앵커",
+          "signals": [
+            "EPS/매출 비트",
+            "FY3Q 가이던스 상회",
+            "서비스 마진 확장"
+          ]
+        },
+        {
+          "rank": 5,
+          "ticker": "COIN",
+          "reasoning": "목요일 어닝 + BTC 강세 사이클 동조, 스테이블코인 매출 모멘텀",
+          "signals": [
+            "Earnings 5/7 AMC",
+            "BTC 상승 추세",
+            "USDC 수익 증가"
+          ]
+        }
+      ],
+      "hidden_edges": [
+        {
+          "ticker": "NBIS",
+          "reason": "AI 인프라 다크호스 — $125대(+6.5%), 데이터센터 capex 수혜인데 리테일 인지도 낮아 진입 여유 있어요. 200달러 장기 PT 보는 사이드도 있음."
+        },
+        {
+          "ticker": "MU",
+          "reason": "HBM 사이클 후반전 + 게이밍/PC DRAM 동반 회복. WSB Top 10인데 가격은 아직 박스권 — 브레이크아웃 시 빠른 추세 가능성."
+        }
+      ],
+      "overheated": [
+        {
+          "ticker": "NVDA",
+          "reason": "금요일 -4.6% 급락은 모멘텀 깨진 신호 — RSI 다이버전스 + 옵션 콜 OI 과밀. 195 지지 깨면 180까지 열려있음."
+        },
+        {
+          "ticker": "GME",
+          "reason": "다시 WSB 핫스팟 — 펀더 변화 없는 단순 스퀴즈 시도. 따라가기보다 관망."
+        }
+      ],
+      "tickers": [
+        {
+          "rank": 1,
+          "ticker": "PLTR",
+          "name": "Palantir Technologies",
+          "sector": "AI/Defense",
+          "sector_full": "AI Infrastructure",
+          "price": 112.4,
+          "change_pct": 1.8,
+          "score_total": 92.4,
+          "score_reddit": 95,
+          "score_news": 92,
+          "score_trends": 88,
+          "score_options": 94,
+          "quadrant": "hot",
+          "claude_rank": 1,
+          "claude_summary": "월(5/4) AMC 어닝 — IV 크러시 베팅 vs. 가이던스 비트 양방 모두 준비할 것",
+          "claude_signals": [
+            "Earnings 5/4 AMC",
+            "정부계약 확장",
+            "IV 70%+"
+          ],
+          "narrative": "PLTR은 월요일 장마감 후 1Q26 어닝 발표예요. 리테일은 정부·상업 양쪽 가속을 전제로 'beat & raise' 베팅 중인데, 옵션 IV가 이미 70%를 넘어가서 콜 단순매수는 IV 크러시 위험이 커요. 캘린더 스프레드나 스트래들 매도(가이던스 보수적이면 수익) 등 변동성 매도 구조가 더 합리적이에요.",
+          "entry": 110.0,
+          "tp1": 118.0,
+          "tp2": 125.0,
+          "sl": 108.0,
+          "entry_comment": "어닝 전 진입은 분할 + 사이즈 축소. 109 깨면 즉시 컷",
+          "catalysts": [
+            "1Q26 어닝 5/4 AMC",
+            "정부 신규 계약 발표 가능성",
+            "AI 플랫폼 ARR 가속",
+            "Foundry 신규 고객"
+          ],
+          "risks": [
+            "IV 크러시 (어닝 후 -20% 옵션가 흔함)",
+            "가이던스 보수 시 갭다운",
+            "밸류에이션 부담 (FY26 PSR 35x+)"
+          ],
+          "reddit_sentiment_label": "매우 긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 1820,
+              "sentiment": 0.78
+            },
+            {
+              "sub": "stocks",
+              "count": 640,
+              "sentiment": 0.62
+            },
+            {
+              "sub": "options",
+              "count": 410,
+              "sentiment": 0.71
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Palantir Q1 2026 earnings preview: AI demand still surging",
+              "source": "MarketChameleon",
+              "ago": "1d"
+            },
+            {
+              "title": "PLTR options IV pricing in plus-minus 12 percent post-earnings move",
+              "source": "Barchart",
+              "ago": "1d"
+            },
+            {
+              "title": "Defense AI contracts pipeline visible into 2H26",
+              "source": "Reuters",
+              "ago": "2d"
+            }
+          ],
+          "trend_surge_pct": 88,
+          "options_detail": {
+            "call_volume": 380000,
+            "put_volume": 95000,
+            "cp_ratio": 4.0,
+            "smart_money_ratio": 0.74,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 2,
+          "ticker": "RKLB",
+          "name": "Rocket Lab Corporation",
+          "sector": "Space",
+          "sector_full": "Space/Satellite",
+          "price": 82.1,
+          "change_pct": 7.2,
+          "score_total": 88.7,
+          "score_reddit": 91,
+          "score_news": 86,
+          "score_trends": 92,
+          "score_options": 86,
+          "quadrant": "hot",
+          "claude_rank": 2,
+          "claude_summary": "FCC 스펙트럼 룰 수혜 갭업 — 추격 대신 80~82 눌림 분할",
+          "claude_signals": [
+            "FCC 위성 룰 호재",
+            "위성 발사 큐 누적",
+            "ASTS 동반 강세"
+          ],
+          "narrative": "FCC가 위성 광대역 스펙트럼 공유 규칙을 완화하면서 RKLB·ASTS·LUNR 동반 랠리. RKLB는 발사 백로그 + 뉴트론 로켓 진척이 모멘텀의 진짜 펀더 베이스인데, 단기로 7% 갭업이라 추격은 위험. 80달러 부근 눌림에서 분할 매수가 정석.",
+          "entry": 80.0,
+          "tp1": 88.0,
+          "tp2": 95.0,
+          "sl": 78.0,
+          "entry_comment": "갭업 시초 진입 금지. 5분봉 첫 이탈 후 되돌림 확인하고 진입",
+          "catalysts": [
+            "FCC 스펙트럼 룰 완화",
+            "Neutron 로켓 진척 업데이트",
+            "신규 정부 계약"
+          ],
+          "risks": [
+            "갭업 후 첫날 되돌림 패턴",
+            "위성 섹터 차익실현",
+            "테마 회전 시 후순위로 밀릴 가능성"
+          ],
+          "reddit_sentiment_label": "매우 긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 1240,
+              "sentiment": 0.81
+            },
+            {
+              "sub": "SpaceXLounge",
+              "count": 380,
+              "sentiment": 0.74
+            },
+            {
+              "sub": "RocketLab",
+              "count": 290,
+              "sentiment": 0.88
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "ASTS, RKLB rally on FCC satellite spectrum rule",
+              "source": "Stocktwits",
+              "ago": "1d"
+            },
+            {
+              "title": "Rocket Lab launch cadence accelerating into Q2",
+              "source": "SpaceNews",
+              "ago": "3d"
+            },
+            {
+              "title": "Neutron rocket development on schedule for 2026 debut",
+              "source": "Ars Technica",
+              "ago": "5d"
+            }
+          ],
+          "trend_surge_pct": 134,
+          "options_detail": {
+            "call_volume": 142000,
+            "put_volume": 28000,
+            "cp_ratio": 5.07,
+            "smart_money_ratio": 0.71,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 3,
+          "ticker": "AMD",
+          "name": "Advanced Micro Devices",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 168.2,
+          "change_pct": 0.6,
+          "score_total": 86.2,
+          "score_reddit": 78,
+          "score_news": 88,
+          "score_trends": 82,
+          "score_options": 92,
+          "quadrant": "hot",
+          "claude_rank": 3,
+          "claude_summary": "화(5/5) AMC 어닝 — MI400 가이던스가 NVDA 대안 서사 시험대",
+          "claude_signals": [
+            "Earnings 5/5 AMC",
+            "DC 매출 가속",
+            "콜 스큐 우상향"
+          ],
+          "narrative": "AMD는 화요일 장마감 후 어닝. NVDA 대비 저평가 + MI400 출시 사이클이 핵심. 데이터센터 매출 YoY 가속이 컨센서스 100억 달러대 라인을 상회하면 175 돌파 시도. 다만 NVDA 약세가 동반 영향이라 페어 트레이드(롱 AMD / 헷지 NVDA 풋) 구조가 안전.",
+          "entry": 165.0,
+          "tp1": 175.0,
+          "tp2": 185.0,
+          "sl": 162.0,
+          "entry_comment": "어닝 전 사이즈 절반, 어닝 후 갭에 따라 2차 진입 결정",
+          "catalysts": [
+            "1Q26 어닝 5/5 AMC",
+            "MI400 출하 가이던스",
+            "MS/META 신규 계약 가능성"
+          ],
+          "risks": [
+            "NVDA 약세 동반",
+            "PC/게이밍 매출 약화",
+            "마진 가이던스 보수 시 -8% 갭다운 사례"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 720,
+              "sentiment": 0.62
+            },
+            {
+              "sub": "AMD_Stock",
+              "count": 410,
+              "sentiment": 0.74
+            },
+            {
+              "sub": "stocks",
+              "count": 380,
+              "sentiment": 0.55
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "AMD earnings preview: data center growth in focus",
+              "source": "Bloomberg",
+              "ago": "1d"
+            },
+            {
+              "title": "MI400 expected to ramp in 2H26",
+              "source": "SemiAnalysis",
+              "ago": "2d"
+            },
+            {
+              "title": "Microsoft confirms expanded AMD GPU deployment",
+              "source": "The Information",
+              "ago": "4d"
+            }
+          ],
+          "trend_surge_pct": 56,
+          "options_detail": {
+            "call_volume": 220000,
+            "put_volume": 78000,
+            "cp_ratio": 2.82,
+            "smart_money_ratio": 0.69,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 4,
+          "ticker": "AAPL",
+          "name": "Apple Inc.",
+          "sector": "Mega-cap Tech",
+          "sector_full": "Mega-cap Tech",
+          "price": 234.85,
+          "change_pct": 3.1,
+          "score_total": 84.3,
+          "score_reddit": 72,
+          "score_news": 95,
+          "score_trends": 78,
+          "score_options": 82,
+          "quadrant": "hot",
+          "claude_rank": 4,
+          "claude_summary": "FY2Q 어닝 비트 + 가이던스 상회 — 빅테크 앵커 역할",
+          "claude_signals": [
+            "EPS/매출 비트",
+            "FY3Q 가이던스 상회",
+            "서비스 마진 확장"
+          ],
+          "narrative": "금요일 +3% 어닝 갭업으로 마감. 아이폰 17 사이클이 컨센보다 견조하고 서비스 매출 마진이 70%대로 안정. FY3Q 매출 가이던스도 컨센 상회. 230 지지 위에서는 240대 시도 가능, 다만 갭업 직후 첫주는 익일 차익실현 조심.",
+          "entry": 230.0,
+          "tp1": 240.0,
+          "tp2": 248.0,
+          "sl": 226.0,
+          "entry_comment": "갭업 다음날 매수는 종가 인근 또는 5일선 터치에서만",
+          "catalysts": [
+            "FY2Q 어닝 비트",
+            "AI 서비스 매출 라인 신규 공개 임박",
+            "WWDC 2026 6월 일정 임박"
+          ],
+          "risks": [
+            "갭업 후 차익실현",
+            "中 매출 비중 우려 재부각 시 약세",
+            "안티트러스트 헤드라인"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 580,
+              "sentiment": 0.66
+            },
+            {
+              "sub": "stocks",
+              "count": 720,
+              "sentiment": 0.62
+            },
+            {
+              "sub": "AAPL",
+              "count": 240,
+              "sentiment": 0.79
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Apple beats on Q2 earnings, lifts revenue guidance",
+              "source": "CNBC",
+              "ago": "1d"
+            },
+            {
+              "title": "Services margin expands to record 73 percent",
+              "source": "Bloomberg",
+              "ago": "1d"
+            },
+            {
+              "title": "iPhone 17 demand outpacing prior cycles in key markets",
+              "source": "Reuters",
+              "ago": "1d"
+            }
+          ],
+          "trend_surge_pct": 42,
+          "options_detail": {
+            "call_volume": 260000,
+            "put_volume": 105000,
+            "cp_ratio": 2.48,
+            "smart_money_ratio": 0.66,
+            "unusual": false
+          }
+        },
+        {
+          "rank": 5,
+          "ticker": "COIN",
+          "name": "Coinbase Global",
+          "sector": "Crypto/Fintech",
+          "sector_full": "Crypto/Fintech",
+          "price": 268.4,
+          "change_pct": 2.4,
+          "score_total": 82.1,
+          "score_reddit": 84,
+          "score_news": 79,
+          "score_trends": 86,
+          "score_options": 80,
+          "quadrant": "hot",
+          "claude_rank": 5,
+          "claude_summary": "목(5/7) 어닝 + BTC 강세 동조, 스테이블코인 수익 모멘텀",
+          "claude_signals": [
+            "Earnings 5/7 AMC",
+            "BTC 상승 추세",
+            "USDC 수익 증가"
+          ],
+          "narrative": "COIN은 목요일 어닝. 거래수수료 외에 USDC 이자 수익과 스테이킹·커스터디 매출이 지속 가속. BTC 가격이 강세 사이클이라 거래량도 우호적. IV 65% 수준이라 PLTR보단 합리적이지만 어닝 후 plus-minus 10% 변동성은 가정해야 해요.",
+          "entry": 265.0,
+          "tp1": 285.0,
+          "tp2": 305.0,
+          "sl": 258.0,
+          "entry_comment": "어닝 전 풀 포지션 X. 50% 사이즈로 가져가고 결과 확인 후 결정",
+          "catalysts": [
+            "1Q26 어닝 5/7 AMC",
+            "BTC 강세 사이클",
+            "USDC 점유율 확대"
+          ],
+          "risks": [
+            "BTC 단기 조정 시 동반 약세",
+            "수수료 단가 압박",
+            "규제 헤드라인 (SEC 신정부 기조)"
+          ],
+          "reddit_sentiment_label": "매우 긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 890,
+              "sentiment": 0.74
+            },
+            {
+              "sub": "CryptoCurrency",
+              "count": 1240,
+              "sentiment": 0.68
+            },
+            {
+              "sub": "Bitcoin",
+              "count": 620,
+              "sentiment": 0.71
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Coinbase Q1 earnings preview: stablecoin revenue in focus",
+              "source": "Bloomberg",
+              "ago": "1d"
+            },
+            {
+              "title": "USDC market cap hits new high",
+              "source": "CoinDesk",
+              "ago": "2d"
+            },
+            {
+              "title": "BTC ETF inflows continue 5-week streak",
+              "source": "ETF.com",
+              "ago": "3d"
+            }
+          ],
+          "trend_surge_pct": 78,
+          "options_detail": {
+            "call_volume": 165000,
+            "put_volume": 62000,
+            "cp_ratio": 2.66,
+            "smart_money_ratio": 0.65,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 6,
+          "ticker": "NVDA",
+          "name": "NVIDIA Corporation",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 199.57,
+          "change_pct": -4.6,
+          "score_total": 78.5,
+          "score_reddit": 88,
+          "score_news": 72,
+          "score_trends": 78,
+          "score_options": 76,
+          "quadrant": "overheat",
+          "claude_rank": null,
+          "claude_summary": "단기 다이버전스 — 195 깨면 추가 하락, 강한 반등 없으면 신규 진입 X",
+          "claude_signals": [
+            "금요일 -4.6%",
+            "RSI 다이버전스",
+            "옵션 콜 OI 과밀"
+          ],
+          "narrative": "AI 캐펙스 테마 자체는 살아있지만 NVDA만 단독으로 모멘텀이 깨졌어요. 209→199 단번에 깨진 게 큰 신호. 195 지지 사수가 핵심, 깨면 180까지 열려있음.",
+          "catalysts": [
+            "GTC 후속 발표",
+            "데이터센터 신규 디자인 윈"
+          ],
+          "risks": [
+            "AMD 어닝 강세 시 점유율 우려",
+            "테마 회전",
+            "옵션 매도 압력"
+          ]
+        },
+        {
+          "rank": 7,
+          "ticker": "AMZN",
+          "name": "Amazon.com Inc.",
+          "sector": "Mega-cap Tech",
+          "sector_full": "Mega-cap Tech",
+          "price": 218.4,
+          "change_pct": 1.2,
+          "score_total": 77.8,
+          "score_reddit": 86,
+          "score_news": 76,
+          "score_trends": 70,
+          "score_options": 78,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "WSB 2026 픽 1위 — AWS 가속 + 광고 매출 마진 기여",
+          "claude_signals": [
+            "AWS 가속",
+            "광고 매출 마진",
+            "Prime Day 임박"
+          ],
+          "narrative": "WSB가 2026년 톱픽으로 꼽은 종목. AWS 매출 19% YoY 가속, 광고 매출이 영업이익에 기여하는 구조가 자리잡혀 가요. 220 박스 돌파 시 230 시도.",
+          "catalysts": [
+            "AWS re:Invent 사전 헤드라인",
+            "광고 매출 분기 기록"
+          ],
+          "risks": [
+            "빅테크 차익실현 회전",
+            "Prime Day 가이던스 미스 시 단기 조정"
+          ]
+        },
+        {
+          "rank": 8,
+          "ticker": "ASTS",
+          "name": "AST SpaceMobile",
+          "sector": "Space",
+          "sector_full": "Space/Satellite",
+          "price": 38.2,
+          "change_pct": 6.0,
+          "score_total": 76.4,
+          "score_reddit": 82,
+          "score_news": 78,
+          "score_trends": 88,
+          "score_options": 62,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "FCC 룰 수혜 동반 — 위성 직접연결 상용화 가시권",
+          "claude_signals": [
+            "FCC 호재",
+            "Verizon/AT&T 파트너십",
+            "BlueBird 위성 발사"
+          ],
+          "narrative": "RKLB와 함께 FCC 스펙트럼 룰 수혜. 5G 위성 직접연결 상용화가 눈앞이라 1H26 후반 매출 인식 시작. IV가 높아서 옵션보단 현물.",
+          "catalysts": [
+            "BlueBird 추가 발사",
+            "통신사 상용 서비스 개시",
+            "FCC 후속 룰"
+          ],
+          "risks": [
+            "희석 (CB 발행 가능성)",
+            "위성 발사 지연"
+          ]
+        },
+        {
+          "rank": 9,
+          "ticker": "TSLA",
+          "name": "Tesla Inc.",
+          "sector": "EV/Auto",
+          "sector_full": "Mega-cap Tech",
+          "price": 386.2,
+          "change_pct": -1.4,
+          "score_total": 75.1,
+          "score_reddit": 88,
+          "score_news": 64,
+          "score_trends": 72,
+          "score_options": 76,
+          "quadrant": "watch",
+          "claude_rank": null,
+          "claude_summary": "리테일 항상 톱 — 로보택시 진척이 다음 트리거",
+          "claude_signals": [
+            "로보택시 확장",
+            "에너지 매출 가속",
+            "FSD 구독률"
+          ],
+          "narrative": "리테일 인기는 변함없지만 모멘텀은 휴식 구간. 로보택시 신도시 진출 + 에너지(메가팩) 매출이 다음 트리거. 380 지지 사수 중요.",
+          "catalysts": [
+            "로보택시 신도시 발표",
+            "Megapack 신규 수주"
+          ],
+          "risks": [
+            "EV 수요 둔화 우려",
+            "머스크 헤드라인 변동성"
+          ]
+        },
+        {
+          "rank": 10,
+          "ticker": "NBIS",
+          "name": "Nebius Group N.V.",
+          "sector": "AI Infra",
+          "sector_full": "AI Infrastructure",
+          "price": 125.0,
+          "change_pct": 6.5,
+          "score_total": 73.6,
+          "score_reddit": 70,
+          "score_news": 82,
+          "score_trends": 86,
+          "score_options": 56,
+          "quadrant": "hidden",
+          "claude_rank": null,
+          "claude_summary": "히든엣지 — AI 인프라 다크호스, 리테일 인지도 낮아 진입 여유",
+          "claude_signals": [
+            "데이터센터 capex 수혜",
+            "+6.5% 강세",
+            "기관 매수 누적"
+          ],
+          "narrative": "유럽발 AI 인프라 플레이. AWS·Azure·GCP 외 4번째 클라우드로 자리매김 중. 리테일 인지도 낮아서 추적이 적은데 펀더가 가장 빠르게 개선 중인 종목 중 하나.",
+          "catalysts": [
+            "대형 고객 신규 계약",
+            "GPU 인벤토리 확대 발표"
+          ],
+          "risks": [
+            "유로존 매크로",
+            "환율 변동",
+            "신주 발행 가능성"
+          ]
+        },
+        {
+          "rank": 11,
+          "ticker": "MU",
+          "name": "Micron Technology",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 142.3,
+          "change_pct": 1.2,
+          "score_total": 71.2,
+          "score_reddit": 76,
+          "score_news": 70,
+          "score_trends": 68,
+          "score_options": 70,
+          "quadrant": "hidden",
+          "claude_rank": null
+        },
+        {
+          "rank": 12,
+          "ticker": "GOOGL",
+          "name": "Alphabet Inc.",
+          "sector": "Mega-cap Tech",
+          "sector_full": "Mega-cap Tech",
+          "price": 198.4,
+          "change_pct": 0.6,
+          "score_total": 70.8,
+          "score_reddit": 68,
+          "score_news": 76,
+          "score_trends": 64,
+          "score_options": 75,
+          "quadrant": "hot",
+          "claude_rank": null
+        },
+        {
+          "rank": 13,
+          "ticker": "META",
+          "name": "Meta Platforms",
+          "sector": "Mega-cap Tech",
+          "sector_full": "Mega-cap Tech",
+          "price": 712.5,
+          "change_pct": -0.8,
+          "score_total": 69.4,
+          "score_reddit": 62,
+          "score_news": 74,
+          "score_trends": 60,
+          "score_options": 81,
+          "quadrant": "watch",
+          "claude_rank": null
+        },
+        {
+          "rank": 14,
+          "ticker": "MSFT",
+          "name": "Microsoft Corp.",
+          "sector": "Mega-cap Tech",
+          "sector_full": "Mega-cap Tech",
+          "price": 528.2,
+          "change_pct": 0.4,
+          "score_total": 68.7,
+          "score_reddit": 58,
+          "score_news": 78,
+          "score_trends": 56,
+          "score_options": 82,
+          "quadrant": "hot",
+          "claude_rank": null
+        },
+        {
+          "rank": 15,
+          "ticker": "RDDT",
+          "name": "Reddit Inc.",
+          "sector": "Internet",
+          "sector_full": "Mega-cap Tech",
+          "price": 168.2,
+          "change_pct": 2.1,
+          "score_total": 67.5,
+          "score_reddit": 88,
+          "score_news": 64,
+          "score_trends": 74,
+          "score_options": 44,
+          "quadrant": "hidden",
+          "claude_rank": null
+        },
+        {
+          "rank": 16,
+          "ticker": "SOFI",
+          "name": "SoFi Technologies",
+          "sector": "Fintech",
+          "sector_full": "Crypto/Fintech",
+          "price": 22.4,
+          "change_pct": 1.8,
+          "score_total": 66.2,
+          "score_reddit": 78,
+          "score_news": 60,
+          "score_trends": 70,
+          "score_options": 56,
+          "quadrant": "hidden",
+          "claude_rank": null
+        },
+        {
+          "rank": 17,
+          "ticker": "MRVL",
+          "name": "Marvell Technology",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 92.6,
+          "change_pct": 1.4,
+          "score_total": 65.8,
+          "score_reddit": 60,
+          "score_news": 72,
+          "score_trends": 58,
+          "score_options": 73,
+          "quadrant": "hidden",
+          "claude_rank": null
+        },
+        {
+          "rank": 18,
+          "ticker": "IREN",
+          "name": "IREN Limited",
+          "sector": "Crypto Mining",
+          "sector_full": "Crypto/Fintech",
+          "price": 16.8,
+          "change_pct": 4.2,
+          "score_total": 64.1,
+          "score_reddit": 74,
+          "score_news": 56,
+          "score_trends": 78,
+          "score_options": 48,
+          "quadrant": "hidden",
+          "claude_rank": null
+        },
+        {
+          "rank": 19,
+          "ticker": "GME",
+          "name": "GameStop Corp.",
+          "sector": "Retail",
+          "sector_full": "Retail",
+          "price": 28.4,
+          "change_pct": 5.2,
+          "score_total": 63.5,
+          "score_reddit": 92,
+          "score_news": 42,
+          "score_trends": 86,
+          "score_options": 34,
+          "quadrant": "overheat",
+          "claude_rank": null
+        },
+        {
+          "rank": 20,
+          "ticker": "LUNR",
+          "name": "Intuitive Machines",
+          "sector": "Space",
+          "sector_full": "Space/Satellite",
+          "price": 18.9,
+          "change_pct": 2.0,
+          "score_total": 62.8,
+          "score_reddit": 64,
+          "score_news": 60,
+          "score_trends": 76,
+          "score_options": 50,
+          "quadrant": "hidden",
+          "claude_rank": null
+        }
+      ]
+    },
     "2026-04-30": {
       "date": "2026-04-30",
       "date_display": "2026-04-30 (목·미국장)",
