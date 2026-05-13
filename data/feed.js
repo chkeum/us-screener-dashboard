@@ -6,10 +6,16 @@
 //   manifest: 최신 30개 리포트 메타데이터
 //   archive:  날짜별 전체 데이터 (최근 30일 보존)
 // ------------------------------------------------------------
+
 window.__SCREENER_FEED__ = {
   "manifest": {
     "version": 2,
     "reports": [
+      {
+        "date": "2026-05-13",
+        "top_ticker": "AMAT",
+        "mood": "bullish"
+      },
       {
         "date": "2026-05-12",
         "top_ticker": "NVDA",
@@ -293,10 +299,10 @@ window.__SCREENER_FEED__ = {
             "콜옵션 C/P 3.1 + 기관 매수 빌드업"
           ],
           "narrative": "반도체 섹터가 신고가를 다시 찍는데 NVDA는 +2% 단단한 상승으로 따라가요. 5/20 어닝 앞두고 메가캡 콜옵션 빌드업이 이어지고 있고, Intel CEO가 \"Nvidia와의 신제품\"을 언급한 헤드라인이 생태계 강세 내러티브를 다시 켰어요. CPI만 무난히 통과하면 220달러 돌파 후 230 목표는 충분히 그릴 수 있는 그림이에요.",
-          "entry": 219.0,
-          "tp1": 225.0,
-          "tp2": 232.0,
-          "sl": 214.0,
+          "entry": 219,
+          "tp1": 225,
+          "tp2": 232,
+          "sl": 214,
           "entry_comment": "CPI 발표(21:30 KST) 이후 +/-1.5% 변동 가라앉으면 분할진입 — 22:35 1차, 220 위 안착 시 2차",
           "catalysts": [
             "May 20 Q1 FY27 어닝",
@@ -375,10 +381,10 @@ window.__SCREENER_FEED__ = {
             "블룸버그 \"Circle 자체 블록체인\" 낙관"
           ],
           "narrative": "어제 Q1 발표로 USDC 유통량이 $77B를 찍었고, AI 도입 관련 CEO 코멘트와 자체 블록체인 기대까지 더해 +13% 폭등이에요. 5/14 美 상원 크립토 법안(스테이블코인 규제 명문화) 표결도 이번주 안에 결과가 나와서 두 번째 부스터가 대기 중. 다만 하루 +13%는 평균회귀 압력도 같이 커진 상태라 추격은 분할로.",
-          "entry": 128.0,
-          "tp1": 138.0,
-          "tp2": 148.0,
-          "sl": 121.0,
+          "entry": 128,
+          "tp1": 138,
+          "tp2": 148,
+          "sl": 121,
           "entry_comment": "시초 5분 관망 → 128~130 풀백 시 1차, 132 돌파 시 2차",
           "catalysts": [
             "5/14 美 상원 크립토 법안 표결",
@@ -442,7 +448,7 @@ window.__SCREENER_FEED__ = {
           "sector_full": "Semiconductors",
           "price": 795.33,
           "change_pct": 5.01,
-          "score_total": 85.0,
+          "score_total": 85,
           "score_reddit": 87,
           "score_news": 90,
           "score_trends": 78,
@@ -456,10 +462,10 @@ window.__SCREENER_FEED__ = {
             "Insider Monkey 강세 콜 — 성장 전망 리셋"
           ],
           "narrative": "메모리 칩 종목들이 신고점을 찍는 흐름에 MU도 +5% 강한 상승. AI HBM 병목이 여전히 풀리지 않아 픽앤쇼블 베팅의 중심이고, 분석가 상향까지 겹쳐서 모멘텀이 단단해요. WSB 인덱스에서도 꾸준히 상위에 머무는 종목이라 리테일도 같이 들어오는 중.",
-          "entry": 790.0,
-          "tp1": 820.0,
-          "tp2": 850.0,
-          "sl": 770.0,
+          "entry": 790,
+          "tp1": 820,
+          "tp2": 850,
+          "sl": 770,
           "entry_comment": "795 위 안착 시 1차, 800 돌파 시 추가 분할",
           "catalysts": [
             "HBM3E·HBM4 단가 인상 가이던스",
@@ -537,10 +543,10 @@ window.__SCREENER_FEED__ = {
             "SpaceX IPO 임박 → 우주 비교주 리레이팅"
           ],
           "narrative": "5/11 Q1 record + 강한 Q2 가이드를 받은 뒤 Cantor 상향까지 더해서 이틀 연속 폭등 중이에요. SpaceX IPO 루머가 다시 살아나면서 \"유일한 상장 우주 발사체\" 프리미엄이 붙어 리테일·기관 모두 들어오는 그림. 다만 이틀 +20%대 누적이라 변동성 큰 추격은 위험해요.",
-          "entry": 114.0,
-          "tp1": 124.0,
-          "tp2": 135.0,
-          "sl": 108.0,
+          "entry": 114,
+          "tp1": 124,
+          "tp2": 135,
+          "sl": 108,
           "entry_comment": "시초 후 풀백 114~116 구간 1차, 118 돌파 시 2차",
           "catalysts": [
             "SpaceX IPO 헤드라인 재점화",
@@ -618,10 +624,10 @@ window.__SCREENER_FEED__ = {
             "반도체 장비 사이클 회복"
           ],
           "narrative": "헤드라인 소음은 다른 종목 대비 작은데 펀더멘털 정렬은 가장 좋아요. 5/14 어닝 앞두고 +1.6% 차분한 상승, AI 수요 폭증 코멘트가 어닝 가이드 상향 기대를 자극하고 있어요. 옵션 흐름에서도 콜 빌드업이 보이고, 기관 비중이 높아 변동성 낮으면서 비대칭 업사이드 잡기 좋은 자리.",
-          "entry": 442.0,
-          "tp1": 460.0,
-          "tp2": 478.0,
-          "sl": 432.0,
+          "entry": 442,
+          "tp1": 460,
+          "tp2": 478,
+          "sl": 432,
           "entry_comment": "어닝 전 분할진입 권장 — 시초 후 442 위 안착 시 1차, 446 돌파 시 2차",
           "catalysts": [
             "5/14 Q2 어닝 발표",
@@ -787,7 +793,7 @@ window.__SCREENER_FEED__ = {
           "name": "Tesla Inc.",
           "sector": "EV",
           "sector_full": "EV / Auto",
-          "price": 445.0,
+          "price": 445,
           "change_pct": 3.98,
           "score_total": 79.5,
           "score_reddit": 84,
@@ -859,7 +865,7 @@ window.__SCREENER_FEED__ = {
           "sector_full": "Nuclear / Energy",
           "price": 78.13,
           "change_pct": 7.47,
-          "score_total": 77.0,
+          "score_total": 77,
           "score_reddit": 86,
           "score_news": 70,
           "score_trends": 84,
@@ -946,7 +952,7 @@ window.__SCREENER_FEED__ = {
           "sector": "Nuclear",
           "sector_full": "Nuclear / Energy",
           "price": 13.29,
-          "change_pct": 7.0,
+          "change_pct": 7,
           "score_total": 71.5,
           "score_reddit": 82,
           "score_news": 64,
@@ -969,7 +975,7 @@ window.__SCREENER_FEED__ = {
           "sector_full": "Semiconductors",
           "price": 458.79,
           "change_pct": -0.52,
-          "score_total": 69.0,
+          "score_total": 69,
           "score_reddit": 74,
           "score_news": 70,
           "score_trends": 64,
@@ -1294,10 +1300,10 @@ window.__SCREENER_FEED__ = {
             "Semis +52% YoY revenue"
           ],
           "narrative": "시총 $5.17T로 세계 1위, 5/20 어닝 앞두고 분석가들이 가이던스 상향 베팅을 늘리는 중이에요. 리테일도 '오픈소스 양자 AI 모델 (Nvidia Ising)' 발표를 받아주면서 멀티플 확장 명분이 또 생겼고, JPM 트레이딩 데스크는 메가캡 콜옵션 빌드업이 NVDA 어닝까지 이어진다고 봐요.",
-          "entry": 215.0,
-          "tp1": 222.0,
-          "tp2": 230.0,
-          "sl": 210.0,
+          "entry": 215,
+          "tp1": 222,
+          "tp2": 230,
+          "sl": 210,
           "entry_comment": "시초가 5분 관망 후 215달러 위 유지 시 1차 분할, 220 위 돌파 시 2차 추가",
           "catalysts": [
             "May 20 Q1 FY27 어닝",
@@ -1375,10 +1381,10 @@ window.__SCREENER_FEED__ = {
             "GF Value overvalued +345.8%"
           ],
           "narrative": "5/8 +13.96% 마감 후 5/9 Apple과 칩 제조 예비 합의 발표가 폭발 — 한때 $130.57 찍고 마감 $124.92. 1개월 +116%, YTD +200%, 시총 $470B 돌파. 다만 GF Value 대비 345.8% 과대평가, '5월에 팔고 떠나라' 내러티브가 동시에 살아나는 중. 추격매수는 금물.",
-          "entry": 124.0,
-          "tp1": 132.0,
-          "tp2": 140.0,
-          "sl": 118.0,
+          "entry": 124,
+          "tp1": 132,
+          "tp2": 140,
+          "sl": 118,
           "entry_comment": "신규 진입은 권장 안 함. 보유분은 124~125 트레일링 스탑으로 익절 관리.",
           "catalysts": [
             "Apple-Intel 파운드리 딜 후속",
@@ -1457,10 +1463,10 @@ window.__SCREENER_FEED__ = {
             "Compass Point Sell downgrade"
           ],
           "narrative": "5/1 +9.64% 마감 + 5/4 +7.51% 등 어닝 앞 모멘텀이 살아있어요. 컨센은 매출 $717M, EPS $0.15. USDC 유통량 +72% YoY는 강력한 탑라인 모멘텀이지만 Compass Point는 'Sell'로 내리고 EBITDA -19% Q/Q 예상. 한 임원이 5/4에 $1.3M 매도한 것도 부담. 어닝 직후 ±15% 변동성 가능성 큼.",
-          "entry": 151.0,
-          "tp1": 168.0,
-          "tp2": 180.0,
-          "sl": 140.0,
+          "entry": 151,
+          "tp1": 168,
+          "tp2": 180,
+          "sl": 140,
           "entry_comment": "포지션은 어닝 전 50% 이하만, 결과 확인 후 추가 결정",
           "catalysts": [
             "5/11 BMO Q1 어닝",
@@ -1540,8 +1546,8 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "Q1 매출 $200.35M(+63.5% YoY)에 백로그 $2.2B 신고점, 13명 분석가 컨센 'Buy'. 리테일 사이드에서는 ASTS와 함께 우주 경제 더블플레이로 묶여서 자금 유입이 꾸준해요. 다만 베타 2+의 변동성은 항상 염두.",
           "entry": 38.5,
-          "tp1": 42.0,
-          "tp2": 46.0,
+          "tp1": 42,
+          "tp2": 46,
           "sl": 36.5,
           "entry_comment": "시초 후 $38.5 위 유지 시 분할진입, 첫 시도 실패하면 다시 안 쫓아감",
           "catalysts": [
@@ -1620,10 +1626,10 @@ window.__SCREENER_FEED__ = {
             "WSB 2026 Index #7"
           ],
           "narrative": "HBM 공급 병목이 풀리지 않은 상태에서 NVDA H200/Blackwell 수요는 그대로. 반도체 섹터 +52% YoY 매출 성장 가운데 메모리 진영 노출의 가장 직접적인 수혜주. WSB 인덱스 #7로 리테일 사이드도 단단함.",
-          "entry": 142.0,
-          "tp1": 148.0,
-          "tp2": 156.0,
-          "sl": 138.0,
+          "entry": 142,
+          "tp1": 148,
+          "tp2": 156,
+          "sl": 138,
           "entry_comment": "NVDA 동반 강세 확인되면 분할 진입, 단독 강세는 신뢰도 낮음",
           "catalysts": [
             "HBM3e/HBM4 공급 가이던스",
@@ -2337,10 +2343,10 @@ window.__SCREENER_FEED__ = {
             "IV 70%+"
           ],
           "narrative": "PLTR은 월요일 장마감 후 1Q26 어닝 발표예요. 리테일은 정부·상업 양쪽 가속을 전제로 'beat & raise' 베팅 중인데, 옵션 IV가 이미 70%를 넘어가서 콜 단순매수는 IV 크러시 위험이 커요. 캘린더 스프레드나 스트래들 매도(가이던스 보수적이면 수익) 등 변동성 매도 구조가 더 합리적이에요.",
-          "entry": 110.0,
-          "tp1": 118.0,
-          "tp2": 125.0,
-          "sl": 108.0,
+          "entry": 110,
+          "tp1": 118,
+          "tp2": 125,
+          "sl": 108,
           "entry_comment": "어닝 전 진입은 분할 + 사이즈 축소. 109 깨면 즉시 컷",
           "catalysts": [
             "1Q26 어닝 5/4 AMC",
@@ -2392,7 +2398,7 @@ window.__SCREENER_FEED__ = {
           "options_detail": {
             "call_volume": 380000,
             "put_volume": 95000,
-            "cp_ratio": 4.0,
+            "cp_ratio": 4,
             "smart_money_ratio": 0.74,
             "unusual": true
           }
@@ -2419,10 +2425,10 @@ window.__SCREENER_FEED__ = {
             "ASTS 동반 강세"
           ],
           "narrative": "FCC가 위성 광대역 스펙트럼 공유 규칙을 완화하면서 RKLB·ASTS·LUNR 동반 랠리. RKLB는 발사 백로그 + 뉴트론 로켓 진척이 모멘텀의 진짜 펀더 베이스인데, 단기로 7% 갭업이라 추격은 위험. 80달러 부근 눌림에서 분할 매수가 정석.",
-          "entry": 80.0,
-          "tp1": 88.0,
-          "tp2": 95.0,
-          "sl": 78.0,
+          "entry": 80,
+          "tp1": 88,
+          "tp2": 95,
+          "sl": 78,
           "entry_comment": "갭업 시초 진입 금지. 5분봉 첫 이탈 후 되돌림 확인하고 진입",
           "catalysts": [
             "FCC 스펙트럼 룰 완화",
@@ -2500,10 +2506,10 @@ window.__SCREENER_FEED__ = {
             "콜 스큐 우상향"
           ],
           "narrative": "AMD는 화요일 장마감 후 어닝. NVDA 대비 저평가 + MI400 출시 사이클이 핵심. 데이터센터 매출 YoY 가속이 컨센서스 100억 달러대 라인을 상회하면 175 돌파 시도. 다만 NVDA 약세가 동반 영향이라 페어 트레이드(롱 AMD / 헷지 NVDA 풋) 구조가 안전.",
-          "entry": 165.0,
-          "tp1": 175.0,
-          "tp2": 185.0,
-          "sl": 162.0,
+          "entry": 165,
+          "tp1": 175,
+          "tp2": 185,
+          "sl": 162,
           "entry_comment": "어닝 전 사이즈 절반, 어닝 후 갭에 따라 2차 진입 결정",
           "catalysts": [
             "1Q26 어닝 5/5 AMC",
@@ -2581,10 +2587,10 @@ window.__SCREENER_FEED__ = {
             "서비스 마진 확장"
           ],
           "narrative": "금요일 +3% 어닝 갭업으로 마감. 아이폰 17 사이클이 컨센보다 견조하고 서비스 매출 마진이 70%대로 안정. FY3Q 매출 가이던스도 컨센 상회. 230 지지 위에서는 240대 시도 가능, 다만 갭업 직후 첫주는 익일 차익실현 조심.",
-          "entry": 230.0,
-          "tp1": 240.0,
-          "tp2": 248.0,
-          "sl": 226.0,
+          "entry": 230,
+          "tp1": 240,
+          "tp2": 248,
+          "sl": 226,
           "entry_comment": "갭업 다음날 매수는 종가 인근 또는 5일선 터치에서만",
           "catalysts": [
             "FY2Q 어닝 비트",
@@ -2662,10 +2668,10 @@ window.__SCREENER_FEED__ = {
             "USDC 수익 증가"
           ],
           "narrative": "COIN은 목요일 어닝. 거래수수료 외에 USDC 이자 수익과 스테이킹·커스터디 매출이 지속 가속. BTC 가격이 강세 사이클이라 거래량도 우호적. IV 65% 수준이라 PLTR보단 합리적이지만 어닝 후 plus-minus 10% 변동성은 가정해야 해요.",
-          "entry": 265.0,
-          "tp1": 285.0,
-          "tp2": 305.0,
-          "sl": 258.0,
+          "entry": 265,
+          "tp1": 285,
+          "tp2": 305,
+          "sl": 258,
           "entry_comment": "어닝 전 풀 포지션 X. 50% 사이즈로 가져가고 결과 확인 후 결정",
           "catalysts": [
             "1Q26 어닝 5/7 AMC",
@@ -2791,7 +2797,7 @@ window.__SCREENER_FEED__ = {
           "sector": "Space",
           "sector_full": "Space/Satellite",
           "price": 38.2,
-          "change_pct": 6.0,
+          "change_pct": 6,
           "score_total": 76.4,
           "score_reddit": 82,
           "score_news": 78,
@@ -2853,7 +2859,7 @@ window.__SCREENER_FEED__ = {
           "name": "Nebius Group N.V.",
           "sector": "AI Infra",
           "sector_full": "AI Infrastructure",
-          "price": 125.0,
+          "price": 125,
           "change_pct": 6.5,
           "score_total": 73.6,
           "score_reddit": 70,
@@ -3030,7 +3036,7 @@ window.__SCREENER_FEED__ = {
           "sector": "Space",
           "sector_full": "Space/Satellite",
           "price": 18.9,
-          "change_pct": 2.0,
+          "change_pct": 2,
           "score_total": 62.8,
           "score_reddit": 64,
           "score_news": 60,
@@ -3286,10 +3292,10 @@ window.__SCREENER_FEED__ = {
             "Q2 보수 가이던스 → 베이스라인 견고"
           ],
           "narrative": "어제 AH에서 매출 $181.5B / AWS $37.6B로 전 세그먼트 비트. AWS 가이던스 +20% YoY 유지 가능성이 가장 큰 모멘텀이에요. 리테일은 '드디어 클라우드 르네상스 본격화' 서사로 매수 전환, 기관은 광고 매출 두 자릿수 성장에서 메타·구글 대비 멀티플 디스카운트 축소 가능성 베팅. 다만 Q2 가이던스는 보수적이라 2시간 이상 추격은 자제해요.",
-          "entry": 208.0,
-          "tp1": 218.0,
-          "tp2": 228.0,
-          "sl": 204.0,
+          "entry": 208,
+          "tp1": 218,
+          "tp2": 228,
+          "sl": 204,
           "entry_comment": "21:30 PCE 결과 확인 후 22:35 $208 1차 분할, $206 지지 시 2차. AAPL 실적 직전 03:30 KST에 절반 익절 권장.",
           "catalysts": [
             "AWS Q1 비트 + Q2 가이던스 +20% YoY 컨센",
@@ -3367,10 +3373,10 @@ window.__SCREENER_FEED__ = {
             "iPhone 17 슈퍼사이클 가이던스 힌트 가능성"
           ],
           "narrative": "오늘 새벽 5:30 KST(4/30 ET 16:30)에 FY2Q 실적이 4월 마지막 빅 이벤트예요. 핵심 변수는 iPhone 16 Pro 수요·중국 매출(컨센 -3% YoY)·Services 마진 — 이 셋 중 하나라도 컨센 비트면 +5% 갭업, 둘 이상 미스면 -3% 갭다운. 리테일은 'AI 슈퍼사이클 베팅' 모드로 IV 32%까지 끌어올렸고, 기관은 iPhone 17 가이던스 첫 힌트에 베팅 중이에요.",
-          "entry": 224.0,
-          "tp1": 235.0,
-          "tp2": 248.0,
-          "sl": 218.0,
+          "entry": 224,
+          "tp1": 235,
+          "tp2": 248,
+          "sl": 218,
           "entry_comment": "실적 베팅은 옵션으로만 — 콜 스프레드($230/$245) 권장. 현물 진입은 실적 후 5/1 시초가 보고 결정.",
           "catalysts": [
             "오늘 새벽 5:30 KST FY2Q 실적",
@@ -3434,7 +3440,7 @@ window.__SCREENER_FEED__ = {
           "sector_full": "Auto / Industrial Semi",
           "price": 241.3,
           "change_pct": 25.2,
-          "score_total": 84.0,
+          "score_total": 84,
           "score_reddit": 70,
           "score_news": 96,
           "score_trends": 92,
@@ -3448,10 +3454,10 @@ window.__SCREENER_FEED__ = {
             "Auto MCU 재고 정상화 → STM·INFY 동반 수혜"
           ],
           "narrative": "어제 +25% 폭등은 단순 어닝 비트가 아니라 'Auto MCU 재고 사이클 종료' 신호예요. Q2 가이던스 $3.35–3.55B는 컨센($3.27B) 대비 5% 상향 + Industrial 부문 회복까지 동반된 깨끗한 비트. 리테일은 아직 'NXP가 뭐임?' 수준이라 첫 눌림($235 지지)에서 분할매수가 가장 좋은 자리예요. STM·INFY 동반 수혜 베팅도 함께 검토하세요.",
-          "entry": 235.0,
-          "tp1": 252.0,
-          "tp2": 268.0,
-          "sl": 228.0,
+          "entry": 235,
+          "tp1": 252,
+          "tp2": 268,
+          "sl": 228,
           "entry_comment": "+25% 직후 추격 절대 금지. 오늘 첫 눌림 $235 지지 확인 후 분할진입.",
           "catalysts": [
             "Q1 비트 + Q2 가이던스 $3.35–3.55B",
@@ -3529,10 +3535,10 @@ window.__SCREENER_FEED__ = {
             "TPU v6 출시 임박 → ASIC 자체 수요 가속"
           ],
           "narrative": "어제 AH에서 광고 +13% / Cloud +30% / Capex 가이던스 상향까지 트리플 호조. AI 오버뷰가 검색 ARPU에 부정적 영향 안 미친다는 게 핵심 발견 — 5분기 만의 리레이팅 트리거예요. 기관은 TPU v6 출시 임박을 자체 ASIC 수요 가속으로 해석하면서 NVDA 대비 디커플링 베팅 중이에요. IV 47%는 옵션 헷지 필수.",
-          "entry": 197.0,
-          "tp1": 207.0,
-          "tp2": 215.0,
-          "sl": 193.0,
+          "entry": 197,
+          "tp1": 207,
+          "tp2": 215,
+          "sl": 193,
           "entry_comment": "갭업 5%+ 시 추격 자제, 시초 30분 흐름 보고 22:50 분할진입. 옵션 헷지로 IV 정상화 동반 수익 노려요.",
           "catalysts": [
             "Cloud +30% / Capex 가이던스 +25% 상향",
@@ -3610,10 +3616,10 @@ window.__SCREENER_FEED__ = {
             "OpenAI 성장 둔화 보도 헤드라인 리스크"
           ],
           "narrative": "어제 MSFT가 Capex +20% 상향을 공식화했지만 NVDA는 -1.3%로 약세. 핵심은 OpenAI 내부 매출 목표 미달 보도 + 반도체 시장 비중 21.44%(dot-com 피크 동일)가 만든 멀티플 압박이에요. 리테일은 여전히 'AI 사이클 한복판' 서사로 홀드 중이지만 기관은 일부 차익실현 + 디스플레이드 모멘텀. $200 지지 재확인 후 진입이 안전해요.",
-          "entry": 200.0,
-          "tp1": 210.0,
-          "tp2": 220.0,
-          "sl": 196.0,
+          "entry": 200,
+          "tp1": 210,
+          "tp2": 220,
+          "sl": 196,
           "entry_comment": "$200 지지 재확인 후 분할진입, 시초 갭다운 -3% 시 즉시 컷. AAPL 실적 후 자금 이동 가능성 주시.",
           "catalysts": [
             "MSFT/AMZN/GOOGL Capex 가이던스 동시 +20% 상향 효과",
@@ -3741,7 +3747,7 @@ window.__SCREENER_FEED__ = {
           "name": "Broadcom Inc.",
           "sector": "Semiconductors",
           "sector_full": "ASIC / Networking",
-          "price": 1745.0,
+          "price": 1745,
           "change_pct": -0.8,
           "score_total": 75.4,
           "score_reddit": 65,
@@ -3931,7 +3937,7 @@ window.__SCREENER_FEED__ = {
           "sector": "Semiconductors",
           "sector_full": "Memory / HBM",
           "price": 102.8,
-          "change_pct": -1.0,
+          "change_pct": -1,
           "score_total": 65.2,
           "score_reddit": 70,
           "score_news": 68,
@@ -3968,7 +3974,7 @@ window.__SCREENER_FEED__ = {
           "sector_full": "Aerospace / Launch",
           "price": 32.4,
           "change_pct": 2.5,
-          "score_total": 64.0,
+          "score_total": 64,
           "score_reddit": 68,
           "score_news": 60,
           "score_trends": 70,
@@ -4264,9 +4270,9 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "오늘은 내일 MSFT·GOOGL 실적의 '캡엑스 멘트' 베팅 자리예요. 지난주 신고가 $208 찍고 5일째 $204~$207 박스 횡보 중인데, 이건 매물 소화 후 추가 상승 패턴이에요. 리테일은 'AI 사이클 한복판' 서사로 단단히 홀드 중이고, 기관은 4/29 오후 MSFT 컨콜에서 캡엑스 가이던스 +20% 상향 시 멀티플 한 단계 더 가능성에 베팅 중이에요.",
           "entry": 204.5,
-          "tp1": 211.0,
-          "tp2": 218.0,
-          "sl": 201.0,
+          "tp1": 211,
+          "tp2": 218,
+          "sl": 201,
           "entry_comment": "22:35 개장 직후 $205 근처 1차 분할, $203 지지 확인 시 2차. MSFT 실적 직전 23:50 추가 매수는 리스크 헷지로 손절 $201 엄수.",
           "catalysts": [
             "4/29 MSFT 캡엑스 가이던스 발표 (22:30 ET 컨콜)",
@@ -4344,10 +4350,10 @@ window.__SCREENER_FEED__ = {
             "Copilot ARR $20B 돌파 가능성"
           ],
           "narrative": "내일 새벽이 진짜 디시전 데이예요. Azure YoY 성장률이 33% 이상 + 캡엑스 +25% 상향이 동시에 나오면 AI 인프라 전체가 리레이팅돼요. 리테일은 'MSFT는 보수적이라 IV 낮은데 보상은 가장 큼'이라는 헷지 트레이드 추천 중. 옵션 콜 IV 28%로 NVDA(58%) 대비 절반이라 변동성 매수 자리도 매력적이에요.",
-          "entry": 471.0,
-          "tp1": 485.0,
-          "tp2": 498.0,
-          "sl": 463.0,
+          "entry": 471,
+          "tp1": 485,
+          "tp2": 498,
+          "sl": 463,
           "entry_comment": "실적 전 포지션은 옵션이 더 유리. 주식 매수는 컨콜 후 가이던스 확인 후 시간외 +2% 이내일 때.",
           "catalysts": [
             "4/29 22:30 ET FY3Q 컨콜",
@@ -4425,9 +4431,9 @@ window.__SCREENER_FEED__ = {
             "커스텀 실리콘 ASIC 매출 비중 +35%"
           ],
           "narrative": "히든엣지가 메인 무대로 올라오는 중이에요. 내일 GOOGL 컨콜에서 'Marvell' 명시적 언급되면 +10% 갭업 가능성이 시장 기대치예요. 리테일은 아직 NVDA 그늘에 가려 언급량 NVDA의 1/4 수준이지만, 옵션 콜플로우는 평균대비 3.5배로 스마트머니가 먼저 진입 중인 구간이에요.",
-          "entry": 150.0,
-          "tp1": 159.0,
-          "tp2": 167.0,
+          "entry": 150,
+          "tp1": 159,
+          "tp2": 167,
           "sl": 146.5,
           "entry_comment": "23:00 매물 소화 후 $150 분할진입 권장. GOOGL 실적 직전 23:50까지 추가 매수, 컨콜 직후 시간외 모니터링.",
           "catalysts": [
@@ -4507,8 +4513,8 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "내일 컨콜은 '광고 + 클라우드 + AI 오버뷰 수익화' 3박자가 모두 가시화되는지가 관건이에요. 트리플 비트면 $200 저항 돌파, 미스 하나만 나와도 -5~7% 갭다운 리스크. 옵션 IV 47%는 MSFT 28%보다 부담 크지만 그만큼 기대치도 큰 구간이에요.",
           "entry": 181.5,
-          "tp1": 192.0,
-          "tp2": 201.0,
+          "tp1": 192,
+          "tp2": 201,
           "sl": 177.5,
           "entry_comment": "실적 전 신규 진입은 옵션 콜스프레드가 안전. 보유자는 부분 익절 + 쇼트레그로 헷지 권장.",
           "catalysts": [
@@ -4572,7 +4578,7 @@ window.__SCREENER_FEED__ = {
           "name": "Broadcom Inc.",
           "sector": "Semi",
           "sector_full": "Semiconductors",
-          "price": 1742.0,
+          "price": 1742,
           "change_pct": 1.1,
           "score_total": 79.8,
           "score_reddit": 66,
@@ -4587,10 +4593,10 @@ window.__SCREENER_FEED__ = {
             "VMware 시너지 매출 50% 가시화"
           ],
           "narrative": "MSFT 캡엑스가 +20% 이상 상향이면 AVGO가 NVDA·MRVL과 함께 가장 빠르게 따라가는 베타예요. 4개 하이퍼스케일러와 동시에 ASIC 진행 중이고, Tomahawk 6 네트워킹 칩이 양산 시작되며 매출 mix 개선 중. 리테일은 비싸다고 패스하지만 기관은 '제2의 NVDA'로 보강 중이에요.",
-          "entry": 1735.0,
-          "tp1": 1810.0,
-          "tp2": 1880.0,
-          "sl": 1705.0,
+          "entry": 1735,
+          "tp1": 1810,
+          "tp2": 1880,
+          "sl": 1705,
           "entry_comment": "개장 후 $1735 분할진입 권장, MSFT 실적 직전 $1740 돌파 시 추격 매수 가능. 손절 $1705.",
           "catalysts": [
             "MSFT 캡엑스 +25% 시 동반 +5%",
@@ -4668,9 +4674,9 @@ window.__SCREENER_FEED__ = {
             "연속 17세션 상승 후 첫 횡보"
           ],
           "narrative": "반도체 섹터가 17세션째 상승 중이라 추격은 부담스럽지만, AMD는 5월 Advancing AI 이벤트(D-3주)가 주가 트리거로 남아있어요. NVDA·MRVL 그늘에 가려 '준대장' 위치라 단기 스왑 트레이드 후보로 적합해요.",
-          "entry": 171.0,
-          "tp1": 178.0,
-          "tp2": 185.0,
+          "entry": 171,
+          "tp1": 178,
+          "tp2": 185,
           "sl": 167.5,
           "entry_comment": "개장 후 $171 분할 진입, RSI 78 과매수 구간이라 절반만 빌드.",
           "catalysts": [
@@ -4706,10 +4712,10 @@ window.__SCREENER_FEED__ = {
             "FSD v13 안정화 데이터 호조"
           ],
           "narrative": "4/22 -8% 갭다운 후 $235 지지에서 4세션째 횡보 중이에요. Robotaxi Day(5/15)까지 약 2주반 남았고, FSD v13 데이터가 안정화되며 리테일 컨피던스 회복 중. 다만 신규 주문 데이터가 나올 때까지 기관은 관망 모드라 모멘텀 회복은 더딜 가능성이 커요.",
-          "entry": 237.0,
-          "tp1": 248.0,
-          "tp2": 258.0,
-          "sl": 233.0,
+          "entry": 237,
+          "tp1": 248,
+          "tp2": 258,
+          "sl": 233,
           "entry_comment": "$235 지지 재확인 후 $237에서 분할진입. 손절 $233 이탈 시 즉시 컷.",
           "catalysts": [
             "5/15 Robotaxi Day 공개",
@@ -4745,9 +4751,9 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "리테일 1순위 종목으로 WSB 언급량 1위 자리는 굳건하지만, PER 175x + 옵션 IV 56%는 명확한 과열 신호예요. Q1 실적(5/5)까지 박스권 $130~$140 트레이딩이 합리적이고, 추격은 5/5 실적 가이던스 확인 후가 안전해요.",
           "entry": 132.5,
-          "tp1": 138.0,
-          "tp2": 143.0,
-          "sl": 129.0,
+          "tp1": 138,
+          "tp2": 143,
+          "sl": 129,
           "entry_comment": "$132 지지 재확인 후 분할진입, 실적 직전 신규 매수 금지.",
           "catalysts": [
             "5/5 Q1 실적",
@@ -4782,10 +4788,10 @@ window.__SCREENER_FEED__ = {
             "NVDA 2B 투자 + 6.7% 지분"
           ],
           "narrative": "4월 +50% 급등 후 4/23~24 -7% 조정 끝나고 다시 상승 재개 중이에요. AI21 인수 시너지·Meta 27B 캐파·NVDA 2B 투자라는 트리플 카탈리스트가 살아있지만, RSI 78 + 옵션 P/C 1.9는 명확한 과열 신호. 추격보다 다음 조정에서 매수가 안전해요.",
-          "entry": 47.0,
-          "tp1": 52.0,
-          "tp2": 56.0,
-          "sl": 45.0,
+          "entry": 47,
+          "tp1": 52,
+          "tp2": 56,
+          "sl": 45,
           "entry_comment": "오늘 추격 매수 금지. $45 조정 시 분할진입 대기.",
           "catalysts": [
             "AI21 인수 시너지 매출 Q3 인식",
@@ -4805,7 +4811,7 @@ window.__SCREENER_FEED__ = {
           "name": "MicroStrategy Inc.",
           "sector": "Crypto",
           "sector_full": "Crypto / Bitcoin",
-          "price": 1652.0,
+          "price": 1652,
           "change_pct": 1.6,
           "score_total": 71.4,
           "score_reddit": 88,
@@ -4820,10 +4826,10 @@ window.__SCREENER_FEED__ = {
             "6월 NAV 프리미엄 추가 매수 5억 달러 발표"
           ],
           "narrative": "BTC가 $84K 재돌파 시 MSTR 단기 모멘텀 한 번 더 가능해요. 다만 NAV 프리미엄 1.8x는 역사적 평균 1.4x 대비 30% 비싸고, 5/8 마이크로 ETF 추가 상장 후 유동성 분산 시 프리미엄 축소 리스크가 있어요. 단기 트레이드 외에는 보유 비중 줄이는 전략이 합리적이에요.",
-          "entry": 1640.0,
-          "tp1": 1720.0,
-          "tp2": 1800.0,
-          "sl": 1605.0,
+          "entry": 1640,
+          "tp1": 1720,
+          "tp2": 1800,
+          "sl": 1605,
           "entry_comment": "$1640 지지 확인 후 분할진입, BTC $80K 이탈 시 즉시 손절.",
           "catalysts": [
             "BTC $84K 재돌파",
@@ -4974,7 +4980,7 @@ window.__SCREENER_FEED__ = {
           "sector": "Fintech",
           "sector_full": "Fintech / Platform",
           "price": 15.4,
-          "change_pct": 1.0,
+          "change_pct": 1,
           "score_total": 63.4,
           "score_reddit": 62,
           "score_news": 68,
@@ -5342,8 +5348,8 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "11세션 연속 상승으로 4월 저점 대비 약 2배 랠리 중인데 오늘 프리마켓은 이란 협상 정체·TSLA 쇼크로 소폭 조정이에요. 리테일은 '5/20 실적까지 홀드' 내지는 '눌림 추가매수'로 단단히 포지셔닝 돼있고, 기관은 ASML·TSMC의 캡엑스 가이던스 가속을 근거로 데이터센터 TAM 상향 중이에요. 어제 기록한 $201.68을 이탈하지만 않으면 다음주 MSFT·GOOGL 실적 전 재차 신고가 시도 가능성 높아요.",
           "entry": 199.5,
-          "tp1": 206.0,
-          "tp2": 212.0,
+          "tp1": 206,
+          "tp2": 212,
           "sl": 196.5,
           "entry_comment": "프리마켓 약세 노려서 개장 후 22:35 $200 근처 1차, $198 지지 확인 시 2차. 손절은 $196.5.",
           "catalysts": [
@@ -5423,9 +5429,9 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "4/20 GOOGL과 메모리 프로세싱 유닛(MPU) + TPU 공동개발 계약이 공식화되면서 '엔비디아 대안' 스토리가 실제 매출 파이프로 연결됐어요. 리테일은 '다음 AVGO'라 부르며 진입 타이밍을 묻는 글이 폭증 중이고, 기관은 커스텀 실리콘 TAM 계산을 다시 쓰고 있어요. 최근 +65% 급등 후 $145-150 박스에서 숨고르기 중인데, 다음주 GOOGL 실적에서 MRVL 언급 나올 확률이 커서 추가 상방 여력 남았어요.",
           "entry": 146.5,
-          "tp1": 154.0,
-          "tp2": 161.0,
-          "sl": 143.0,
+          "tp1": 154,
+          "tp2": 161,
+          "sl": 143,
           "entry_comment": "개장 갭 여부 보고 22:45~23:00 조정 타이밍 분할진입. $143 이탈 시 손절, 돌파 시 $154 1차.",
           "catalysts": [
             "4/29 GOOGL 실적 콘콜에서 MRVL 파트너십 언급 가능성",
@@ -5503,10 +5509,10 @@ window.__SCREENER_FEED__ = {
             "GM 21.1% (+478bps) - 마진 회복 서사는 유효"
           ],
           "narrative": "어제 장 마감 후 Q1 실적에서 EPS $0.41로 컨센 비트했고 GM도 21.1%로 회복했는데, 콘콜에서 2026 캡엑스를 $25B(이전 $20B)로 상향 발표하며 +4%에서 -4%로 반전했어요. 리테일은 'Musk가 Optimus/Robotaxi에 투자 늘리는 건 장기 호재'라고 옹호 중이고, 기관은 재고 5만대 적체·에너지 스토리지 -38% QoQ를 들며 단기 FCF 압박 경계하고 있어요. 오늘 $240 지지 이탈 여부가 단기 방향 가를 1차 레벨이에요.",
-          "entry": 242.0,
-          "tp1": 251.0,
-          "tp2": 258.0,
-          "sl": 236.0,
+          "entry": 242,
+          "tp1": 251,
+          "tp2": 258,
+          "sl": 236,
           "entry_comment": "$240 지지 테스트 확인 후 반등 시 분할진입. 이탈 시 $230까지 한번 더 봐요. 절대 물타기 금지.",
           "catalysts": [
             "5월 Robotaxi Austin 런칭 일정 재확인",
@@ -5585,8 +5591,8 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "4/20 MRVL과의 커스텀 칩 파트너십 공시로 Search·Cloud·Waymo 3개 축의 원가 구조가 재평가되고 있어요. 리테일은 'Mag7 중 가장 저평가'라며 PER 19x 근거로 매수 중이고, 기관은 YT CPM 회복 + Gemini 3 엔터프라이즈 계약 확대를 근거로 4/29 가이던스 상향 베팅을 집중하는 중이에요. 이번주 $180 이탈만 없으면 실적 전 $190까지 올려놓는 게 컨센이에요.",
           "entry": 181.5,
-          "tp1": 187.0,
-          "tp2": 192.0,
+          "tp1": 187,
+          "tp2": 192,
           "sl": 178.5,
           "entry_comment": "개장 직후 무리하지 말고 23:00 이후 매물 소화 확인 후 진입. $178.5 이탈 시 즉시 손절.",
           "catalysts": [
@@ -5665,10 +5671,10 @@ window.__SCREENER_FEED__ = {
             "Stocktwits 'extremely bullish' 극단 구간"
           ],
           "narrative": "Strategy(구 MicroStrategy)가 지난주 $2.54B BTC를 추가 매수해 총 717k개로 BlackRock IBIT를 제치고 최대 보유자가 됐어요. 리테일은 Stocktwits에서 '극단 불리시' 단계로 콜옵션 레버리지 포지션이 과열 구간이고, 애널들은 '현금 버퍼 18개월치로 감소'를 경계하며 배당 지속성에 의문을 던지는 중이에요. BTC $80K 돌파 트리거 시 $450까지 뚫리지만, $75K 이탈 시 MSTR 레버리지 청산이 연쇄될 수 있어 양방향 변동성 모두 열어둬야 해요.",
-          "entry": 408.0,
-          "tp1": 428.0,
-          "tp2": 448.0,
-          "sl": 395.0,
+          "entry": 408,
+          "tp1": 428,
+          "tp2": 448,
+          "sl": 395,
           "entry_comment": "비트코인 $76K 유지 확인 후 분할진입. 레버리지 ETF 대신 현물·콜스프레드 권장, 포지션 사이즈는 평소의 절반으로.",
           "catalysts": [
             "BTC $80K 심리적 돌파 시 기관 매수 재개",
@@ -5746,9 +5752,9 @@ window.__SCREENER_FEED__ = {
             "NVDA 대비 밸류에이션 디스카운트 축소 중"
           ],
           "narrative": "반도체 섹터가 16세션 연속 상승하며 AMD도 한 달 +11%로 MRVL과 함께 가장 과열된 종목 중 하나예요. MI355X 수주 랠리가 중국 제재 해제 기대와 맞물려 기관 매수세가 이어지는 중이지만, 과열 구간이라 $165 이탈 시 지지 확인 후 재진입이 안전해요.",
-          "entry": 166.0,
-          "tp1": 173.0,
-          "tp2": 179.0,
+          "entry": 166,
+          "tp1": 173,
+          "tp2": 179,
           "sl": 162.5,
           "entry_comment": "과열 구간이라 추격 금지, $165 지지 테스트 확인 후 진입.",
           "catalysts": [
@@ -5784,10 +5790,10 @@ window.__SCREENER_FEED__ = {
             "광고 ROAS + Threads MAU 가속"
           ],
           "narrative": "Nebius 27B 계약 이후 '인프라 과투자' 우려가 오히려 '예측 가능한 CapEx'로 재해석되며 애널 타깃이 줄상향 중이에요. 리테일은 4/29 실적 전 콜 집중, 기관은 Reality Labs 손실 축소 증거와 광고 ROAS 회복에 더 민감해요. 실적 서프라이즈 가능성 가장 높은 메가캡 중 하나로 평가해요.",
-          "entry": 614.0,
-          "tp1": 632.0,
-          "tp2": 650.0,
-          "sl": 606.0,
+          "entry": 614,
+          "tp1": 632,
+          "tp2": 650,
+          "sl": 606,
           "entry_comment": "실적 전 분할진입 권장, 포지션 사이즈는 평소의 60%.",
           "catalysts": [
             "4/29 Q1 실적 - 매출 +32% YoY 기대",
@@ -5822,10 +5828,10 @@ window.__SCREENER_FEED__ = {
             "OpenAI 파트너십 재조정 협상 근접"
           ],
           "narrative": "Azure AI 런레이트가 $15B를 넘었다는 내부 수치 유출 이후 기관은 4/29 실적에서 가이던스 상향 확률을 높이는 중이에요. 리테일 관심은 META·GOOGL보다 덜 하지만 기관 담보성 매수는 꾸준해요. Copilot 유료 전환율과 OpenAI 재조정 언급이 핵심 트리거예요.",
-          "entry": 475.0,
-          "tp1": 488.0,
-          "tp2": 498.0,
-          "sl": 468.0,
+          "entry": 475,
+          "tp1": 488,
+          "tp2": 498,
+          "sl": 468,
           "entry_comment": "실적 전 포지션 빌드, 금요일까지 분할.",
           "catalysts": [
             "4/29 실적 Azure AI 가속 확인",
@@ -5861,9 +5867,9 @@ window.__SCREENER_FEED__ = {
           ],
           "narrative": "Q4 AWS 성장률 +24% YoY가 13분기래 최고 기록이었고 AI 런레이트가 $15B를 돌파하면서 '클라우드 2차 성장' 서사가 다시 살아났어요. 리테일은 WSB 2026 Top 1픽으로 AMZN을 꼽았고, 기관은 Trainium3 + Anthropic 수익화 + 리테일 AI 쇼핑의 3축에 점수 주는 중이에요.",
           "entry": 216.5,
-          "tp1": 224.0,
-          "tp2": 230.0,
-          "sl": 212.0,
+          "tp1": 224,
+          "tp2": 230,
+          "sl": 212,
           "entry_comment": "4/29 전 $220 돌파 확인 후 추가 추격, 이전엔 분할.",
           "catalysts": [
             "4/29 Q1 실적 - AWS 가속 확증",
@@ -5882,7 +5888,7 @@ window.__SCREENER_FEED__ = {
           "name": "Broadcom",
           "sector": "Semi",
           "sector_full": "Semiconductors",
-          "price": 1872.0,
+          "price": 1872,
           "change_pct": 1.4,
           "score_total": 75.8,
           "score_reddit": 62,
@@ -5898,10 +5904,10 @@ window.__SCREENER_FEED__ = {
             "VMware 통합 시너지 본격화"
           ],
           "narrative": "MRVL-GOOGL 딜이 오히려 커스텀 ASIC 카테고리 전체를 부각시키면서 AVGO 기관 매수세도 강해졌어요. 리테일 관심은 상대적으로 낮지만 옵션 플로우는 강력, 기관 선호도 Top1의 반도체 중 하나예요.",
-          "entry": 1858.0,
-          "tp1": 1912.0,
-          "tp2": 1965.0,
-          "sl": 1822.0,
+          "entry": 1858,
+          "tp1": 1912,
+          "tp2": 1965,
+          "sl": 1822,
           "entry_comment": "고가 종목 - 사이즈 관리 철저, 콜스프레드 권장.",
           "catalysts": [
             "5월 분기실적 가이던스 상향 기대",
@@ -5973,7 +5979,7 @@ window.__SCREENER_FEED__ = {
           "sector": "Space",
           "sector_full": "Space & Comm",
           "price": 83.9,
-          "change_pct": -1.0,
+          "change_pct": -1,
           "score_total": 65.2,
           "score_reddit": 94,
           "score_news": 58,
@@ -8414,6 +8420,1034 @@ window.__SCREENER_FEED__ = {
           "score_options": 18,
           "quadrant": "overheat",
           "claude_rank": null
+        }
+      ]
+    },
+    "2026-05-13": {
+      "date": "2026-05-13",
+      "date_display": "2026-05-13 (수·미국장 post-CPI)",
+      "market_mood": "bullish",
+      "market_mood_score": 68,
+      "market_summary": "어제 CPI가 무난히 통과해서 SPY가 +0.6%로 안도 랠리 흐름이에요. 반도체·AI 인프라가 다시 리드하고, 내일 5/14 AMAT 어닝 + 美 상원 크립토 법안 표결까지 이중 촉매가 대기 중. NVDA는 5/20 어닝 D-7로 추세 그대로 살아있고, 메가캡(GOOGL/META) 약세는 제한적이라 강세 우위로 봐도 돼요.",
+      "sector_tilt": [
+        "Semiconductors",
+        "AI Infrastructure",
+        "Fintech / Stablecoin"
+      ],
+      "top_ticker": "AMAT",
+      "candidate_count": 20,
+      "today_action": {
+        "one_liner": "AMAT 어닝 D-1 포지션 작게 잡고, NVDA 220 위 추세 추종, INTC 추격은 절대 금지예요.",
+        "priorities": [
+          {
+            "icon": "🎯",
+            "ticker": "AMAT",
+            "text": "5/14 어닝 D-1 — 22:35 시초 관망 후 $182 위 안착 시 1차 분할(0.5R), 어닝 직전 사이즈 절반으로 축소. 손절 $176, TP1 $190 / TP2 $198"
+          },
+          {
+            "icon": "💎",
+            "ticker": "NBIS",
+            "text": "히든엣지 졸업 — $188 풀백 시 1차, $190 돌파 시 2차. 거래량 회복 확인 필수. 손절 $182, 익절 $198/$208"
+          },
+          {
+            "icon": "🚨",
+            "ticker": "INTC",
+            "text": "YTD +220% 과열 유지 — 신규 추격 절대 금지. 보유분만 $126 트레일링 스탑으로 롤링 익절"
+          }
+        ]
+      },
+      "routine_timeline": [
+        {
+          "time_kst": "21:00",
+          "time_et": "08:00",
+          "label": "프리마켓 무빙 점검 (AMAT/NVDA/CRCL 갭 확인)",
+          "active": true
+        },
+        {
+          "time_kst": "21:30",
+          "time_et": "08:30",
+          "label": "주간 신규실업수당 발표 (컨센 220K)",
+          "active": true
+        },
+        {
+          "time_kst": "21:45",
+          "time_et": "08:45",
+          "label": "10Y 금리 + DXY 체크 (CPI 후속 흐름)",
+          "active": true
+        },
+        {
+          "time_kst": "22:00",
+          "time_et": "09:00",
+          "label": "WSB·X 티커 멘션 재확인 + 옵션 unusual flow 스캔",
+          "active": true
+        },
+        {
+          "time_kst": "22:30",
+          "time_et": "09:30",
+          "label": "🔔 미국장 개장 — 첫 5분 관망",
+          "active": true,
+          "key": true
+        },
+        {
+          "time_kst": "22:35",
+          "time_et": "09:35",
+          "label": "AMAT $182 안착 시 1차 분할, NVDA 추세 추종",
+          "active": true
+        },
+        {
+          "time_kst": "23:30",
+          "time_et": "10:30",
+          "label": "CRCL/COIN 크립토 법안 D-1 모멘텀 모니터링",
+          "active": true
+        },
+        {
+          "time_kst": "00:30",
+          "time_et": "11:30",
+          "label": "장중 중간점검 — 손절·익절 관리, AMAT 사이즈 절반 축소",
+          "active": true
+        },
+        {
+          "time_kst": "05:00",
+          "time_et": "16:00",
+          "label": "🔔 미국장 마감 + AMAT 애프터마켓 어닝 대기",
+          "active": true,
+          "key": true
+        },
+        {
+          "time_kst": "05:05",
+          "time_et": "16:05",
+          "label": "⚡ AMAT Q2 어닝 (Aftermarket) — 가이던스 주목",
+          "active": true,
+          "key": true
+        }
+      ],
+      "sectors": [
+        {
+          "name": "Semiconductors",
+          "strength": 0.93,
+          "ticker_count": 7
+        },
+        {
+          "name": "AI Infrastructure",
+          "strength": 0.86,
+          "ticker_count": 3
+        },
+        {
+          "name": "Fintech / Stablecoin",
+          "strength": 0.84,
+          "ticker_count": 2
+        },
+        {
+          "name": "Memory / HBM",
+          "strength": 0.81,
+          "ticker_count": 1
+        },
+        {
+          "name": "Nuclear / Energy",
+          "strength": 0.74,
+          "ticker_count": 2
+        },
+        {
+          "name": "Crypto / Treasury",
+          "strength": 0.72,
+          "ticker_count": 2
+        },
+        {
+          "name": "Space / Aerospace",
+          "strength": 0.69,
+          "ticker_count": 1
+        },
+        {
+          "name": "EV / Auto",
+          "strength": 0.58,
+          "ticker_count": 1
+        },
+        {
+          "name": "AI Hardware / Servers",
+          "strength": 0.32,
+          "ticker_count": 1
+        }
+      ],
+      "claude_ranking": [
+        {
+          "rank": 1,
+          "ticker": "AMAT",
+          "reasoning": "5/14 Q2 어닝 D-1 + 반도체 장비 사이클 회복 + AI 수요 폭증 가이던스 기대.",
+          "signals": [
+            "5/14 Q2 FY26 어닝 D-1 (Aftermarket)",
+            "TheStreet \"unexpected AI move + 수요 폭증\" 코멘트",
+            "장비 사이클 회복 + Sell-side 가이드 상향 컨센"
+          ]
+        },
+        {
+          "rank": 2,
+          "ticker": "NVDA",
+          "reasoning": "5/20 어닝 D-7, CPI 통과로 추세 그대로 살아있음, $220 안착 시 가속.",
+          "signals": [
+            "May 20 Q1 FY27 어닝 D-7",
+            "CPI 무난 통과 → 멀티플 압박 해제",
+            "콜옵션 C/P 3.4 + 기관 매수 빌드업 지속"
+          ]
+        },
+        {
+          "rank": 3,
+          "ticker": "CRCL",
+          "reasoning": "5/14 美 상원 크립토 법안 표결 D-1 + USDC 신고점 + 자체 블록체인 내러티브.",
+          "signals": [
+            "5/14 美 상원 스테이블코인 법안 표결 D-1",
+            "USDC $79B 신고점 (Q1 +72% YoY)",
+            "Bloomberg \"Circle 자체 블록체인\" 후속 보도"
+          ]
+        },
+        {
+          "rank": 4,
+          "ticker": "MU",
+          "reasoning": "HBM 사이클 가속 + 메모리 신고점 + 분석가 추가 상향 컨센.",
+          "signals": [
+            "AI HBM 메모리 수요 가속 (TSMC capex 상향)",
+            "메모리 칩스 신고점 갱신 (3거래일 연속)",
+            "Mizuho 목표가 $145 → $158 상향"
+          ]
+        },
+        {
+          "rank": 5,
+          "ticker": "NBIS",
+          "reasoning": "AI 컴퓨트 인프라 히든엣지 졸업 — Q1 어닝 D-2 + NVDA capex 사이클 직접 수혜.",
+          "signals": [
+            "Q1 어닝 D-2 임박 (Zacks 프리뷰 강세)",
+            "NVDA AI 투자 확대 직접 수혜 포지션",
+            "거래량 회복 + 기관 누적 시그널"
+          ]
+        }
+      ],
+      "hidden_edges": [
+        {
+          "ticker": "MRVL",
+          "reason": "Polariton 인수 발표 후속 분석이 Astera Labs/AVGO 비교주로 리레이팅 시작 중인데 +1.2%로 헤드라인 대비 조용해요. AI 인터커넥트 사이클 시작점이고 옵션 콜 빌드업이 어제부터 본격화 — 거래량 평균 +35%인데 가격은 미반영. NVDA 어닝 sympathy 트레이드 후보."
+        },
+        {
+          "ticker": "TSM",
+          "reason": "5/15 4월 월간 매출 발표 D-2인데 멘션이 거의 없어요. HBM 가속 + 3nm/2nm 가동률 풀로드 헤드라인이 Q2 가이드 상향 기대를 자극 중. NVDA·AMAT·MU 강세 시 가장 안전한 대형 sympathy."
+        },
+        {
+          "ticker": "CRWV",
+          "reason": "CoreWeave가 CPI 통과 + AI capex 사이클 재가동 분위기에서 +3.5%인데 WSB 멘션은 Top 30 밖. 옵션 unusual call 활동이 어제 평균 4배로 폭증 — 기관이 조용히 담는 패턴 전형. NBIS와 함께 AI 인프라 페어 트레이드 후보."
+        }
+      ],
+      "overheated": [
+        {
+          "ticker": "INTC",
+          "reason": "YTD +220%, 1개월 +120% 유지. WSB 24h 멘션이 어제 +320%에서 오늘 +180%로 둔화 시작 — 후행 추격이 식어가는 신호예요. 옵션 스마트머니 비중 38%로 더 떨어졌고 GF Value 대비 +345% 과대평가. 평균회귀 위험 매우 큼."
+        },
+        {
+          "ticker": "SMR",
+          "reason": "원전 SMR이 어제 +7%, 오늘 프리마켓 +4% 추가로 30일 +85% 도달. WSB 멘션 1위 진입했지만 어닝 가시성 없는 상태에서의 모멘텀 베팅. 옵션 콜 IV 95퍼센타일 — 변동성 셀러 진입 구간."
+        },
+        {
+          "ticker": "ASTS",
+          "reason": "Q1 매출 미스에도 어제 +10% 후 오늘도 +5% 추가 — 펀더멘털 무시한 내러티브 베팅 지속. 베타 3.2 + 옵션 풋 빌드업 동시 발생, AMAT 어닝 변동성 확산 시 가장 먼저 빠질 후보."
+        }
+      ],
+      "tickers": [
+        {
+          "rank": 1,
+          "ticker": "AMAT",
+          "name": "Applied Materials",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 181.85,
+          "change_pct": 2.18,
+          "score_total": 89.5,
+          "score_reddit": 82,
+          "score_news": 94,
+          "score_trends": 84,
+          "score_options": 96,
+          "quadrant": "hot",
+          "claude_rank": 1,
+          "claude_summary": "5/14 어닝 D-1, 장비 사이클 + AI 수요 가이던스 기대로 옵션 콜 폭증 중이에요.",
+          "claude_signals": [
+            "5/14 Q2 FY26 어닝 D-1 (Aftermarket)",
+            "TheStreet \"unexpected AI move + 수요 폭증\"",
+            "콜옵션 C/P 3.4 + 스마트머니 81%"
+          ],
+          "narrative": "AMAT가 어제 +1.4% 마감 후 오늘 프리마켓 +0.7%로 어닝 D-1 모멘텀이 살아있어요. CPI 통과로 멀티플 압박이 풀렸고, 반도체 장비 사이클 회복 + AI 수요 폭증 코멘트가 가이드 상향 기대를 강하게 자극 중. 옵션 시장에서 콜 빌드업이 어제 대비 +28%로 가속 중이라 기관도 어닝 베팅 사이즈를 키우는 분위기예요.",
+          "entry": 181.85,
+          "tp1": 190.0,
+          "tp2": 198.0,
+          "sl": 176.0,
+          "entry_comment": "22:35 시초 관망 후 $182 안착 시 1차 0.5R, 어닝 직전 사이즈 절반으로 축소 권장",
+          "catalysts": [
+            "5/14 Q2 FY26 어닝 (Aftermarket)",
+            "TSMC capex 상향 → WFE 수요 가속",
+            "AI 메모리/HBM 장비 주문 증가",
+            "China DRAM capex 재개 헤드라인"
+          ],
+          "risks": [
+            "어닝 후 China 매출 비중 우려 재점화 가능",
+            "가이드 보수적 톤 시 -8% 갭다운 위험",
+            "반도체 섹터 차익실현"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 920,
+              "sentiment": 0.71
+            },
+            {
+              "sub": "stocks",
+              "count": 580,
+              "sentiment": 0.68
+            },
+            {
+              "sub": "options",
+              "count": 410,
+              "sentiment": 0.74
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Applied Materials Q2 Preview: AI move + demand surge eyed",
+              "source": "TheStreet",
+              "ago": "8h"
+            },
+            {
+              "title": "WFE cycle recovery accelerates as TSMC raises capex",
+              "source": "Bloomberg",
+              "ago": "12h"
+            },
+            {
+              "title": "AMAT call options volume hits 30-day high pre-earnings",
+              "source": "Barron's",
+              "ago": "5h"
+            }
+          ],
+          "trend_surge_pct": 58,
+          "options_detail": {
+            "call_volume": 142000,
+            "put_volume": 42000,
+            "cp_ratio": 3.4,
+            "smart_money_ratio": 0.81,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 2,
+          "ticker": "NVDA",
+          "name": "NVIDIA Corporation",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 222.1,
+          "change_pct": 1.21,
+          "score_total": 88.7,
+          "score_reddit": 93,
+          "score_news": 89,
+          "score_trends": 86,
+          "score_options": 87,
+          "quadrant": "hot",
+          "claude_rank": 2,
+          "claude_summary": "5/20 어닝 D-7, CPI 통과 안도 랠리로 $220 위 안착 — 추세 그대로예요.",
+          "claude_signals": [
+            "May 20 Q1 FY27 어닝 D-7",
+            "CPI 무난 통과 → 멀티플 압박 해제",
+            "콜옵션 C/P 3.4 + 기관 빌드업 지속"
+          ],
+          "narrative": "CPI 통과로 어제 +1.2% 마감 후 오늘 $222 안착으로 추세 그대로 살아있어요. 5/20 어닝까지 D-7, 반도체 섹터 신고점 동조 + Intel-Nvidia 신제품 협업 헤드라인 후속 분석이 계속 강세 모멘텀을 키우는 중. 옵션 콜빌드업이 멈추지 않고 있고, 230달러 목표는 어닝 전까지 충분히 그릴 수 있는 그림이에요.",
+          "entry": 222.0,
+          "tp1": 228.0,
+          "tp2": 235.0,
+          "sl": 216.0,
+          "entry_comment": "$220 위 유지 확인하고 22:40 1차 진입, $225 돌파 시 2차. 어닝 D-2부터 사이즈 절반 축소",
+          "catalysts": [
+            "May 20 Q1 FY27 어닝 (D-7)",
+            "Hyperscaler capex 가이던스 상향 컨센",
+            "Intel-Nvidia 신제품 협업 후속 보도",
+            "메모리 신고가 동조 효과"
+          ],
+          "risks": [
+            "어닝 직전 차익실현 (D-3부터)",
+            "중국 GPU 수출 규제 헤드라인",
+            "Hyperscaler capex 둔화 우려 재점화"
+          ],
+          "reddit_sentiment_label": "매우 긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 1620,
+              "sentiment": 0.78
+            },
+            {
+              "sub": "stocks",
+              "count": 820,
+              "sentiment": 0.72
+            },
+            {
+              "sub": "investing",
+              "count": 470,
+              "sentiment": 0.66
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Nvidia tops $222 as CPI relief unleashes mega-cap tech bid",
+              "source": "Yahoo Finance",
+              "ago": "3h"
+            },
+            {
+              "title": "NVDA earnings preview: Hyperscaler capex guide in focus",
+              "source": "CNBC",
+              "ago": "10h"
+            },
+            {
+              "title": "Intel-Nvidia partnership details emerge in supply chain checks",
+              "source": "SemiAnalysis",
+              "ago": "1d"
+            }
+          ],
+          "trend_surge_pct": 49,
+          "options_detail": {
+            "call_volume": 328000,
+            "put_volume": 96000,
+            "cp_ratio": 3.4,
+            "smart_money_ratio": 0.82,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 3,
+          "ticker": "CRCL",
+          "name": "Circle Internet Group",
+          "sector": "Fintech",
+          "sector_full": "Fintech / Stablecoin",
+          "price": 412.3,
+          "change_pct": 3.42,
+          "score_total": 87.2,
+          "score_reddit": 88,
+          "score_news": 92,
+          "score_trends": 90,
+          "score_options": 79,
+          "quadrant": "hot",
+          "claude_rank": 3,
+          "claude_summary": "5/14 美 상원 크립토 법안 표결 D-1 + USDC 신고점 — 이중 촉매 직전이에요.",
+          "claude_signals": [
+            "5/14 美 상원 스테이블코인 법안 표결 D-1",
+            "USDC $79B 신고점 (Q1 +72% YoY)",
+            "Bloomberg \"Circle 자체 블록체인\" 후속 보도"
+          ],
+          "narrative": "5/14 美 상원 크립토 법안 표결을 하루 앞두고 CRCL이 +3.4%로 강한 모멘텀을 보여요. USDC가 $79B 신고점을 갱신했고, Bloomberg의 \"Circle 자체 블록체인\" 후속 보도가 리레이팅 내러티브를 키우는 중. 다만 표결 결과 따라 변동성 클 수 있어서 사이즈는 보수적으로.",
+          "entry": 412.0,
+          "tp1": 435.0,
+          "tp2": 460.0,
+          "sl": 395.0,
+          "entry_comment": "법안 표결 D-1이라 사이즈 절반으로 진입, 표결 발표 직전 익절 권장",
+          "catalysts": [
+            "5/14 美 상원 스테이블코인 법안 표결",
+            "USDC 신고점 + Q1 +72% YoY",
+            "Circle 자체 블록체인 후속 보도",
+            "BTC/ETH 동조 강세"
+          ],
+          "risks": [
+            "법안 표결 부결 시 -10% 갭다운",
+            "BTC 급락 동조 위험",
+            "단기 차익실현 (오늘 +3.4% 후)"
+          ],
+          "reddit_sentiment_label": "매우 긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 1380,
+              "sentiment": 0.75
+            },
+            {
+              "sub": "cryptocurrency",
+              "count": 920,
+              "sentiment": 0.81
+            },
+            {
+              "sub": "stocks",
+              "count": 410,
+              "sentiment": 0.68
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Senate stablecoin bill vote scheduled for May 14, Circle in focus",
+              "source": "Bloomberg",
+              "ago": "6h"
+            },
+            {
+              "title": "USDC supply hits record $79B as crypto regulation clarifies",
+              "source": "CoinDesk",
+              "ago": "9h"
+            },
+            {
+              "title": "Circle's own blockchain plans take shape ahead of Senate vote",
+              "source": "Bloomberg",
+              "ago": "1d"
+            }
+          ],
+          "trend_surge_pct": 72,
+          "options_detail": {
+            "call_volume": 88000,
+            "put_volume": 31000,
+            "cp_ratio": 2.8,
+            "smart_money_ratio": 0.74,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 4,
+          "ticker": "MU",
+          "name": "Micron Technology",
+          "sector": "Memory",
+          "sector_full": "Memory / HBM",
+          "price": 148.2,
+          "change_pct": 2.85,
+          "score_total": 85.4,
+          "score_reddit": 84,
+          "score_news": 90,
+          "score_trends": 82,
+          "score_options": 86,
+          "quadrant": "hot",
+          "claude_rank": 4,
+          "claude_summary": "HBM 사이클 가속 + 메모리 신고점 3거래일 연속, Mizuho 목표가 상향이에요.",
+          "claude_signals": [
+            "AI HBM 수요 가속 (TSMC capex 상향)",
+            "메모리 칩스 신고점 갱신 (3거래일 연속)",
+            "Mizuho 목표가 $145 → $158 상향"
+          ],
+          "narrative": "메모리 섹터가 신고점을 3거래일 연속 갱신 중이고, MU는 +2.9%로 가장 강한 모멘텀이에요. TSMC capex 상향 발표 → HBM 수요 가속 → MU 매출 가시성 개선 흐름이 정렬됐고, Mizuho가 어제 목표가를 $145 → $158로 상향. AMAT 어닝 가이드까지 강세면 추가 리레이팅 가능.",
+          "entry": 148.0,
+          "tp1": 156.0,
+          "tp2": 164.0,
+          "sl": 143.0,
+          "entry_comment": "22:40 1차 진입, $150 돌파 시 2차. AMAT 어닝 결과 따라 사이즈 조정",
+          "catalysts": [
+            "TSMC capex 상향 → HBM 수요 가속",
+            "Mizuho 목표가 $145 → $158 상향",
+            "메모리 신고점 모멘텀",
+            "AMAT 어닝 가이드 sympathy"
+          ],
+          "risks": [
+            "메모리 가격 사이클 정점 우려",
+            "China DRAM 공급 증가 헤드라인",
+            "단기 차익실현"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 880,
+              "sentiment": 0.69
+            },
+            {
+              "sub": "stocks",
+              "count": 520,
+              "sentiment": 0.71
+            },
+            {
+              "sub": "investing",
+              "count": 310,
+              "sentiment": 0.64
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Memory chips hit fresh highs as HBM cycle accelerates",
+              "source": "Yahoo Finance",
+              "ago": "4h"
+            },
+            {
+              "title": "Mizuho lifts Micron target to $158, cites HBM share gains",
+              "source": "Barron's",
+              "ago": "11h"
+            },
+            {
+              "title": "TSMC raises capex guide, ripples through memory supply chain",
+              "source": "Bloomberg",
+              "ago": "1d"
+            }
+          ],
+          "trend_surge_pct": 44,
+          "options_detail": {
+            "call_volume": 165000,
+            "put_volume": 52000,
+            "cp_ratio": 3.2,
+            "smart_money_ratio": 0.76,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 5,
+          "ticker": "NBIS",
+          "name": "Nebius Group",
+          "sector": "AI Infra",
+          "sector_full": "AI Infrastructure",
+          "price": 189.4,
+          "change_pct": 4.85,
+          "score_total": 82.6,
+          "score_reddit": 78,
+          "score_news": 85,
+          "score_trends": 74,
+          "score_options": 90,
+          "quadrant": "hot",
+          "claude_rank": 5,
+          "claude_summary": "히든엣지 졸업 — Q1 어닝 D-2 + NVDA capex 사이클 직접 수혜로 거래량 회복 중.",
+          "claude_signals": [
+            "Q1 어닝 D-2 임박 (Zacks 프리뷰 강세)",
+            "NVDA AI 투자 확대 직접 수혜",
+            "거래량 회복 + 기관 누적 시그널"
+          ],
+          "narrative": "어제 히든엣지로 짚었던 NBIS가 +4.9%로 본격 졸업 신호예요. Q1 어닝이 D-2 임박했고, NVDA의 AI capex 확대 푸시 직접 수혜 포지션. 어제까지 평균 이하였던 거래량이 오늘 평균 +60%로 회복 — 기관이 본격적으로 담기 시작한 패턴이라 비대칭 업사이드 잡기 좋은 자리.",
+          "entry": 189.0,
+          "tp1": 198.0,
+          "tp2": 208.0,
+          "sl": 182.0,
+          "entry_comment": "$188 풀백 시 1차, $190 돌파 시 2차. Q1 어닝 D-1부터 사이즈 절반 축소",
+          "catalysts": [
+            "Q1 어닝 D-2 (Zacks 강세 프리뷰)",
+            "NVDA AI capex 확대 직접 수혜",
+            "AI 컴퓨트 인프라 리레이팅",
+            "거래량 회복 + 기관 누적"
+          ],
+          "risks": [
+            "어닝 가이드 미스 시 -15% 갭다운",
+            "거래량 변동성 확대 위험",
+            "AI 인프라 섹터 차익실현"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "reddit_breakdown": [
+            {
+              "sub": "wallstreetbets",
+              "count": 580,
+              "sentiment": 0.72
+            },
+            {
+              "sub": "stocks",
+              "count": 340,
+              "sentiment": 0.74
+            },
+            {
+              "sub": "investing",
+              "count": 180,
+              "sentiment": 0.69
+            }
+          ],
+          "news_headlines": [
+            {
+              "title": "Nebius Q1 preview: AI compute infra demand in focus",
+              "source": "Zacks",
+              "ago": "7h"
+            },
+            {
+              "title": "NBIS volume returns as institutional buyers rebuild positions",
+              "source": "Seeking Alpha",
+              "ago": "10h"
+            },
+            {
+              "title": "AI infrastructure plays back in favor post-CPI",
+              "source": "Barron's",
+              "ago": "5h"
+            }
+          ],
+          "trend_surge_pct": 66,
+          "options_detail": {
+            "call_volume": 42000,
+            "put_volume": 12000,
+            "cp_ratio": 3.5,
+            "smart_money_ratio": 0.79,
+            "unusual": true
+          }
+        },
+        {
+          "rank": 6,
+          "ticker": "MRVL",
+          "name": "Marvell Technology",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 78.2,
+          "change_pct": 1.24,
+          "score_total": 78.5,
+          "score_reddit": 68,
+          "score_news": 80,
+          "score_trends": 72,
+          "score_options": 88,
+          "quadrant": "hidden",
+          "claude_rank": null,
+          "claude_summary": "히든엣지 — Polariton 인수 후속 + AI 인터커넥트 사이클 시작점이에요.",
+          "claude_signals": [
+            "Polariton 인수 후속 분석 강세",
+            "옵션 콜 빌드업 본격화 (어제 대비 +35%)",
+            "AVGO/Astera Labs 비교주 리레이팅 시작"
+          ],
+          "narrative": "Polariton 인수 후속 분석이 Astera Labs/AVGO 비교주로 리레이팅 시작 중인데 가격은 +1.2%로 헤드라인 대비 조용해요. AI 인터커넥트 사이클 시작점이고 옵션 콜 빌드업이 어제부터 본격화 중. NVDA 어닝 sympathy 트레이드 후보로 좋아요.",
+          "catalysts": [
+            "Polariton 인수 시너지",
+            "AI 인터커넥트 사이클",
+            "NVDA 어닝 sympathy"
+          ],
+          "risks": [
+            "AVGO 어닝(6월) 대기 차익실현",
+            "AI capex 둔화 우려"
+          ],
+          "reddit_sentiment_label": "중립",
+          "trend_surge_pct": 28
+        },
+        {
+          "rank": 7,
+          "ticker": "TSM",
+          "name": "Taiwan Semiconductor",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 218.45,
+          "change_pct": 2.05,
+          "score_total": 77.8,
+          "score_reddit": 64,
+          "score_news": 88,
+          "score_trends": 70,
+          "score_options": 89,
+          "quadrant": "hidden",
+          "claude_rank": null,
+          "claude_summary": "5/15 4월 월간 매출 D-2 — HBM 가속 + 가동률 풀로드 가이드 기대해요.",
+          "claude_signals": [
+            "5/15 4월 월간 매출 발표 D-2",
+            "3nm/2nm 가동률 풀로드",
+            "HBM capex 상향 → 메모리 섹터 sympathy"
+          ],
+          "narrative": "TSMC가 +2.1%인데 멘션이 거의 없는 상태예요. 5/15 4월 월간 매출 발표 D-2이고, HBM 가속 + 3nm/2nm 가동률 풀로드 헤드라인이 Q2 가이드 상향 기대를 자극 중. NVDA·AMAT·MU 강세 시 가장 안전한 대형 sympathy 포지션이에요.",
+          "catalysts": [
+            "5/15 4월 월간 매출",
+            "HBM 가속",
+            "AI capex 사이클"
+          ],
+          "risks": [
+            "China-Taiwan 지정학 헤드라인",
+            "월간 매출 컨센 미스"
+          ],
+          "reddit_sentiment_label": "중립",
+          "trend_surge_pct": 18
+        },
+        {
+          "rank": 8,
+          "ticker": "COIN",
+          "name": "Coinbase Global",
+          "sector": "Fintech",
+          "sector_full": "Fintech / Stablecoin",
+          "price": 312.5,
+          "change_pct": 4.12,
+          "score_total": 82.4,
+          "score_reddit": 88,
+          "score_news": 84,
+          "score_trends": 86,
+          "score_options": 72,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "크립토 법안 D-1 + BTC/ETH 동조 강세 — CRCL 페어 트레이드.",
+          "claude_signals": [
+            "5/14 美 상원 크립토 법안 표결 D-1",
+            "BTC $98K, ETH $3.8K 동조 강세",
+            "WSB 24h 멘션 +180%"
+          ],
+          "narrative": "크립토 법안 표결 D-1로 CRCL과 동시 강세, +4.1%. BTC가 $98K 돌파하면서 거래소 매출 가시성도 같이 좋아지는 구조. CRCL과 페어로 잡되 사이즈는 보수적으로.",
+          "catalysts": [
+            "5/14 크립토 법안 표결",
+            "BTC/ETH 동조 강세",
+            "거래량 회복"
+          ],
+          "risks": [
+            "법안 부결 시 -8% 갭다운",
+            "BTC 급락 동조"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "trend_surge_pct": 58
+        },
+        {
+          "rank": 9,
+          "ticker": "HOOD",
+          "name": "Robinhood Markets",
+          "sector": "Fintech",
+          "sector_full": "Fintech / Stablecoin",
+          "price": 68.2,
+          "change_pct": 3.05,
+          "score_total": 78.2,
+          "score_reddit": 82,
+          "score_news": 78,
+          "score_trends": 80,
+          "score_options": 72,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "크립토 법안 D-1 sympathy + 4월 액티브 유저 회복 헤드라인이에요.",
+          "claude_signals": [
+            "크립토 법안 D-1 sympathy",
+            "4월 MAU 회복 컨센",
+            "옵션 콜빌드업 +25%"
+          ],
+          "narrative": "크립토 법안 sympathy로 +3.1%. 4월 액티브 유저 회복 + 옵션 거래량 증가가 가시성 좋아지는 구조. CRCL/COIN보다 리스크는 낮지만 업사이드도 제한적이라 후순위.",
+          "catalysts": [
+            "크립토 법안 sympathy",
+            "4월 MAU",
+            "옵션 매출 증가"
+          ],
+          "risks": [
+            "법안 부결 시 -5% 압박",
+            "메가캡 약세 동조"
+          ],
+          "reddit_sentiment_label": "긍정",
+          "trend_surge_pct": 42
+        },
+        {
+          "rank": 10,
+          "ticker": "CRWV",
+          "name": "CoreWeave",
+          "sector": "AI Infra",
+          "sector_full": "AI Infrastructure",
+          "price": 124.8,
+          "change_pct": 3.55,
+          "score_total": 77.5,
+          "score_reddit": 68,
+          "score_news": 82,
+          "score_trends": 70,
+          "score_options": 88,
+          "quadrant": "hidden",
+          "claude_rank": null,
+          "claude_summary": "히든엣지 — AI capex 재가동 분위기에서 옵션 unusual 콜 4배 폭증.",
+          "claude_signals": [
+            "AI capex 재가동 (CPI 통과)",
+            "옵션 unusual 콜 활동 4배 폭증",
+            "WSB 멘션 Top 30 밖 (저평가)"
+          ],
+          "narrative": "CPI 통과 + AI capex 사이클 재가동 분위기에서 +3.5%인데 WSB 멘션은 Top 30 밖이에요. 옵션 unusual call이 어제 평균 4배로 폭증 — 기관이 조용히 담는 패턴 전형. NBIS와 함께 AI 인프라 페어 트레이드 후보.",
+          "catalysts": [
+            "AI capex 사이클 재가동",
+            "옵션 unusual flow",
+            "NBIS sympathy"
+          ],
+          "risks": [
+            "AI 인프라 차익실현",
+            "어닝 가이드 미스"
+          ],
+          "reddit_sentiment_label": "중립",
+          "trend_surge_pct": 38
+        },
+        {
+          "rank": 11,
+          "ticker": "RKLB",
+          "name": "Rocket Lab USA",
+          "sector": "Space",
+          "sector_full": "Space / Aerospace",
+          "price": 42.3,
+          "change_pct": 1.88,
+          "score_total": 76.2,
+          "score_reddit": 84,
+          "score_news": 76,
+          "score_trends": 80,
+          "score_options": 64,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "우주 섹터 모멘텀 유지, SpaceX IPO 임박 sympathy.",
+          "claude_signals": [
+            "SpaceX IPO 임박",
+            "Cantor 목표가 상향 후속",
+            "Q2 가이드 상향"
+          ]
+        },
+        {
+          "rank": 12,
+          "ticker": "OKLO",
+          "name": "Oklo Inc.",
+          "sector": "Nuclear",
+          "sector_full": "Nuclear / Energy",
+          "price": 82.4,
+          "change_pct": 5.5,
+          "score_total": 74.8,
+          "score_reddit": 86,
+          "score_news": 70,
+          "score_trends": 88,
+          "score_options": 55,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "원전 SMR 랠리 지속, 어닝 임박으로 IV 인상 중.",
+          "claude_signals": [
+            "원전 SMR 동반 강세",
+            "어닝 D-5",
+            "IV 95퍼센타일"
+          ]
+        },
+        {
+          "rank": 13,
+          "ticker": "MSTR",
+          "name": "Strategy",
+          "sector": "Crypto",
+          "sector_full": "Crypto / Treasury",
+          "price": 445.2,
+          "change_pct": 4.35,
+          "score_total": 74.5,
+          "score_reddit": 82,
+          "score_news": 76,
+          "score_trends": 78,
+          "score_options": 62,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "BTC $98K 돌파 sympathy + 크립토 법안 D-1.",
+          "claude_signals": [
+            "BTC $98K 돌파",
+            "크립토 법안 D-1",
+            "BTC 보유량 +5K 추가"
+          ]
+        },
+        {
+          "rank": 14,
+          "ticker": "SMR",
+          "name": "NuScale Power",
+          "sector": "Nuclear",
+          "sector_full": "Nuclear / Energy",
+          "price": 58.2,
+          "change_pct": 4.2,
+          "score_total": 72.5,
+          "score_reddit": 88,
+          "score_news": 64,
+          "score_trends": 84,
+          "score_options": 54,
+          "quadrant": "overheat",
+          "claude_rank": null,
+          "claude_summary": "과열 — 30일 +85%, WSB 멘션 1위 진입했지만 어닝 가시성 약함.",
+          "claude_signals": [
+            "30일 +85% 폭등",
+            "WSB 멘션 1위",
+            "옵션 IV 95퍼센타일"
+          ]
+        },
+        {
+          "rank": 15,
+          "ticker": "TSLA",
+          "name": "Tesla",
+          "sector": "EV",
+          "sector_full": "EV / Auto",
+          "price": 298.4,
+          "change_pct": 1.42,
+          "score_total": 72.0,
+          "score_reddit": 78,
+          "score_news": 70,
+          "score_trends": 74,
+          "score_options": 66,
+          "quadrant": "hot",
+          "claude_rank": null,
+          "claude_summary": "CPI 통과 안도 랠리 동참, 4월 인도량 회복 컨센.",
+          "claude_signals": [
+            "CPI 안도 랠리",
+            "4월 인도량 컨센",
+            "FSD 12.5 헤드라인"
+          ]
+        },
+        {
+          "rank": 16,
+          "ticker": "AVGO",
+          "name": "Broadcom",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 1840.5,
+          "change_pct": 2.1,
+          "score_total": 71.5,
+          "score_reddit": 64,
+          "score_news": 78,
+          "score_trends": 66,
+          "score_options": 78,
+          "quadrant": "watch",
+          "claude_rank": null,
+          "claude_summary": "6월 어닝 대기, AI ASIC sympathy 강세.",
+          "claude_signals": [
+            "AI ASIC sympathy",
+            "6월 어닝 D-30",
+            "MRVL 동조"
+          ]
+        },
+        {
+          "rank": 17,
+          "ticker": "AMD",
+          "name": "Advanced Micro Devices",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 178.6,
+          "change_pct": 1.85,
+          "score_total": 70.2,
+          "score_reddit": 72,
+          "score_news": 72,
+          "score_trends": 70,
+          "score_options": 67,
+          "quadrant": "watch",
+          "claude_rank": null,
+          "claude_summary": "NVDA sympathy 강세지만 어닝 후 모멘텀 약화.",
+          "claude_signals": [
+            "NVDA sympathy",
+            "MI400 가이드 대기",
+            "데이터센터 매출 둔화 우려"
+          ]
+        },
+        {
+          "rank": 18,
+          "ticker": "ASTS",
+          "name": "AST SpaceMobile",
+          "sector": "Space",
+          "sector_full": "Space / Aerospace",
+          "price": 42.8,
+          "change_pct": 5.12,
+          "score_total": 68.5,
+          "score_reddit": 88,
+          "score_news": 56,
+          "score_trends": 82,
+          "score_options": 48,
+          "quadrant": "overheat",
+          "claude_rank": null,
+          "claude_summary": "과열 — Q1 미스에도 추가 +5%, 펀더멘털 무시한 내러티브 베팅.",
+          "claude_signals": [
+            "Q1 매출 미스",
+            "베타 3.2 + 풋 빌드업",
+            "WSB 멘션 가속"
+          ]
+        },
+        {
+          "rank": 19,
+          "ticker": "INTC",
+          "name": "Intel Corporation",
+          "sector": "Semi",
+          "sector_full": "Semiconductors",
+          "price": 128.4,
+          "change_pct": -1.85,
+          "score_total": 62.5,
+          "score_reddit": 78,
+          "score_news": 62,
+          "score_trends": 70,
+          "score_options": 40,
+          "quadrant": "overheat",
+          "claude_rank": null,
+          "claude_summary": "과열 정점 — YTD +220%, 추격 절대 금지. 보유분만 트레일링 스탑 관리.",
+          "claude_signals": [
+            "YTD +220% 과열",
+            "스마트머니 38% 이탈",
+            "WSB 멘션 둔화"
+          ]
+        },
+        {
+          "rank": 20,
+          "ticker": "SMCI",
+          "name": "Super Micro Computer",
+          "sector": "AI HW",
+          "sector_full": "AI Hardware / Servers",
+          "price": 32.1,
+          "change_pct": -4.2,
+          "score_total": 58.0,
+          "score_reddit": 78,
+          "score_news": 54,
+          "score_trends": 68,
+          "score_options": 32,
+          "quadrant": "overheat",
+          "claude_rank": null,
+          "claude_summary": "과열 — DELL 동조 약세 지속, AI 서버 사이클 둔화 우려.",
+          "claude_signals": [
+            "DELL 동조 -4%",
+            "AI 서버 둔화 우려",
+            "옵션 풋 빌드업"
+          ]
         }
       ]
     }
